@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeTrip - Thanh Toán</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Crimson+Pro:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/hfstyle.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { luxury: { gold: '#D4AF37', navy: '#0F2A47', charcoal: '#2C3E50' } },
+                    fontFamily: { 'body': ['Poppins', 'sans-serif'], 'heading': ['Crimson Pro', 'serif'] },
+                },
+            },
+        };
+    </script>
+    <style>
+        .payment-success {
+            animation: successScale 0.6s ease-out;
+        }
+        
+        @keyframes successScale {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .security-badge {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(15, 42, 71, 0.1));
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+
+<body class="font-body bg-gray-50">
+    <header class="header">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><p>MeTrip</p></a>
+            <nav class="main-nav">
+                <a href="../index.html">TRANG CHỦ</a>
+                <a href="../Contact/Contact.html">LIÊN HỆ</a>
+                <a href="../Gioithieu/gt.html">GIỚI THIỆU</a>
+                <a href="../Blog/Blog.html">BLOG</a>
+                <a href="../cart/cart.html">GIỎ HÀNG</a>
+                           </nav>
+            <div class="auth-buttons">
+                <a href="../Signup/signup.html" class="btn btn-outline">Sign Up</a>
+                <a href="../login/login.html" class="btn btn-outline">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-[180px] md:h-[240px] flex items-center justify-center overflow-hidden bg-luxury-navy text-center px-4">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_#D4AF37_0%,_transparent_70%)]"></div>
+        </div>
+
+        <div class="relative z-10 animate-fade-in max-w-5xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-gradient-to-r from-[#E2B74B] to-[#D4A017] shadow-lg mb-4">
+                <i class="fa-solid fa-lock text-luxury-navy text-sm"></i>
+                <span class="text-luxury-navy text-[10px] md:text-[11px] font-bold uppercase tracking-wider">Thanh toán an toàn</span>
+            </div>
+
+            <h1 class="font-heading text-white text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-none mb-2">
+                HOÀN TẤT <span class="text-luxury-gold uppercase tracking-widest ml-2">THANH TOÁN</span>
+            </h1>
+            
+            <p class="text-gray-300 text-xs md:text-sm max-w-xl mx-auto font-light leading-relaxed opacity-80">
+                Chỉ còn một bước cuối cùng để xác nhận hành trình của bạn
+            </p>
+        </div>
+    </section>
+
+    <main class="py-12 -mt-8 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Progress Steps -->
+            <div class="mb-12 animate-fade-in">
+                <div class="flex items-center justify-center mb-8">
+                    <div class="flex items-center">
+                        <div class="flex flex-col items-center">
+                            <div class="w-10 h-10 rounded-full bg-luxury-gold text-white flex items-center justify-center font-bold mb-2">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </div>
+                            <span class="text-xs font-medium text-luxury-navy">Giỏ hàng</span>
+                        </div>
+                        
+                        <div class="w-24 h-1 bg-luxury-gold mx-4"></div>
+                        
+                        <div class="flex flex-col items-center">
+                            <div class="w-10 h-10 rounded-full bg-luxury-gold text-white flex items-center justify-center font-bold mb-2">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <span class="text-xs font-medium text-luxury-navy">Thông tin</span>
+                        </div>
+                        
+                        <div class="w-24 h-1 bg-luxury-gold mx-4"></div>
+                        
+                        <div class="flex flex-col items-center">
+                            <div class="w-10 h-10 rounded-full bg-luxury-navy text-white flex items-center justify-center font-bold mb-2 relative">
+                                <i class="fa-solid fa-credit-card"></i>
+                                <div class="absolute -top-1 -right-1 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
+                                    <i class="fa-solid fa-check text-white text-[8px]"></i>
+                                </div>
+                            </div>
+                            <span class="text-xs font-bold text-luxury-navy">Thanh toán</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                <!-- Left Column - Order Summary -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 animate-slide-up mb-6">
+                        <h2 class="font-heading text-2xl font-bold text-luxury-navy mb-6 flex items-center gap-3">
+                            <i class="fa-solid fa-receipt text-luxury-gold"></i>
+                            Tóm tắt đơn hàng
+                        </h2>
+                        
+                        <div class="space-y-4 mb-6 max-h-80 overflow-y-auto pr-2">
+                            <!-- Cart items will be loaded here -->
+                            <div id="order-items-list"></div>
+                        </div>
+                        
+                        <div class="border-t border-gray-100 pt-6 space-y-3">
+                            <div class="flex justify-between text-gray-600">
+                                <span>Tạm tính</span>
+                                <span id="order-subtotal" class="font-bold text-luxury-navy">0₫</span>
+                            </div>
+                            <div class="flex justify-between text-gray-600">
+                                <span>Giảm giá Voucher</span>
+                                <span id="order-discount" class="font-bold text-green-600">-0₫</span>
+                            </div>
+                            <div class="flex justify-between text-gray-600">
+                                <span>Thuế (VAT 10%)</span>
+                                <span id="order-tax" class="font-bold text-luxury-navy">0₫</span>
+                            </div>
+                            <div class="flex justify-between text-gray-600">
+                                <span>Phí dịch vụ</span>
+                                <span class="font-bold text-luxury-navy">0₫</span>
+                            </div>
+                            
+                            <div class="border-t border-gray-200 pt-4 mt-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-heading text-lg font-bold uppercase">Tổng cộng</span>
+                                    <span id="order-total" class="font-heading text-2xl font-black text-luxury-gold">0₫</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Badge -->
+                    <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 animate-slide-up">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-shield-check text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading text-lg font-bold text-luxury-navy">Thanh toán an toàn</h3>
+                                <p class="text-gray-500 text-sm">Bảo mật 256-bit SSL</p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-4 gap-3">
+                            <div class="p-3 border border-gray-200 rounded-lg flex items-center justify-center">
+                                <i class="fa-brands fa-cc-visa text-2xl text-blue-600"></i>
+                            </div>
+                            <div class="p-3 border border-gray-200 rounded-lg flex items-center justify-center">
+                                <i class="fa-brands fa-cc-mastercard text-2xl text-red-600"></i>
+                            </div>
+                            <div class="p-3 border border-gray-200 rounded-lg flex items-center justify-center">
+                                <i class="fa-brands fa-cc-jcb text-2xl text-purple-600"></i>
+                            </div>
+                            <div class="p-3 border border-gray-200 rounded-lg flex items-center justify-center">
+                                <i class="fa-solid fa-building-columns text-2xl text-luxury-navy"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Payment Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 animate-slide-up">
+                        <h2 class="font-heading text-2xl font-bold text-luxury-navy mb-8 flex items-center gap-3">
+                            <i class="fa-solid fa-credit-card text-luxury-gold"></i>
+                            Phương thức thanh toán
+                        </h2>
+
+                        <!-- Payment Method Tabs -->
+                        <div class="mb-8">
+                            <div class="flex border-b border-gray-200 mb-6">
+                                <button class="payment-tab active px-6 py-3 font-medium text-luxury-navy border-b-2 border-luxury-gold" data-method="card">
+                                    <i class="fa-solid fa-credit-card mr-2"></i> Thẻ tín dụng/Ghi nợ
+                                </button>
+                                <button class="payment-tab px-6 py-3 font-medium text-gray-500 hover:text-luxury-navy" data-method="bank">
+                                    <i class="fa-solid fa-building-columns mr-2"></i> Chuyển khoản
+                                </button>
+                                <button class="payment-tab px-6 py-3 font-medium text-gray-500 hover:text-luxury-navy" data-method="cod">
+                                    <i class="fa-solid fa-money-bill-wave mr-2"></i> Thanh toán khi nhận tour
+                                </button>
+                            </div>
+
+                            <!-- Credit Card Form -->
+                            <div id="card-form" class="payment-method active">
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Số thẻ</label>
+                                    <div class="relative">
+                                        <i class="fa-solid fa-credit-card absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                        <input type="text" 
+                                               placeholder="1234 5678 9012 3456" 
+                                               class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold"
+                                               maxlength="19"
+                                               oninput="formatCardNumber(this)">
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Ngày hết hạn (MM/YY)</label>
+                                        <div class="relative">
+                                            <i class="fa-solid fa-calendar absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                            <input type="text" 
+                                                   placeholder="MM/YY" 
+                                                   class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold"
+                                                   maxlength="5"
+                                                   oninput="formatExpiryDate(this)">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">CVV</label>
+                                        <div class="relative">
+                                            <i class="fa-solid fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                            <input type="password" 
+                                                   placeholder="123" 
+                                                   class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold"
+                                                   maxlength="4">
+                                            <button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-luxury-gold" onclick="toggleCVV(this)">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Tên chủ thẻ</label>
+                                    <div class="relative">
+                                        <i class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                        <input type="text" 
+                                               placeholder="NGUYEN VAN A" 
+                                               class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bank Transfer Form -->
+                            <div id="bank-form" class="payment-method hidden">
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Chọn ngân hàng</label>
+                                    <select class="w-full py-3 px-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold">
+                                        <option value="">Chọn ngân hàng</option>
+                                        <option value="vcb">Vietcombank</option>
+                                        <option value="vib">VietinBank</option>
+                                        <option value="bidv">BIDV</option>
+                                        <option value="techcombank">Techcombank</option>
+                                        <option value="acb">ACB</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="bg-blue-50 rounded-xl p-4 mb-6">
+                                    <h4 class="font-bold text-blue-900 mb-2">Thông tin chuyển khoản</h4>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Số tài khoản:</span>
+                                            <span class="font-mono font-bold">19035808801</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Chủ tài khoản:</span>
+                                            <span class="font-bold">CÔNG TY TNHH METRIP</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Nội dung chuyển khoản:</span>
+                                            <span class="font-mono">METRIP_[Số điện thoại của bạn]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Tải lên biên lai chuyển khoản</label>
+                                    <div class="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center">
+                                        <i class="fa-solid fa-cloud-arrow-up text-3xl text-gray-400 mb-2"></i>
+                                        <p class="text-gray-500">Kéo thả file hoặc nhấn để tải lên</p>
+                                        <input type="file" class="hidden" id="receipt-upload">
+                                        <button type="button" onclick="document.getElementById('receipt-upload').click()" 
+                                                class="mt-3 px-4 py-2 bg-luxury-navy text-white rounded-lg hover:bg-luxury-gold transition">
+                                            Chọn file
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- COD Form -->
+                            <div id="cod-form" class="payment-method hidden">
+                                <div class="bg-yellow-50 rounded-xl p-6 mb-6">
+                                    <div class="flex items-start gap-3">
+                                        <i class="fa-solid fa-info-circle text-yellow-600 text-xl mt-1"></i>
+                                        <div>
+                                            <h4 class="font-bold text-yellow-900 mb-2">Lưu ý quan trọng</h4>
+                                            <p class="text-yellow-800 text-sm">
+                                                • Thanh toán trực tiếp cho hướng dẫn viên khi bắt đầu tour<br>
+                                                • Vui lòng chuẩn bị tiền mặt đúng số tiền<br>
+                                                • Giữ lại biên lai thanh toán để đối chiếu nếu cần<br>
+                                                • Áp dụng cho tour nội địa, không áp dụng tour quốc tế
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Địa điểm nhận hoá đơn</label>
+                                    <select class="w-full py-3 px-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold">
+                                        <option value="tour-start">Tại điểm tập trung khởi hành tour</option>
+                                        <option value="hotel">Tại khách sạn đón khách</option>
+                                        <option value="airport">Tại sân bay khi đón đoàn</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="mb-8">
+                            <h3 class="font-heading text-xl font-bold text-luxury-navy mb-4 flex items-center gap-3">
+                                <i class="fa-solid fa-user-circle text-luxury-gold"></i>
+                                Thông tin liên hệ
+                            </h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Họ và tên</label>
+                                    <input type="text" 
+                                           class="w-full py-3 px-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold"
+                                           placeholder="Nguyễn Văn A">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Số điện thoại</label>
+                                    <input type="tel" 
+                                           class="w-full py-3 px-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold"
+                                           placeholder="0987 654 321">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                    <input type="email" 
+                                           class="w-full py-3 px-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-luxury-gold focus:border-luxury-gold"
+                                           placeholder="email@example.com">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Terms and Conditions -->
+                        <div class="mb-8">
+                            <div class="flex items-start gap-3">
+                                <input type="checkbox" id="terms" class="mt-1 w-5 h-5 rounded border-gray-300 text-luxury-gold focus:ring-luxury-gold">
+                                <label for="terms" class="text-sm text-gray-600">
+                                    Tôi đã đọc và đồng ý với 
+                                    <a href="#" class="text-luxury-gold hover:underline font-medium">Điều khoản dịch vụ</a> 
+                                    và 
+                                    <a href="#" class="text-luxury-gold hover:underline font-medium">Chính sách bảo mật</a>
+                                    của MeTrip. Tôi hiểu rằng việc thanh toán đồng nghĩa với việc xác nhận đặt tour.
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="../cart/cart.html" 
+                               class="px-8 py-4 border-2 border-luxury-navy text-luxury-navy rounded-2xl font-heading font-bold hover:bg-luxury-navy hover:text-white transition-all duration-300 text-center">
+                                <i class="fa-solid fa-arrow-left mr-2"></i> QUAY LẠI GIỎ HÀNG
+                            </a>
+                            <button id="confirm-payment-btn" 
+                                    onclick="processPayment()"
+                                    class="flex-1 px-8 py-4 bg-luxury-navy text-white rounded-2xl font-heading font-bold hover:bg-luxury-gold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed">
+                                <i class="fa-solid fa-lock"></i>
+                                <span>XÁC NHẬN THANH TOÁN</span>
+                                <span id="payment-amount" class="text-luxury-gold">(0₫)</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-3xl p-10 max-w-md mx-4 text-center payment-success">
+            <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fa-solid fa-check text-4xl text-green-600"></i>
+            </div>
+            
+            <h3 class="font-heading text-3xl font-bold text-luxury-navy mb-3">THANH TOÁN THÀNH CÔNG!</h3>
+            <p class="text-gray-600 mb-6">
+                Đơn hàng của bạn đã được xác nhận. Chúng tôi sẽ gửi email xác nhận và hướng dẫn chi tiết trong vòng 15 phút.
+            </p>
+            
+            <div class="bg-gray-50 rounded-xl p-4 mb-6">
+                <p class="text-sm text-gray-500 mb-1">Mã đơn hàng</p>
+                <p class="font-mono font-bold text-lg text-luxury-navy">MT-2025-<span id="order-id">001234</span></p>
+            </div>
+            
+            <div class="flex flex-col gap-3">
+                <button onclick="viewOrderDetails()" 
+                        class="px-6 py-3 bg-luxury-navy text-white rounded-xl font-heading font-bold hover:bg-luxury-gold transition">
+                    <i class="fa-solid fa-receipt mr-2"></i> XEM CHI TIẾT ĐƠN HÀNG
+                </button>
+                <a href="../index.html" 
+                   class="px-6 py-3 border-2 border-luxury-navy text-luxury-navy rounded-xl font-heading font-bold hover:bg-luxury-navy hover:text-white transition">
+                    <i class="fa-solid fa-house mr-2"></i> VỀ TRANG CHỦ
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load order summary from cart
+        function loadOrderSummary() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const selectedItems = cart.filter(item => item.selected);
+            
+            if (selectedItems.length === 0) {
+                window.location.href = '../cart/cart.html';
+                return;
+            }
+            
+            // Calculate totals
+            const subtotal = selectedItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const discount = parseFloat(localStorage.getItem('currentDiscount')) || 0;
+            const tax = subtotal * 0.1;
+            const total = subtotal + tax - discount;
+            
+            // Update order items
+            const itemsList = document.getElementById('order-items-list');
+            itemsList.innerHTML = selectedItems.map(item => `
+                <div class="flex justify-between items-center py-3 border-b border-gray-100 last:border-0">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-gray-100 rounded-lg overflow-hidden">
+                            <img src="../${item.img}" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://via.placeholder.com/100x100'">
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-luxury-navy">${item.name}</h4>
+                            <p class="text-xs text-gray-500">Số lượng: ${item.quantity}</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="font-bold text-luxury-navy">${(item.price * item.quantity).toLocaleString()}₫</p>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Update totals
+            document.getElementById('order-subtotal').textContent = subtotal.toLocaleString() + '₫';
+            document.getElementById('order-discount').textContent = '-' + discount.toLocaleString() + '₫';
+            document.getElementById('order-tax').textContent = tax.toLocaleString() + '₫';
+            document.getElementById('order-total').textContent = total.toLocaleString() + '₫';
+            document.getElementById('payment-amount').textContent = '(' + total.toLocaleString() + '₫)';
+        }
+        
+        // Payment method tabs
+        document.querySelectorAll('.payment-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Update active tab
+                document.querySelectorAll('.payment-tab').forEach(t => {
+                    t.classList.remove('active', 'border-luxury-gold', 'text-luxury-navy');
+                    t.classList.add('text-gray-500');
+                });
+                this.classList.add('active', 'border-luxury-gold', 'text-luxury-navy');
+                this.classList.remove('text-gray-500');
+                
+                // Show corresponding form
+                const method = this.dataset.method;
+                document.querySelectorAll('.payment-method').forEach(form => {
+                    form.classList.add('hidden');
+                    form.classList.remove('active');
+                });
+                document.getElementById(method + '-form').classList.remove('hidden');
+                document.getElementById(method + '-form').classList.add('active');
+            });
+        });
+        
+        // Format card number
+        function formatCardNumber(input) {
+            let value = input.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+            let formatted = '';
+            
+            for (let i = 0; i < value.length; i++) {
+                if (i > 0 && i % 4 === 0) formatted += ' ';
+                formatted += value[i];
+            }
+            
+            input.value = formatted.substring(0, 19);
+        }
+        
+        // Format expiry date
+        function formatExpiryDate(input) {
+            let value = input.value.replace(/[^0-9]/g, '');
+            
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            
+            input.value = value.substring(0, 5);
+        }
+        
+        // Toggle CVV visibility
+        function toggleCVV(button) {
+            const input = button.previousElementSibling;
+            const icon = button.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+        
+        // Process payment
+        function processPayment() {
+            const termsChecked = document.getElementById('terms').checked;
+            const paymentMethod = document.querySelector('.payment-tab.active').dataset.method;
+            
+            if (!termsChecked) {
+                alert('Vui lòng đồng ý với Điều khoản dịch vụ và Chính sách bảo mật trước khi thanh toán.');
+                return;
+            }
+            
+            // Validate forms based on selected method
+            if (paymentMethod === 'card') {
+                const cardNumber = document.querySelector('#card-form input[placeholder*="1234"]').value;
+                const expiry = document.querySelector('#card-form input[placeholder*="MM/YY"]').value;
+                const cvv = document.querySelector('#card-form input[type="password"]').value;
+                const cardName = document.querySelector('#card-form input[placeholder*="NGUYEN VAN A"]').value;
+                
+                if (!cardNumber || !expiry || !cvv || !cardName) {
+                    alert('Vui lòng điền đầy đủ thông tin thẻ thanh toán.');
+                    return;
+                }
+            }
+            
+            // Show loading
+            const btn = document.getElementById('confirm-payment-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ĐANG XỬ LÝ...';
+            btn.disabled = true;
+            
+            // Simulate payment processing
+            setTimeout(() => {
+                // Generate random order ID
+                const orderId = Math.floor(Math.random() * 900000) + 100000;
+                document.getElementById('order-id').textContent = orderId;
+                
+                // Clear cart for selected items
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                cart = cart.filter(item => !item.selected);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                localStorage.removeItem('currentDiscount');
+                
+                // Show success modal
+                document.getElementById('success-modal').classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                
+                // Reset button
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 2000);
+        }
+        
+        // View order details
+        function viewOrderDetails() {
+            alert('Tính năng xem chi tiết đơn hàng đang được phát triển.');
+            closeModal();
+        }
+        
+        // Close modal
+        function closeModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal on click outside
+        document.getElementById('success-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadOrderSummary();
+            
+            // Check login status
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            if (!isLoggedIn) {
+                alert('Vui lòng đăng nhập để tiếp tục thanh toán.');
+                window.location.href = '../login/login.html';
+                return;
+            }
+        });
+    </script>
+<footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="#" class="f-logo">
+                    <p>MeTrip</p>
+                </a>
+                <p class="footer-desc">
+                    Trải nghiệm khám phá Việt Nam tuyệt vời dành cho người trẻ thích du lịch, khám phá, kết nối và tạo kỷ niệm.
+                </p>
+            </div>
+
+             <div>
+            <h3>Liên kết</h3>
+            <ul class="footer-links">
+                <li><a href="../Gioithieu/gt.html">Giới Thiệu</a> </li>
+                <li><a href="../index.html">Trang chủ</a></li>
+                <li><a href="../Blog/Blog.html">Blog</a></li>
+                <li><a href="../Contact/Contact.html">Liên hệ</a></li>
+            </ul>
+        </div>
+
+            <div class="footer-col">
+                <h3>Hỗ Trợ</h3>
+                <ul class="footer-links">
+  <li><a href="../../FAQ/FAQ.html#popular">Câu hỏi phổ biến</a></li>
+                        <li><a href="../../FAQ/FAQ.html#booking">Đặt tour & thanh toán</a></li>
+                        <li><a href="../../FAQ/FAQ.html#exclusive">Dịch vụ độc quyền</a></li>
+                        <li><a href="../../FAQ/FAQ.html#cancel">Huỷ và đổi lịch</a></li>
+
+
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Theo dõi</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="social-link facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div class="contact-info">
+                    <p>Email: <a href="mailto:metrip@gmail.com">metrip@gmail.com</a></p>
+                    <p>Hotline: <span class="highlight">1900 580 801</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>2025 MeTrip. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

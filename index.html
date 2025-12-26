@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeTrip - Travel Vietnam</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Crimson+Pro:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/hfstyle.css">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        luxury: {
+                            gold: '#D4AF37',
+                            navy: '#0F2A47',
+                            cream: '#F8F5F0',
+                            charcoal: '#2C3E50',
+                            'gold-light': '#F4E4BC'
+                        }
+                    },
+                    fontFamily: {
+                        body: ['Poppins', 'sans-serif'],
+                        heading: ['Crimson Pro', 'serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-luxury': 'linear-gradient(135deg, #0F2A47 0%, #1A365D 100%)',
+                        'gradient-gold': 'linear-gradient(135deg, #D4AF37 0%, #F4E4BC 100%)',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'slideInRight': 'slideInRight 0.3s ease-out',
+                        'fadeOut': 'fadeOut 0.3s ease-in'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(100%)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' }
+                        },
+                        fadeOut: {
+                            '0%': { opacity: '1' },
+                            '100%': { opacity: '0' }
+                        }
+                    }
+                },
+            },
+        };
+    </script>
+
+    <style>
+        /* Custom styles for search functionality */
+        .search-result-item {
+            transition: all 0.3s ease;
+        }
+        
+        .search-result-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-search {
+            background: linear-gradient(135deg, #0F2A47 0%, #1A365D 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-search:hover {
+            background: linear-gradient(135deg, #D4AF37 0%, #F4E4BC 100%);
+            color: #0F2A47;
+            transform: scale(1.05);
+        }
+        
+        .btn-booking {
+            background: linear-gradient(135deg, #0F2A47 0%, #1A365D 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-booking:hover {
+            background: linear-gradient(135deg, #D4AF37 0%, #F4E4BC 100%);
+            color: #0F2A47;
+        }
+        
+        /* Animation for search results */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s ease-out;
+        }
+    </style>
+
+</head>
+<body class="font-body bg-background-light dark:bg-background-dark transition-colors duration-300">
+
+<header class="header">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <p>MeTrip</p>
+        </a>
+        <nav class="main-nav">
+            <a href="index.html">TRANG CHỦ</a>
+            <a href="Contact/Contact.html">LIÊN HỆ</a>
+            <a href="Gioithieu/gt.html">GIỚI THIỆU</a>
+            <a href="Blog/Blog.html">BLOG</a>
+            <a href="cart/cart.html">GIỎ HÀNG</a>
+        </nav>
+
+ <!-- KHU VỰC NGƯỜI DÙNG -->
+        <div class="user-section" id="userSection">
+            <!-- Nếu chưa đăng nhập - Hiển thị nút đăng ký/đăng nhập -->
+            <div class="auth-buttons" id="authButtons">
+                <a href="../Signup/signup.html" class="btn btn-outline">Sign Up</a>
+                <a href="../login/login.html" class="btn btn-outline">Login</a>
+            </div>
+            
+            <!-- Nếu đã đăng nhập - Hiển thị avatar và dropdown -->
+            <div class="user-avatar-dropdown" id="userAvatarDropdown" style="display: none;">
+                <div class="avatar-wrapper" id="avatarTrigger">
+                    <img src="image/avatar.jpg" alt="Avatar" class="user-avatar" id="userAvatar">
+                    
+                </div>
+               <div class="dropdown-menu" id="dropdownMenu">
+    <!-- Header dropdown -->
+    <div class="user-info">
+        <div class="flex items-center gap-3">
+            <img src="image/avatar.jpg" alt="Avatar" class="w-10 h-10 rounded-full border-2 border-luxury-gold">
+            <div>
+                <p class="user-name font-bold text-gray-900" id="dropdownUserName">thu hà</p>
+                <p class="user-email text-sm text-gray-600" id="dropdownUserEmail">g@gmail.com</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Separator -->
+    <div class="dropdown-divider"></div>
+    
+    <!-- Menu items -->
+    <a href="profile/profile.html" class="dropdown-item hover:bg-gray-50">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                <span class="material-icons text-blue-600 text-lg">person</span>
+            </div>
+            <span class="text-gray-700 font-medium">Trang cá nhân</span>
+        </div>
+    </a>
+    
+    <a href="cart/cart.html" class="dropdown-item hover:bg-gray-50">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+                <span class="material-icons text-green-600 text-lg">receipt_long</span>
+            </div>
+            <span class="text-gray-700 font-medium">Đơn hàng của tôi</span>
+        </div>
+    </a>
+    
+    <a href="settings/settings.html" class="dropdown-item hover:bg-gray-50">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
+                <span class="material-icons text-purple-600 text-lg">settings</span>
+            </div>
+            <span class="text-gray-700 font-medium">Cài đặt</span>
+        </div>
+    </a>
+    
+    <!-- Separator -->
+    <div class="dropdown-divider"></div>
+    
+    <!-- Logout -->
+    <a href="#" class="dropdown-item hover:bg-red-50" id="logoutBtn">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center">
+                <span class="material-icons text-red-600 text-lg">logout</span>
+            </div>
+            <span class="text-red-600 font-medium">Đăng xuất</span>
+        </div>
+    </a>
+</div>
+</header>
+
+</header>
+
+    <!-- HERO SECTION WITH SEARCH BAR -->
+    <div class="hero-with-search">
+        <!-- HERO SECTION - Fullscreen Luxury -->
+        <section class="hero-section relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-16">
+            <div class="absolute inset-0 z-0">
+                <img src="image/home/anhnen3.jpg" alt="Vietnam Luxury" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-luxury-navy/90 via-luxury-navy/40 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-luxury-navy/20 to-transparent"></div>
+            </div>
+            
+            <div class="relative z-10 max-w-6xl mx-auto px-6 pt-10 pb-16 text-center animate-fade-in">
+                <div class="inline-flex items-center gap-2 bg-luxury-gold/10 backdrop-blur-sm px-4 py-2 rounded-full border border-luxury-gold/20 mb-8">
+                    <span class="material-icons text-yellow-300">star</span>
+                    <span class="text-sm font-medium text-luxury-gold-light font-body">Trải Nghiệm Độc Quyền</span>
+                </div>
+                
+                <h1 class="font-heading text-5xl md:text-7xl font-bold text-white">
+                    VIỆT NAM
+                    <span class="block text-luxury-gold mt-2">HÀNH TRÌNH VÀNG</span>
+                </h1>
+                
+                <p class="mt-6 max-w-2xl mx-auto text-white/90 leading-relaxed">
+                    Mở lối khám phá, chạm đến trải nghiệm – trên mỗi hành trình Việt Nam. Nơi mỗi khoảnh khắc đều là một kiệt tác.
+                </p>
+                
+                <!-- BUTTON KHÁM PHÁ NGAY -->
+                <div class="mt-16">
+                    <a href="#exclusive-collection"
+                       class="group inline-flex items-center justify-center gap-3 px-10 py-4 rounded-[30px]
+                              bg-gradient-to-r from-luxury-gold to-amber-400
+                              text-white font-heading font-bold text-base md:text-lg tracking-wider
+                              shadow-2xl hover:shadow-[0_20px_50px_rgba(212,175,55,0.5)]
+                              hover:-translate-y-1 transition-all duration-300">
+
+                        <span class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+                            KHÁM PHÁ NGAY
+                        </span>
+
+                        <span class="arrow text-xl transform
+                                     group-hover:translate-x-2
+                                     transition-transform duration-300
+                                     drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+                            →
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEARCH BAR -->
+        <div class="max-w-6xl mx-auto px-4 mt-20 relative z-20">
+            <div class="bg-white/80 backdrop-blur-xl rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.08)] px-8 py-6 border border-white/40">
+                <div class="flex items-end gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+                        <div class="flex-1">
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">Địa Điểm</label>
+                            <div class="relative">
+                                <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-[20px]">place</span>
+                                <select id="search-destination" class="w-full pl-12 pr-4 py-4 rounded-2xl bg-gray-50/80 focus:bg-white focus:ring-2 focus:ring-black/10 outline-none text-gray-900 placeholder-gray-400 transition">
+                                    <option value="">Tất cả địa điểm</option>
+                                    <option value="Phan Thiết">Phan Thiết</option>
+                                    <option value="Bắc Ninh">Bắc Ninh</option>
+                                    <option value="Đà Lạt">Đà Lạt</option>
+                                    <option value="Hà Giang">Hà Giang</option>
+                                    <option value="Miền Tây">Miền Tây</option>
+                                    <option value="Hội An">Miền Trung</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="flex-1">
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">Loại Hình</label>
+                            <div class="relative">
+                                <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-[20px]">category</span>
+                                <select id="search-type" class="w-full pl-12 pr-4 py-4 rounded-2xl bg-gray-50/80 focus:bg-white focus:ring-2 focus:ring-black/10 outline-none text-gray-900 transition">
+                                    <option value="">Tất cả loại hình</option>
+                                    <option value="Sống Xanh">Sống Xanh</option>
+                                    <option value="Bản sắc Văn Hóa">Bản sắc Văn Hóa</option>
+                                    <option value="Thiên Nhiên">Thiên Nhiên</option>
+                                    <option value="Lãng Mạn">Lãng Mạn</option>
+                                    <option value="Trải nghiệm">Trải nghiệm</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="flex-1">
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">Ngân Sách</label>
+                            <div class="relative">
+                                <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-[20px]">payments</span>
+                                <select id="search-price" class="w-full pl-12 pr-4 py-4 rounded-2xl bg-gray-50/80 focus:bg-white focus:ring-2 focus:ring-black/10 outline-none text-gray-900 appearance-none transition">
+                                    <option value="all">Tất cả mức giá</option>
+                                    <option value="under2">Dưới 2.500.000₫</option>
+                                    <option value="2to4">2.500.000₫ - 4.000.000₫</option>
+                                    <option value="above4">Trên 4.000.000₫</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center lg:justify-end"> 
+                            <button onclick="executeTourSearch()" class="btn-search ml-2 h-[56px] px-8 rounded-2xl text-white font-semibold flex items-center gap-3 shadow-lg hover:shadow-xl hover:scale-[1.03] transition">
+                                <span class="material-icons text-lg">search</span> 
+                                <span class="font-heading text-sm tracking-widest uppercase">Tìm kiếm</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CURATED COLLECTIONS -->
+    <section id="exclusive-collection" class="curated-collections py-15 bg-white dark:bg-luxury-charcoal"></section>
+    <section id="exclusive-collection" class="curated-collections pt-10 pb-24 bg-white dark:bg-luxury-charcoal">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-luxury-navy dark:text-white mb-4">
+                    BỘ SƯU TẬP <span class="text-luxury-gold">ĐỘC QUYỀN</span>
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-lg">
+                    Những hành trình được thiết kế tỉ mỉ, mang đến trải nghiệm đỉnh cao tại các điểm đến đẹp nhất Việt Nam
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Collection 1 -->
+                <div class="group relative overflow-hidden rounded-3xl hover-lift animate-fade-in">
+                    <div class="absolute inset-0 bg-gradient-to-t from-luxury-navy/90 via-luxury-navy/40 to-transparent z-10"></div>
+                    
+                    <div class="relative w-full h-[500px]">
+                        <a href="tour/HaGiang/HaGiang.html" class="block absolute inset-0 z-20"></a>
+                        <img src="image/home/cotcolungcu.jpg" alt="Cột cờ Lũng Cú - Hà Giang" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    
+                    <div class="absolute bottom-0 left-0 right-0 z-20 p-8">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-8 h-0.5 bg-luxury-gold"></span>
+                            <span class="text-sm font-semibold text-luxury-gold-light uppercase tracking-widest">Điểm cực Bắc Tổ Quốc</span>
+                        </div>
+                        
+                        <a href="tour/HaGiang/HaGiang.html" class="block hover:opacity-90 transition-opacity">
+                            <h3 class="font-heading text-2xl font-bold text-white leading-snug">Cột cờ Lũng Cú</h3>
+                        </a>
+                        
+                        <p class="text-white/80 text-sm mb-4 line-clamp-3"> 
+                            Đứng trên đỉnh cột cờ thiêng liêng, ngắm nhìn toàn cảnh núi non hùng vĩ và những thửa ruộng bậc thang tuyệt đẹp.
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <a href="tour/HaGiang/HaGiang.html" class="text-sm text-white flex items-center gap-1 mb-4 hover:text-luxury-gold-light transition-colors">
+                                <span class="material-icons text-xs text-luxury-gold">location_on</span> 
+                                Lũng Cú, Hà Giang
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Luxury Badge -->
+                    <div class="absolute top-6 right-6 z-20">
+                        <div class="bg-gradient-gold text-luxury-navy px-4 py-2 rounded-full font-bold text-sm shadow-lg">
+                           <span class="material-icons text-yellow-100 text-xs">star</span> 4.8
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collection 2 -->
+                <div class="group relative overflow-hidden rounded-3xl hover-lift animate-fade-in animation-delay-200">
+                    <div class="absolute inset-0 bg-gradient-to-t from-luxury-navy/90 via-luxury-navy/40 to-transparent z-10"></div>
+
+                    <div class="relative w-full h-[500px]">
+                        <a href="tour/dananghoianbanahue/dananghoianbanahue.html" class="block absolute inset-0 z-20"></a>
+                        <img src="image/home/banahill.jpg" alt="Cầu Vàng Bà Nà Hills" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+
+                    <div class="absolute bottom-0 left-0 right-0 z-20 p-8">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-8 h-0.5 bg-luxury-gold"></span>
+                            <span class="text-sm font-semibold text-luxury-gold-light uppercase tracking-widest">Bà Nà Hills</span>
+                        </div>
+
+                        <a href="tour/dananghoianbanahue/dananghoianbanahue.html" class="block hover:opacity-90 transition-opacity">
+                            <h3 class="font-heading text-2xl font-bold text-white leading-snug">Cầu Vàng Đà Nẵng</h3>
+                        </a>
+
+                        <p class="text-white/80 text-sm mb-4 line-clamp-3">
+                            Bước đi trên "bàn tay của các vị thần" – cây cầu vàng độc đáo ở độ cao 1.400m, 
+                            ngắm nhìn toàn cảnh Bà Nà Hills mờ ảo trong sương.
+                        </p>
+
+                        <div class="flex items-center justify-between">
+                            <a href="tour/dananghoianbanahue/dananghoianbanahue.html"
+                               class="text-sm text-white flex items-center gap-1 mb-4 hover:text-luxury-gold-light transition-colors">
+                                <span class="material-icons text-xs text-luxury-gold">location_on</span>
+                                Đà Nẵng, Việt Nam
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Luxury Badge -->
+                    <div class="absolute top-6 right-6 z-20">
+                        <div class="bg-gradient-gold text-luxury-navy px-4 py-2 rounded-full font-bold text-sm shadow-lg">
+                            <span class="material-icons text-yellow-100 text-xs">star</span> 4.9
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Collection 3 -->
+                <div class="group relative overflow-hidden rounded-3xl hover-lift animate-fade-in animation-delay-400">
+                    <div class="absolute inset-0 bg-gradient-to-t from-luxury-navy/90 via-luxury-navy/40 to-transparent z-10"></div>
+
+                    <div class="relative w-full h-[500px]">
+                        <a href="tour/HaGiang/HaGiang.html" class="block absolute inset-0 z-20"></a>
+                        <img src="image/home/thunglungsungla1.jpg" alt="Thung lũng Sủng Là" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+
+                    <div class="absolute bottom-0 left-0 right-0 z-20 p-8">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-8 h-0.5 bg-luxury-gold"></span>
+                            <span class="text-sm font-semibold text-luxury-gold-light uppercase tracking-widest">Nghỉ Dưỡng Xanh</span>
+                        </div>
+
+                        <a href="tour/HaGiang/HaGiang.html" class="block hover:opacity-90 transition-opacity">
+                            <h3 class="font-heading text-2xl font-bold text-white leading-snug">Thung lũng Sủng Là</h3>
+                        </a>
+
+                        <p class="text-white/80 text-sm mb-4 line-clamp-3">
+                            Nép mình giữa cao nguyên đá Hà Giang, Sủng Là hiện lên như một bức tranh xanh yên bình
+                            với những nếp nhà trình tường, ruộng ngô trải dài và nhịp sống chậm rãi.
+                            Vẻ đẹp mộc mạc khiến lòng người dịu lại giữa thiên nhiên nguyên sơ.
+                        </p>
+
+                        <div class="flex items-center justify-between">
+                            <a href="tour/HaGiang/HaGiang.html"
+                               class="text-sm text-white flex items-center gap-1 mb-4 hover:text-luxury-gold-light transition-colors">
+                                <span class="material-icons text-xs text-luxury-gold">location_on</span>
+                                Đồng Văn, Hà Giang
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Luxury Badge -->
+                    <div class="absolute top-6 right-6 z-20">
+                        <div class="bg-gradient-gold text-luxury-navy px-4 py-2 rounded-full font-bold text-sm shadow-lg">
+                            <span class="material-icons text-yellow-100 text-xs">star</span> 4.7
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEARCH RESULTS SECTION -->
+    <div id="search-results-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 hidden">
+        <div class="flex items-center justify-between mb-8 animate-fadeInUp">
+            <h2 class="font-heading text-3xl font-bold text-luxury-navy">KẾT QUẢ TÌM KIẾM</h2>
+            <button onclick="closeSearch()" class="px-4 py-2 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 transition">Xóa kết quả</button>
+        </div>
+        <div id="results-display-container" class="space-y-6"></div>
+    </div>
+   
+    <!-- EXPERIENCES SECTION -->
+    <section id="experiences-section" class="experiences-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+        <div class="mb-10 text-center">
+            <h2 class="font-heading text-4xl md:text-5xl font-bold text-luxury-navy dark:text-white mb-4">
+                Trải Nghiệm <span class="text-luxury-gold">Cung Cấp</span>
+            </h2>
+            <p class="font-body text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
+                Mỗi cung đường không chỉ là hành trình di chuyển, mà còn là chuyến đi khám phá văn hóa, con người và những khoảnh khắc đáng nhớ trên dải đất hình chữ S.
+            </p>
+        </div>
+        <div class="space-y-8">
+            <!-- Experience 1 -->
+            <div class="bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow flex flex-col md:flex-row gap-6 items-center">
+                <div class="w-full md:w-1/3">
+                   <img alt="Bình Thuận - Phan Thiết" class="w-full h-56 object-cover rounded-xl" src="image/home/phanthiet.jpg"/>
+                </div>
+                <div class="w-full md:w-2/3">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 text-xs font-bold rounded uppercase">Sống Xanh</span>
+                        <span class="text-gray-400 text-sm">2 Ngày 1 Đêm</span>
+                    </div>
+                    <h3 class="font-heading text-2xl md:text-3xl font-bold text-luxury-navy dark:text-white leading-snug">
+                        Bình Thuận – Phan Thiết
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2"> Tour Bình Thuận 2N1Đ là hành trình ngắn ngày nhưng trọn vẹn, đưa bạn tận hưởng biển xanh – cát trắng – nắng vàng và khám phá các điểm nổi bật như Đồi Cát Bay, Bàu Trắng, Làng Chài Mũi Né và Hải Đăng Kê Gà.
+                    </p>
+                    <!-- Price -->
+                    <p class="mb-4 flex items-end gap-1">
+                        <span class="text-2xl font-heading font-bold text-luxury-gold">
+                            2.250.000₫ / người
+                        </span>
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a class="text-primary font-medium hover:underline" href="tour/binhthuanphanthiet/binhthuanphanthiet.html">
+                            Tìm hiểu thêm
+                        </a>
+                        <button onclick="addToCart({name: 'Bình Thuận – Phan Thiết', price: 2250000, img: 'image/home/phanthiet.jpg', type: 'Sống Xanh'})" class="btn-booking px-4 py-2 text-white rounded-full text-sm font-heading font-bold transition">
+                            ĐẶT NGAY
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Experience 2 -->
+            <div class="bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow flex flex-col md:flex-row gap-6 items-center">
+                <div class="w-full md:w-1/3">
+                  <img alt="Bắc Ninh" class="w-full h-56 object-cover rounded-xl" src="image/home/bacninh.jpg"/>
+                </div>
+                <div class="w-full md:w-2/3">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300 text-xs font-bold rounded uppercase">Bản sắc Văn Hóa</span>
+                        <span class="text-gray-400 text-sm">2 Ngày 1 Đêm</span>
+                    </div>
+                    <h3 class="font-heading text-2xl md:text-3xl font-bold text-luxury-navy dark:text-white leading-snug">
+                        Bắc Ninh
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">Với hành trình 2N1Đ, du khách sẽ được đắm mình trong không gian văn hóa đặc sắc, khám phá những làng nghề nổi tiếng, tìm về sự bình yên của chùa chiền cổ kính và thưởng thức tinh hoa ẩm thực Kinh Bắc.</p>
+                    <!-- Price -->
+                    <p class="mb-4 flex items-end gap-1">
+                        <span class="text-2xl font-heading font-bold text-luxury-gold">
+                            2.000.000₫ / người
+                        </span>
+                    </p>              
+                    <div class="flex items-center gap-4">
+                        <a class="text-primary font-medium hover:underline" href="tour/bacninh/bacninh.html">
+                            Tìm hiểu thêm
+                        </a>
+                        <button onclick="addToCart({name: 'Bắc Ninh', price: 2000000, img: 'image/home/bacninh.jpg', type: 'Bản sắc Văn Hóa'})" class="btn-booking px-4 py-2 text-white rounded-full text-sm font-heading font-bold transition">
+                            ĐẶT NGAY
+                        </button>
+                    </div>                
+                </div>
+            </div>
+
+            <!-- Experience 3 -->
+            <div class="bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow flex flex-col md:flex-row gap-6 items-center">
+                <div class="w-full md:w-1/3">
+                    <img alt="Đà Lạt" class="w-full h-56 object-cover rounded-xl" src="image/home/dalat.jpg"/>
+                </div>
+                <div class="w-full md:w-2/3">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-xs font-bold rounded uppercase">Thiên Nhiên</span>
+                        <span class="text-gray-400 text-sm">3 Ngày 3 Đêm</span>
+                    </div>
+                    <h3 class="font-heading text-2xl md:text-3xl font-bold text-luxury-navy dark:text-white leading-snug">
+                        Đà Lạt
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">Bạn đang tìm một nơi để trốn khỏi cái nóng, để hít hà bầu không khí se lạnh và tận hưởng những khoảnh khắc bình yên hiếm có giữa nhịp sống vội vã? Đà Lạt – thành phố của sương mù, chính là điểm đến dành cho bạn.</p>
+                    <!-- Price -->
+                    <p class="mb-4 flex items-end gap-1">
+                        <span class="text-2xl font-heading font-bold text-luxury-gold">
+                            3.000.000₫ / người
+                        </span>
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a class="text-primary font-medium hover:underline" href="tour/dalat/dalat.html">
+                            Tìm hiểu thêm
+                        </a>
+                        <button onclick="addToCart({name: 'Đà Lạt', price: 3000000, img: 'image/home/dalat.jpg', type: 'Lãng Mạn'})" class="btn-booking px-4 py-2 text-white rounded-full text-sm font-heading font-bold transition">
+                            ĐẶT NGAY
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Experience 4 -->
+            <div class="bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow flex flex-col md:flex-row gap-6 items-center">
+                <div class="w-full md:w-1/3">
+                    <img alt="Hà Giang" class="w-full h-56 object-cover rounded-xl" src="image/home/hagiang.jpg"/>
+                </div>
+                <div class="w-full md:w-2/3">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="px-2 py-1 bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-300 text-xs font-bold rounded uppercase">Lãng Mạn</span>
+                        <span class="text-gray-400 text-sm">3 Ngày 2 Đêm</span>
+                    </div>
+                    <h3 class="font-heading text-2xl md:text-3xl font-bold text-luxury-navy dark:text-white leading-snug">
+                        Lũng Cú - Hà Giang
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">Nếu bạn đang tìm một chuyến đi vừa phiêu lưu, vừa lãng mạn, vừa đậm chất văn hóa thì Hà Giang chính là điểm đến hoàn hảo.</p>
+                    <!-- Price -->
+                    <p class="mb-4 flex items-end gap-1">
+                        <span class="text-2xl font-heading font-bold text-luxury-gold">
+                            4.000.000₫ / người
+                        </span>
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a class="text-primary font-medium hover:underline" href="tour/HaGiang/HaGiang.html">
+                            Tìm hiểu thêm
+                        </a>
+                        <button onclick="addToCart({name: 'Hà Giang', price: 4000000, img: 'image/home/hagiang.jpg', type: 'Lãng Mạn'})" class="btn-booking px-4 py-2 text-white rounded-full text-sm font-heading font-bold transition">
+                            ĐẶT NGAY
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience 5 -->
+            <div class="bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow flex flex-col md:flex-row gap-6 items-center">
+                <div class="w-full md:w-1/3">
+                   <img alt="Đà Lạt - Nha Trang" class="w-full h-56 object-cover rounded-xl" src="image/home/dalatnhatrang.jpg"/>
+                </div>
+                <div class="w-full md:w-2/3">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-xs font-bold rounded uppercase">Thiên Nhiên</span>
+                        <span class="text-gray-400 text-sm">5 Ngày 4 Đêm</span>
+                    </div>
+                    <h3 class="font-heading text-2xl md:text-3xl font-bold text-luxury-navy dark:text-white leading-snug">
+                        Đà Lạt - Nha Trang
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">Mang đến hành trình kết hợp hoàn hảo giữa khí hậu se lạnh của núi rừng và vẻ đẹp sôi động của biển xanh, cho bạn trải nghiệm đa sắc trong một chuyến đi.</p>
+                    <!-- Price -->
+                    <p class="mb-4 flex items-end gap-1">
+                        <span class="text-2xl font-heading font-bold text-luxury-gold">
+                            4.790.000₫ / người
+                        </span>
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a class="text-primary font-medium hover:underline" href="tour/DaLatNhaTrang/DaLatNhaTrang.html">
+                            Tìm hiểu thêm
+                        </a>
+                        <button onclick="addToCart({name: 'Đà Lạt - Nha Trang', price: 4790000, img: 'image/home/dalatnhatrang.jpg', type: 'Thiên Nhiên'})" class="btn-booking px-4 py-2 text-white rounded-full text-sm font-heading font-bold transition">
+                            ĐẶT NGAY
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience 6 -->
+            <div class="bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow flex flex-col md:flex-row gap-6 items-center">
+                <div class="w-full md:w-1/3">
+                  <img alt="Đà Lạt Run" class="w-full h-56 object-cover rounded-xl" src="image/home/dalatrun.jpg"/>
+                </div>
+                <div class="w-full md:w-2/3">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 text-xs font-bold rounded uppercase">Trải nghiệm</span>
+                        <span class="text-gray-400 text-sm">3 Ngày 2 Đêm</span>
+                    </div>
+                    <h3 class="font-heading text-2xl md:text-3xl font-bold text-luxury-navy dark:text-white leading-snug">
+                        Đà Lạt Run
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">Tour kết hợp du lịch khám phá Đà Lạt và chạy bộ đường mòn (trail running) dành cho người yêu vận động, thiên nhiên, khí hậu lạnh và trải nghiệm địa phương.</p>
+                    <!-- Price -->
+                    <p class="mb-4 flex items-end gap-1">
+                        <span class="text-2xl font-heading font-bold text-luxury-gold">
+                            2.990.000 – 3.200.000₫ / người
+                        </span>
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a class="text-primary font-medium hover:underline" href="tour/DaLatRun/DaLatRun.html">
+                            Tìm hiểu thêm
+                        </a>
+                        <button onclick="addToCart({name: 'Đà Lạt Run', price: 2990000, img: 'image/home/dalatrun.jpg', type: 'Trải Nghiệm'})" class="btn-booking px-4 py-2 text-white rounded-full text-sm font-heading font-bold transition">
+                            ĐẶT NGAY
+                        </button>
+                    </div>
+                </div>
+            </div>
+ 
+            <!-- Experience 7 -->
+            <div class="bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow flex flex-col md:flex-row gap-6 items-center">
+                <div class="w-full md:w-1/3">
+                    <img alt="Du lịch Miền Tây" class="w-full h-56 object-cover rounded-xl" src="image/home/dulichmientay.jpg"/>
+                </div>
+                <div class="w-full md:w-2/3">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-xs font-bold rounded uppercase">Thiên Nhiên</span>
+                        <span class="text-gray-400 text-sm">3 Ngày 2 Đêm</span>
+                    </div>
+                    <h3 class="font-heading text-2xl md:text-3xl font-bold text-luxury-navy dark:text-white leading-snug">
+                        Miền tây Sông Nước
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">Trải nghiệm Tour Mỹ Tho – Cần Thơ – Sóc Trăng – Bạc Liêu – Cà Mau 3N2Đ, du khách sẽ được khám phá trọn vẹn vẻ đẹp miền Tây sông nước.</p>
+                    <!-- Price -->
+                    <p class="mb-4 flex items-end gap-1">
+                        <span class="text-2xl font-heading font-bold text-luxury-gold">
+                            2.750.000₫ / người
+                        </span>
+                    </p>
+                    <div class="flex items-center gap-4">
+                      <a class="text-primary font-medium hover:underline" href="tour/dulichmientay/dulichmientay.html">
+    Tìm hiểu thêm
+</a>
+                        <button onclick="addToCart({name: 'Miền Tây', price: 2750000, img: 'image/home/dulichmientay.jpg', type: 'Thiên Nhiên'})" class="btn-booking px-4 py-2 text-white rounded-full text-sm font-heading font-bold transition">
+                            ĐẶT NGAY
+                        </button>
+                    </div>        
+                </div>
+            </div>
+    
+            <!-- Experience 8 -->
+            <div class="bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow flex flex-col md:flex-row gap-6 items-center">
+                <div class="w-full md:w-1/3">
+                    <img alt="Đà Nẵng - Hội An - Bà Nà Hills - Huế" class="w-full h-56 object-cover rounded-xl" src="image/home/hoian.jpg"/>
+                </div>
+                <div class="w-full md:w-2/3">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 text-xs font-bold rounded uppercase">Bản sắc Văn Hóa</span>
+                        <span class="text-gray-400 text-sm">3 Ngày 2 Đêm</span>
+                    </div>
+                    <h3 class="font-heading text-2xl md:text-3xl font-bold text-luxury-navy dark:text-white leading-snug">
+                        Đà Nẵng - Hội An - Bà Nà Hill - Huế
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">Hành trình 3N2Đ khám phá những điểm đến đặc sắc bậc nhất của miền Trung, nơi bạn sẽ được hòa mình vào vẻ đẹp giao thoa giữa thiên nhiên hùng vĩ, văn hóa đặc sắc và lịch sử ngàn năm.</p>
+                    <!-- Price -->
+                    <p class="mb-4 flex items-end gap-1">
+                        <span class="text-2xl font-heading font-bold text-luxury-gold">
+                            2.890.000₫ / người
+                        </span>
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a class="text-primary font-medium hover:underline" href="tour/dananghoianbanahue/dananghoianbanahue.html">
+                            Tìm hiểu thêm
+                        </a>
+                        <button onclick="addToCart({name: 'Miền Trung', price: 2890000, img: 'image/home/hoian.jpg', type: 'Bản sắc Văn Hóa'})" class="btn-booking px-4 py-2 text-white rounded-full text-sm font-heading font-bold transition">
+                            ĐẶT NGAY
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features-section py-24 bg-gradient-to-b from-luxury-cream to-white dark:from-luxury-charcoal dark:to-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                
+                <!-- LEFT COLUMN - IMAGE -->
+                <div class="relative order-2 lg:order-1">
+                    <!-- Main Image -->
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl group">
+                        <img src="image/home/111.jpg" alt="Vietnam Landscape" class="w-full h-[600px] object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        
+                        <!-- Image Overlay Gradient -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-luxury-gold/10 via-transparent to-transparent"></div>
+                        
+                        <!-- Decorative Elements -->
+                        <div class="absolute -top-6 -left-6 w-24 h-24 border-2 border-luxury-gold/30 rounded-xl transform -rotate-12"></div>
+                        <div class="absolute -bottom-8 -right-8 w-32 h-32 border-2 border-luxury-gold/20 rounded-xl transform rotate-12"></div>
+                    </div>
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -top-4 -right-4 lg:-right-8 z-10">
+                        <div class="bg-gradient-gold text-luxury-navy px-6 py-3 rounded-full font-bold text-sm shadow-xl flex items-center gap-2">
+                            <span class="material-icons">verified</span>
+                            <span>ĐỐI TÁC ĐỘC QUYỀN</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Stats Card -->
+                    <div class="absolute -bottom-6 -left-6 lg:-left-12 bg-white dark:bg-luxury-navy rounded-2xl p-6 shadow-2xl border border-luxury-gold/20">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-luxury-gold mb-1">50+</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300 font-medium">HÀNH TRÌNH ĐẶC SẮC</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- RIGHT COLUMN - CONTENT -->
+                <div class="order-1 lg:order-2">
+                    <!-- Section Badge -->
+                    <div class="inline-flex items-center gap-2 mb-6">
+                        <span class="w-12 h-0.5 bg-luxury-gold"></span>
+                        <span class="text-sm font-bold text-luxury-gold uppercase tracking-widest">Về Chúng Tôi</span>
+                    </div>
+                    
+                    <!-- Title -->
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-luxury-navy dark:text-white mb-6 leading-tight">
+                        KHÁM PHÁ VẺ ĐẸP VIỆT NAM
+                        <span class="block text-luxury-gold mt-2">THEO CÁCH RIÊNG CỦA BẠN</span>
+                    </h2>
+                    
+                    <!-- Description -->
+                    <p class="text-base text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                        Tại MeTrip, chúng tôi tạo nên những hành trình dành riêng cho người trẻ yêu du lịch trải nghiệm. Từ những cung đường trekking hùng vĩ, các bãi biển cực chill đến những hoạt động khám phá bản địa – mỗi chuyến đi đều tràn đầy năng lượng và cảm hứng.
+                    </p>
+                    
+                    <!-- Features Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+                        <!-- Feature 1 -->
+                        <div class="feature-card group">
+                            <div class="feature-icon">
+                                <span class="material-icons">verified_user</span>
+                            </div>
+                            <div>
+                                <h4 class="feature-title">Dịch vụ tin cậy</h4>
+                                <p class="feature-desc">Đã được xác minh & đặt chỗ an toàn.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Feature 2 -->
+                        <div class="feature-card group">
+                            <div class="feature-icon">
+                                <span class="material-icons">savings</span>
+                            </div>
+                            <div>
+                                <h4 class="feature-title">Giá tốt nhất</h4>
+                                <p class="feature-desc">Cam kết giá tốt nhất cho các tour.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Feature 3 -->
+                        <div class="feature-card group">
+                            <div class="feature-icon">
+                                <span class="material-icons">support_agent</span>
+                            </div>
+                            <div>
+                                <h4 class="feature-title">Hỗ trợ 24/7</h4>
+                                <p class="feature-desc">Chúng tôi ở đây để hỗ trợ bất cứ khi nào.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Feature 4 -->
+                        <div class="feature-card group">
+                            <div class="feature-icon">
+                                <span class="material-icons">thumb_up</span>
+                            </div>
+                            <div>
+                                <h4 class="feature-title">Trải nghiệm thật</h4>
+                                <p class="feature-desc">Trải nghiệm địa phương chân thực.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Button -->
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#experiences-section" class="cta-btn-primary">
+                            <span>KHÁM PHÁ TOUR</span>
+                            <span class="material-icons">explore</span>
+                        </a>
+                        <button class="cta-btn-secondary">
+                            <span>LIÊN HỆ TƯ VẤN</span>
+                            <span class="material-icons">chat</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 tracking-wide">
+                            Được tin tưởng bởi
+                        </p>
+                        <div class="flex flex-wrap items-center gap-8">
+                            <div class="text-2xl font-heading font-bold text-luxury-navy dark:text-white opacity-80">
+                                10000+
+                            </div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">
+                                Khách hàng hài lòng
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-yellow-500">star</span>
+                                <span class="font-semibold">4.9/5</span>
+                                <span class="text-gray-500 text-sm">(3.2k đánh giá)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMO SECTION -->
+    <section class="promo py-24 bg-gradient-to-b from-luxury-cream/30 to-white dark:from-gray-900 dark:to-luxury-charcoal relative overflow-hidden">
+       <!-- PROMO SECTION -->
+<section class="promo py-24 bg-gradient-to-b from-luxury-cream/30 to-white dark:from-gray-900 dark:to-luxury-charcoal relative overflow-hidden">
+    <!-- Decorative Elements -->
+    <div class="floating-element floating-1"></div>
+    <div class="floating-element floating-2"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center justify-center gap-3 mb-6">
+                <div class="w-16 h-0.5 bg-gradient-to-r from-transparent via-luxury-gold to-transparent"></div>
+                <div class="flex items-center gap-2 px-4 py-2 bg-luxury-gold/10 rounded-full">
+                    <span class="text-luxury-gold">
+                        <i class="fa-solid fa-gift text-xl"></i>
+                    </span>
+                    <span class="text-sm font-bold text-luxury-gold uppercase tracking-widest">Ưu đãi đặc biệt</span>
+                </div>
+                <div class="w-16 h-0.5 bg-gradient-to-r from-transparent via-luxury-gold to-transparent"></div>
+            </div>
+            
+            <h2 class="font-heading text-4xl md:text-5xl font-bold text-luxury-navy dark:text-white mb-6">
+                Ưu đãi <span class="text-luxury-gold">độc quyền</span>
+            </h2>
+            <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-lg">
+                Những ưu đãi đặc biệt dành riêng cho khách hàng của MeTrip
+            </p>
+        </div>
+
+        <!-- Slider Container -->
+        <div class="relative">
+            <!-- Navigation Buttons -->
+            <div class="absolute -top-16 right-0 z-20 flex gap-3">
+                <button class="nav-btn prev w-12 h-12 rounded-full bg-white dark:bg-luxury-navy border border-luxury-gold/20 flex items-center justify-center text-luxury-navy dark:text-white hover:bg-luxury-gold hover:text-white transition-all duration-300" onclick="prevPromo()">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="nav-btn next w-12 h-12 rounded-full bg-white dark:bg-luxury-navy border border-luxury-gold/20 flex items-center justify-center text-luxury-navy dark:text-white hover:bg-luxury-gold hover:text-white transition-all duration-300" onclick="nextPromo()">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Slider Track -->
+            <div class="viewport overflow-hidden">
+                <div class="track flex gap-8 transition-transform duration-500 ease-out" id="promoTrack">
+                    <!-- Card 1 -->
+                    <div class="card group flex-shrink-0 w-full md:w-[calc(33.333%-1.5rem)] lg:w-[calc(25%-1.5rem)] bg-white dark:bg-luxury-navy rounded-3xl p-8 border border-luxury-gold/10 hover:border-luxury-gold/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <!-- Card Badge -->
+                        <div class="absolute top-6 left-6 z-10">
+                            <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-blue-900 to-blue-400 text-white shadow-md font-heading">
+                                <i class="fa-solid fa-star mr-1.5 text-xs"></i>
+                                ƯU ĐÃI GIỚI HẠN
+                            </span>
+                        </div>
+                        
+                        <div class="mb-6 pt-8">
+                            <div class="flex items-start justify-between gap-4">
+                                <h3 class="font-heading text-xl font-bold text-luxury-navy dark:text-white leading-tight pr-10">
+                                    Ngân hàng đồng hành – Giảm 8% mọi tour
+                                </h3>
+                                <button class="info-btn w-6 h-6 rounded-full bg-luxury-navy dark:bg-luxury-gold text-white dark:text-luxury-navy flex items-center justify-center text-xs font-bold hover:bg-luxury-gold dark:hover:bg-luxury-gold-light transition-colors shrink-0" 
+                                        data-title="Ngân Hàng Đồng Hành – Giảm 8%"
+                                        data-content="
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Mô tả ưu đãi</h4>
+                                            <p class='mb-4'>Giảm 8% cho tất cả tour khi thanh toán bằng tài khoản thuộc 10 ngân hàng liên kết.</p>
+                                            
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Ngân hàng áp dụng</h4>
+                                            <ul class='space-y-2 mb-4'>
+                                                <li class='flex items-center'><i class='fa-solid fa-check text-luxury-gold mr-2'></i> Vietcombank</li>
+                                                <li class='flex items-center'><i class='fa-solid fa-check text-luxury-gold mr-2'></i> VietinBank</li>
+                                                <li class='flex items-center'><i class='fa-solid fa-check text-luxury-gold mr-2'></i> BIDV</li>
+                                                <li class='flex items-center'><i class='fa-solid fa-check text-luxury-gold mr-2'></i> Techcombank</li>
+                                            </ul>
+                                            
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Thời hạn</h4>
+                                            <p class='mb-2'>01/12/2025 - 25/04/2026</p>
+                                            
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Điều khoản</h4>
+                                            <ul class='space-y-2'>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Thanh toán 100% giá trị tour qua online</li>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Không áp dụng với thanh toán tiền mặt</li>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Không kết hợp với ưu đãi khác</li>
+                                            </ul>
+                                        ">
+                                    i
+                                </button>
+                            </div>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mt-3">Áp dụng cho khách hàng sử dụng ngân hàng đối tác</p>
+                        </div>
+                        
+                        <div class="border-t border-gray-100 dark:border-gray-700 pt-6">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-800/30 flex items-center justify-center flex-shrink-0">
+                                        <i class="fa-solid fa-credit-card text-blue-900"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-gray-500 dark:text-gray-400">Mã ưu đãi</div>
+                                        <div class="font-heading font-bold text-luxury-navy dark:text-white text-sm md:text-base">BANKING111</div>
+                                    </div>
+                                </div>
+                                <button class="copy-btn px-4 py-2 rounded-full bg-luxury-navy dark:bg-luxury-gold text-white dark:text-luxury-navy font-medium hover:bg-luxury-gold dark:hover:bg-luxury-gold-light hover:shadow-lg transition-all duration-300 flex-shrink-0 text-xs whitespace-nowrap w-full sm:w-auto transform scale-90 hover:scale-95">
+                                    COPY
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card group flex-shrink-0 w-full md:w-[calc(33.333%-1.5rem)] lg:w-[calc(25%-1.5rem)] bg-white dark:bg-luxury-navy rounded-3xl p-8 border border-luxury-gold/10 hover:border-luxury-gold/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <!-- Card Badge -->
+                        <div class="absolute top-6 left-6 z-10">
+                            <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-blue-900 to-blue-400 text-white shadow-md font-heading">
+                                <i class="fa-solid fa-sun mr-1.5 text-xs"></i>
+                                ƯU ĐÃI THEO MÙA
+                            </span>
+                        </div>
+                        
+                        <div class="mb-6 pt-8">
+                            <div class="flex items-start justify-between gap-4">
+                                <h3 class="font-heading text-xl font-bold text-luxury-navy dark:text-white leading-tight pr-10">
+                                    Du lịch hè rực rỡ – Đặt sớm trước mùa hè
+                                </h3>
+                                <button class="info-btn w-6 h-6 rounded-full bg-luxury-navy dark:bg-luxury-gold text-white dark:text-luxury-navy flex items-center justify-center text-xs font-bold hover:bg-luxury-gold dark:hover:bg-luxury-gold-light transition-colors shrink-0"
+                                        data-title="Du Lịch Hè Rực Rỡ – Đặt Sớm Trước Mùa Hè"
+                                        data-content="
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Mô tả ưu đãi</h4>
+                                            <p class='mb-4'>Giảm 10% khi đặt tour biển, nghỉ dưỡng và tour đảo trước mùa hè.</p>
+                                            
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Áp dụng</h4>
+                                            <ul class='space-y-2 mb-4'>
+                                                <li class='flex items-center'><i class='fa-solid fa-check text-luxury-gold mr-2'></i> Tour biển các tỉnh miền Trung</li>
+                                                <li class='flex items-center'><i class='fa-solid fa-check text-luxury-gold mr-2'></i> Tour nghỉ dưỡng cao cấp</li>
+                                                <li class='flex items-center'><i class='fa-solid fa-check text-luxury-gold mr-2'></i> Tour đảo Phú Quốc, Côn Đảo</li>
+                                            </ul>
+                                            
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Thời hạn</h4>
+                                            <p class='mb-2'>22/12/2025 – 30/05/2026</p>
+                                            <p class='text-sm text-gray-600'>*Áp dụng cho tour khởi hành từ 01/06 đến 31/08</p>
+                                            
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Điều khoản</h4>
+                                            <ul class='space-y-2'>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Cọc tối thiểu 30% giá trị tour</li>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Chỉ áp dụng đặt tour online</li>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Không hoàn lại khi đổi tour</li>
+                                            </ul>
+                                        ">
+                                    i
+                                </button>
+                            </div>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mt-3">Đặt sớm tour hè 2025 để nhận ưu đãi tốt nhất</p>
+                        </div>
+                        
+                        <div class="border-t border-gray-100 dark:border-gray-700 pt-6">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                                        <i class="fa-solid fa-umbrella-beach text-blue-900"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-gray-500 dark:text-gray-400">Mã ưu đãi</div>
+                                        <div class="font-heading font-bold text-luxury-navy dark:text-white text-sm md:text-base">SUMMER22</div>
+                                    </div>
+                                </div>
+                                <button class="copy-btn px-4 py-2 rounded-full bg-luxury-navy dark:bg-luxury-gold text-white dark:text-luxury-navy font-medium hover:bg-luxury-gold dark:hover:bg-luxury-gold-light hover:shadow-lg transition-all duration-300 flex-shrink-0 text-xs whitespace-nowrap w-full sm:w-auto transform scale-90 hover:scale-95">
+                                    COPY
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card group flex-shrink-0 w-full md:w-[calc(33.333%-1.5rem)] lg:w-[calc(25%-1.5rem)] bg-white dark:bg-luxury-navy rounded-3xl p-8 border border-luxury-gold/10 hover:border-luxury-gold/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <!-- Card Badge -->
+                        <div class="absolute top-6 left-6 z-10">
+                            <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-blue-900 to-blue-400 text-white shadow-md font-heading">
+                                <i class="fa-solid fa-hotel mr-1.5 text-xs"></i>
+                                ƯU ĐÃI KẾT HỢP
+                            </span>
+                        </div>
+                        
+                        <div class="mb-6 pt-8">
+                            <div class="flex items-start justify-between gap-4">
+                                <h3 class="font-heading text-xl font-bold text-luxury-navy dark:text-white leading-tight pr-10">
+                                    Mua tour – Tặng voucher nghỉ dưỡng
+                                </h3>
+                                <button class="info-btn w-6 h-6 rounded-full bg-luxury-navy dark:bg-luxury-gold text-white dark:text-luxury-navy flex items-center justify-center text-xs font-bold hover:bg-luxury-gold dark:hover:bg-luxury-gold-light transition-colors shrink-0"
+                                        data-title="Mua tour – tặng voucher nghỉ dưỡng"
+                                        data-content="
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Mô tả ưu đãi</h4>
+                                            <p class='mb-4'>Nhận voucher nghỉ dưỡng hấp dẫn khi đặt tour với giá trị từ 5 triệu đồng.</p>
+                                            
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Mức ưu đãi</h4>
+                                            <ul class='space-y-3 mb-4'>
+                                                <li class='flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg'>
+                                                    <span class='font-medium'>Tour từ 5.000.000đ</span>
+                                                    <span class='font-bold text-luxury-gold'>Voucher 300.000đ</span>
+                                                </li>
+                                                <li class='flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg'>
+                                                    <span class='font-medium'>Tour từ 10.000.000đ</span>
+                                                    <span class='font-bold text-luxury-gold'>Voucher 700.000đ</span>
+                                                </li>
+                                            </ul>
+                                            
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Thời hạn</h4>
+                                            <p class='mb-2'>01/12/2025 – 31/03/2026</p>
+                                            
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Điều khoản</h4>
+                                            <ul class='space-y-2'>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Voucher dùng 1 lần</li>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Không áp dụng mùa cao điểm</li>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Áp dụng cho khách sạn đối tác</li>
+                                            </ul>
+                                        ">
+                                    i
+                                </button>
+                            </div>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mt-3">Kết hợp tour du lịch + nghỉ dưỡng khách sạn</p>
+                        </div>
+                        
+                        <div class="border-t border-gray-100 dark:border-gray-700 pt-6">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                                        <i class="fa-solid fa-hotel text-blue-900"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-gray-500 dark:text-gray-400">Mã ưu đãi</div>
+                                        <div class="font-heading font-bold text-luxury-navy dark:text-white text-sm md:text-base">BUY1GET1</div>
+                                    </div>
+                                </div>
+                                <button class="copy-btn px-4 py-2 rounded-full bg-luxury-navy dark:bg-luxury-gold text-white dark:text-luxury-navy font-medium hover:bg-luxury-gold dark:hover:bg-luxury-gold-light hover:shadow-lg transition-all duration-300 flex-shrink-0 text-xs whitespace-nowrap w-full sm:w-auto transform scale-90 hover:scale-95">
+                                    COPY
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="card group flex-shrink-0 w-full md:w-[calc(33.333%-1.5rem)] lg:w-[calc(25%-1.5rem)] bg-white dark:bg-luxury-navy rounded-3xl p-8 border border-luxury-gold/10 hover:border-luxury-gold/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <!-- Card Badge -->
+                        <div class="absolute top-6 left-6 z-10">
+                            <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-blue-900 to-blue-400 text-white shadow-md font-heading">
+                                <i class="fa-solid fa-crown mr-1.5 text-xs"></i>
+                                KHÁCH HÀNG TRUNG THÀNH
+                            </span>
+                        </div>
+                        
+                        <div class="mb-6 pt-8">
+                            <div class="flex items-start justify-between gap-4">
+                                <h3 class="font-heading text-xl font-bold text-luxury-navy dark:text-white leading-tight pr-10">
+                                    Hành trình lặp lại – Giảm giá tăng dần
+                                </h3>
+                                <button class="info-btn w-6 h-6 rounded-full bg-luxury-navy dark:bg-luxury-gold text-white dark:text-luxury-navy flex items-center justify-center text-xs font-bold hover:bg-luxury-gold dark:hover:bg-luxury-gold-light transition-colors shrink-0"
+                                        data-title="Hành Trình Lặp Lại – Giảm Giá Tăng Dần"
+                                        data-content="
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Mô tả ưu đãi</h4>
+                                            <p class='mb-4'>Ưu đãi đặc biệt dành cho khách hàng trung thành, giảm giá tăng dần theo số lần đặt tour.</p>
+                                            
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Mức giảm giá</h4>
+                                            <ul class='space-y-3 mb-4'>
+                                                <li class='flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg'>
+                                                    <span class='font-medium'>Lần 2 đặt tour</span>
+                                                    <span class='font-bold text-luxury-gold'>Giảm 5%</span>
+                                                </li>
+                                                <li class='flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg'>
+                                                    <span class='font-medium'>Lần 3 đặt tour</span>
+                                                    <span class='font-bold text-luxury-gold'>Giảm 10%</span>
+                                                </li>
+                                                <li class='flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg'>
+                                                    <span class='font-medium'>Lần 4+ đặt tour</span>
+                                                    <span class='font-bold text-luxury-gold'>Giảm 15%</span>
+                                                </li>
+                                            </ul>
+                                            
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Thời hạn</h4>
+                                            <p class='mb-2 font-bold'>Vĩnh viễn</p>
+                                            
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Điều khoản</h4>
+                                            <ul class='space-y-2'>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Tự động áp dụng theo lịch sử</li>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Không cộng dồn ưu đãi khác</li>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Áp dụng trong cùng năm</li>
+                                            </ul>
+                                        ">
+                                    i
+                                </button>
+                            </div>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mt-3">Càng đặt nhiều, ưu đãi càng lớn dành cho bạn</p>
+                        </div>
+                        
+                        <div class="border-t border-gray-100 dark:border-gray-700 pt-6">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                                        <i class="fa-solid fa-crown text-blue-900"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-gray-500 dark:text-gray-400">Mã ưu đãi</div>
+                                        <div class="font-heading font-bold text-luxury-navy dark:text-white text-sm md:text-base">SECOND005</div>
+                                    </div>
+                                </div>
+                                <button class="copy-btn px-4 py-2 rounded-full bg-luxury-navy dark:bg-luxury-gold text-white dark:text-luxury-navy font-medium hover:bg-luxury-gold dark:hover:bg-luxury-gold-light hover:shadow-lg transition-all duration-300 flex-shrink-0 text-xs whitespace-nowrap w-full sm:w-auto transform scale-90 hover:scale-95">
+                                    COPY
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="card group flex-shrink-0 w-full md:w-[calc(33.333%-1.5rem)] lg:w-[calc(25%-1.5rem)] bg-white dark:bg-luxury-navy rounded-3xl p-8 border border-luxury-gold/10 hover:border-luxury-gold/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <!-- Card Badge -->
+                        <div class="absolute top-6 left-6 z-10">
+                            <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-blue-900 to-blue-400 text-white shadow-md font-heading">
+                                <i class="fa-solid fa-crown mr-1.5 text-xs"></i>
+                                THÂN THIẾT
+                            </span>
+                        </div>
+                        
+                        <div class="mb-6 pt-8">
+                            <div class="flex items-start justify-between gap-4">
+                                <h3 class="font-heading text-xl font-bold text-luxury-navy dark:text-white leading-tight pr-10">
+                                    Ưu đãi "Khách Hàng Thân Thiết"
+                                </h3>
+                                <button class="info-btn w-6 h-6 rounded-full bg-luxury-navy dark:bg-luxury-gold text-white dark:text-luxury-navy flex items-center justify-center text-xs font-bold hover:bg-luxury-gold dark:hover:bg-luxury-gold-light transition-colors shrink-0"
+                                        data-title="Ưu đãi Khách Hàng Thân Thiết"
+                                        data-content="
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Mô tả ưu đãi</h4>
+                                            <p class='mb-4'>Áp dụng cho khách hàng có tài khoản thành viên tại hệ thống công ty, với mức giảm giá theo cấp độ thành viên.</p>
+                                            
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Cấp độ thành viên & Ưu đãi</h4>
+                                            <ul class='space-y-3 mb-4'>
+                                                <li class='flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg'>
+                                                    <div class='flex items-center'>
+                                                        <i class='fa-solid fa-medal text-gray-400 mr-3'></i>
+                                                        <span class='font-medium'>Thành viên Silver</span>
+                                                    </div>
+                                                    <span class='font-bold text-luxury-gold'>Giảm 5%</span>
+                                                </li>
+                                                <li class='flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg'>
+                                                    <div class='flex items-center'>
+                                                        <i class='fa-solid fa-medal text-amber-400 mr-3'></i>
+                                                        <span class='font-medium'>Thành viên Gold</span>
+                                                    </div>
+                                                    <span class='font-bold text-luxury-gold'>Giảm 10%</span>
+                                                </li>
+                                                <li class='flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg'>
+                                                    <div class='flex items-center'>
+                                                        <i class='fa-solid fa-medal text-purple-400 mr-3'></i>
+                                                        <span class='font-medium'>Thành viên Platinum</span>
+                                                    </div>
+                                                    <span class='font-bold text-luxury-gold'>Giảm 15%</span>
+                                                </li>
+                                            </ul>
+                                            
+                                            <p class='mb-4 text-sm text-gray-600 dark:text-gray-400'>
+                                                <i class='fa-solid fa-info-circle text-luxury-gold mr-2'></i>
+                                                Hệ thống tự động nhận diện cấp độ thành viên và áp dụng ưu đãi.
+                                            </p>
+                                            
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Thời hạn</h4>
+                                            <p class='mb-4 font-bold text-luxury-gold'>Áp dụng lâu dài cho khách hàng thành viên</p>
+                                            
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Điều khoản áp dụng</h4>
+                                            <ul class='space-y-2'>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Chỉ áp dụng cho tài khoản đăng nhập hợp lệ</li>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Không áp dụng đồng thời với các chương trình khuyến mãi khác</li>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Mỗi tour chỉ được áp dụng một mức ưu đãi cao nhất</li>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Ưu đãi được tích lũy và nâng hạng theo lịch sử đặt tour</li>
+                                            </ul>
+                                        ">
+                                    i
+                                </button>
+                            </div>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mt-3">Giảm 5-15% theo cấp độ thành viên</p>
+                        </div>
+                        
+                        <div class="border-t border-gray-100 dark:border-gray-700 pt-6">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                                        <i class="fa-solid fa-medal text-blue-900"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-gray-500 dark:text-gray-400">Mã ưu đãi</div>
+                                        <div class="font-heading font-bold text-luxury-navy dark:text-white text-sm md:text-base">LOYAL11</div>
+                                    </div>
+                                </div>
+                                <button class="copy-btn px-3 py-2 rounded-full bg-luxury-navy dark:bg-luxury-gold text-white dark:text-luxury-navy font-medium hover:bg-luxury-gold dark:hover:bg-luxury-gold-light hover:shadow-lg transition-all duration-300 flex-shrink-0 text-xs whitespace-nowrap w-full sm:w-auto">
+                                    COPY
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="card group flex-shrink-0 w-full md:w-[calc(33.333%-1.5rem)] lg:w-[calc(25%-1.5rem)] bg-white dark:bg-luxury-navy rounded-3xl p-8 border border-luxury-gold/10 hover:border-luxury-gold/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <!-- Card Badge -->
+                        <div class="absolute top-6 left-6 z-10">
+                            <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-blue-900 to-blue-400 text-white shadow-md font-heading">
+                                <i class="fas fa-star mr-1.5 text-xs"></i> 
+                                MỚI
+                            </span>
+                        </div>
+                        
+                        <div class="mb-6 pt-8">
+                            <div class="flex items-start justify-between gap-4">
+                                <h3 class="font-heading text-xl font-bold text-luxury-navy dark:text-white leading-tight pr-10">
+                                    Ưu đãi "Chào bạn mới" – Giảm 10% 
+                                </h3>
+                                <button class="info-btn w-6 h-6 rounded-full bg-luxury-navy dark:bg-luxury-gold text-white dark:text-luxury-navy flex items-center justify-center text-xs font-bold hover:bg-luxury-gold dark:hover:bg-luxury-gold-light transition-colors shrink-0"
+                                        data-title="Ưu đãi Chào Bạn Mới – Giảm 10% lần đầu"
+                                        data-content="
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Mô tả ưu đãi</h4>
+                                            <p class='mb-4'>Ưu đãi đặc biệt dành riêng cho khách hàng lần đầu tiên đặt tour tại công ty, với mức giảm giá 10% trên tổng giá trị tour.</p>
+                                            
+                                            <div class='p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg mb-4'>
+                                                <div class='flex items-center'>
+                                                    <i class='fa-solid fa-tag text-luxury-gold text-xl mr-3'></i>
+                                                    <div>
+                                                        <div class='font-bold text-luxury-navy dark:text-white'>Mã ưu đãi:</div>
+                                                        <div class='text-2xl font-bold text-luxury-gold'>NEWFRIENDS</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <p class='mb-4'>
+                                                <i class='fa-solid fa-user-plus text-luxury-gold mr-2'></i>
+                                                Hệ thống sẽ tự động xác định khách hàng mới dựa trên lịch sử đặt tour.
+                                            </p>
+                                            
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Thời hạn</h4>
+                                            <p class='mb-4 font-bold text-luxury-gold'>Áp dụng lâu dài cho tất cả khách hàng mới</p>
+                                            
+                                            <h4 class='font-heading text-lg font-bold mb-3'>Điều khoản áp dụng</h4>
+                                            <ul class='space-y-2'>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Chỉ áp dụng cho khách hàng chưa từng phát sinh đơn đặt tour trước đó</li>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Thanh toán phải được thực hiện 100% online</li>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Không được cộng dồn với các chương trình khuyến mãi hoặc voucher khác</li>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Mỗi khách hàng chỉ được hưởng ưu đãi một lần duy nhất</li>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Công ty có quyền từ chối áp dụng ưu đãi nếu phát hiện tài khoản trùng lặp hoặc gian lận thông tin</li>
+                                                <li class='flex items-start'><i class='fa-solid fa-circle text-xs text-luxury-gold mr-2 mt-1'></i> Áp dụng cho tất cả các tour từ 2 triệu đồng trở lên</li>
+                                            </ul>
+                                            
+                                            <div class='mt-6 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border-l-4 border-luxury-gold'>
+                                                <p class='text-sm text-gray-700 dark:text-gray-300'>
+                                                    <i class='fa-solid fa-lightbulb text-luxury-gold mr-2'></i>
+                                                    <span class='font-semibold'>Lưu ý:</span> Ưu đãi này chỉ áp dụng cho đơn hàng đầu tiên của khách hàng mới. Sau khi sử dụng ưu đãi này, khách hàng sẽ được chuyển sang chương trình thành viên thân thiết.
+                                                </p>
+                                            </div>
+                                        ">
+                                    i
+                                </button>
+                            </div>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mt-3">Giảm 10% cho khách hàng mới đặt tour lần đầu</p>
+                        </div>
+
+                        <div class="border-t border-gray-100 dark:border-gray-700 pt-6">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                                        <i class="fa-solid fa-handshake text-blue-900"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-gray-500 dark:text-gray-400">Mã ưu đãi</div>
+                                        <div class="font-heading font-bold text-luxury-navy dark:text-white text-sm md:text-base">NEWFRIENDS</div>
+                                    </div>
+                                </div>
+                                <button class="copy-btn px-3 py-2 rounded-full bg-luxury-navy dark:bg-luxury-gold text-white dark:text-luxury-navy font-medium hover:bg-luxury-gold dark:hover:bg-luxury-gold-light hover:shadow-lg transition-all duration-300 flex-shrink-0 text-xs whitespace-nowrap w-full sm:w-auto transform scale-90 hover:scale-95">
+                                    COPY
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dots Indicator -->
+            <div class="flex justify-center gap-2 mt-8">
+                <button class="dot w-2 h-2 rounded-full bg-gray-300 hover:bg-luxury-gold transition-colors" data-index="0"></button>
+                <button class="dot w-2 h-2 rounded-full bg-gray-300 hover:bg-luxury-gold transition-colors" data-index="1"></button>
+                <button class="dot w-2 h-2 rounded-full bg-gray-300 hover:bg-luxury-gold transition-colors" data-index="2"></button>
+                <button class="dot w-2 h-2 rounded-full bg-gray-300 hover:bg-luxury-gold transition-colors" data-index="3"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Modal -->
+    <div class="popup-overlay fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 hidden" id="promoPopup">
+        <div class="popup-box relative max-w-2xl w-full mx-4 bg-white dark:bg-luxury-navy rounded-3xl overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-luxury-gold via-luxury-gold-light to-luxury-gold"></div>
+            
+            <div class="p-8">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="font-heading text-2xl font-bold text-luxury-navy dark:text-white" id="popupTitle"></h3>
+                    <button class="popup-close w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fa-solid fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div class="popup-content text-gray-600 dark:text-gray-300" id="popupContent"></div>
+                
+                <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                        <i class="fa-solid fa-circle-info text-luxury-gold"></i>
+                        <span>Ưu đãi có thể thay đổi. Vui lòng liên hệ hotline để biết thêm chi tiết.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript for Promo Section -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const track = document.getElementById('promoTrack');
+        const cards = document.querySelectorAll('.card');
+        const dots = document.querySelectorAll('.dot');
+        const infoButtons = document.querySelectorAll('.info-btn');
+        const copyButtons = document.querySelectorAll('.copy-btn');
+        const popup = document.getElementById('promoPopup');
+        const popupTitle = document.getElementById('popupTitle');
+        const popupContent = document.getElementById('popupContent');
+        const closePopup = document.querySelector('.popup-close');
+        
+        let currentIndex = 0;
+        const cardsPerView = window.innerWidth <= 768 ? 1 : 
+                           window.innerWidth <= 1024 ? 2 : 3;
+        
+        // Initialize slider
+        updateSlider();
+        
+        // Navigation functions
+        window.nextPromo = function() {
+            if (currentIndex < cards.length - cardsPerView) {
+                currentIndex++;
+                updateSlider();
+            }
+        }
+        
+        window.prevPromo = function() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
+            }
+        }
+        
+        function updateSlider() {
+            const cardWidth = cards[0].offsetWidth + 32; // width + gap
+            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+        
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider();
+            });
+        });
+        
+        // Info button click
+        infoButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                popupTitle.innerHTML = button.dataset.title;
+                popupContent.innerHTML = button.dataset.content;
+                popup.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Copy button click
+        copyButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                // Tìm phần tử chứa mã ưu đãi
+                const card = this.closest('.card');
+                const codeElement = card.querySelector('.flex.items-center.gap-3 div:last-child div:last-child.font-heading');
+                
+                if (!codeElement) {
+                    // Fallback selector
+                    const fallbackElement = card.querySelector('.font-heading.font-bold');
+                    if (!fallbackElement) return;
+                    codeElement = fallbackElement;
+                }
+                
+                const code = codeElement ? codeElement.textContent.trim() : '';
+                
+                if (code) {
+                    navigator.clipboard.writeText(code).then(() => {
+                        const originalText = this.textContent;
+                        this.textContent = 'ĐÃ COPY!';
+                        this.classList.add('bg-green-500', 'hover:bg-green-600');
+                        
+                        setTimeout(() => {
+                            this.textContent = originalText;
+                            this.classList.remove('bg-green-500', 'hover:bg-green-600');
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Copy failed:', err);
+                        alert('Không thể sao chép mã. Vui lòng sao chép thủ công: ' + code);
+                    });
+                }
+            });
+        });
+        
+        // Close popup
+        closePopup.addEventListener('click', () => {
+            popup.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Keyboard close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !popup.classList.contains('hidden')) {
+                popup.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Responsive updates
+        window.addEventListener('resize', () => {
+            const newCardsPerView = window.innerWidth <= 768 ? 1 : 
+                                  window.innerWidth <= 1024 ? 2 : 3;
+            
+            if (currentIndex > cards.length - newCardsPerView) {
+                currentIndex = Math.max(0, cards.length - newCardsPerView);
+            }
+            
+            updateSlider();
+        });
+        
+        // Card click effect
+        cards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (!e.target.closest('.info-btn') && !e.target.closest('.copy-btn')) {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                }
+            });
+        });
+    });
+</script>
+    </section>
+
+    <!-- CUSTOM FOOTER -->
+    <footer class="footer">
+        <!-- GRID 4 CỘT -->
+        <div class="footer-container">
+            <!-- CỘT 1 -->
+            <div>
+                <a href="#" class="f-logo">
+                    <p>MeTrip</p>
+                </a>
+                <p class="footer-desc">
+                    Trải nghiệm khám phá Việt Nam tuyệt vời dành cho người trẻ thích du lịch,
+                    khám phá, kết nối và tạo kỷ niệm.
+                </p>
+            </div>
+
+            <!-- CỘT 2 -->
+            <div>
+                <h3>Liên kết</h3>
+                <ul class="footer-links">
+                    <li><a href="Gioithieu/gt.html">Giới Thiệu</a></li>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="Blog/Blog.html">Blog</a></li>
+                    <li><a href="Contact/Contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <!-- CỘT 3 -->
+            <div>
+                <h3>Hỗ trợ</h3>
+                <ul class="footer-links">
+                    <li><a href="FAQ/FAQ.html#popular">Câu hỏi phổ biến</a></li>
+                    <li><a href="FAQ/FAQ.html#booking">Đặt tour & thanh toán</a></li>
+                    <li><a href="FAQ/FAQ.html#exclusive">Dịch vụ độc quyền</a></li>
+                    <li><a href="FAQ/FAQ.html#cancel">Huỷ và đổi lịch</a></li>
+                </ul>
+            </div>
+
+            <!-- CỘT 4 -->
+            <div>
+                <h3>Theo dõi</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-link twitter">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+                <div class="contact-info">
+                    <p>Email: <a href="mailto:metrip@gmail.com">metrip@gmail.com</a></p>
+                    <p>Hotline: <span class="highlight">1900 580 801</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- COPYRIGHT -->
+        <div class="footer-bottom">
+            2025 MeTrip. Tất cả quyền được bảo lưu.
+        </div>
+    </footer>
+
+    <!-- NOTIFICATION CONTAINER -->
+    <div id="notification-container" class="fixed top-4 right-4 z-50 hidden">
+        <div id="notification" class="bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3">
+            <i class="fa-solid fa-check-circle text-xl"></i>
+            <div>
+                <p class="font-medium" id="notification-title">Đã thêm vào giỏ hàng!</p>
+                <p class="text-sm opacity-90" id="notification-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* =========================
+           DATABASE OF TOURS
+        ========================= */
+        const tripDatabase = [
+            {
+                id: 1,
+                name: 'Bình Thuận – Phan Thiết',
+                destination: 'Phan Thiết',
+                type: 'Sống Xanh',
+                price: 2250000,
+                img: 'image/home/phanthiet.jpg',
+                link: 'tour/binhthuanphanthiet/binhthuanphanthiet.html',
+                desc: 'Tour Bình Thuận 2N1Đ là hành trình ngắn ngày nhưng trọn vẹn, đưa bạn tận hưởng biển xanh – cát trắng – nắng vàng.',
+                duration: '2 Ngày 1 Đêm'
+            },
+            {
+                id: 2,
+                name: 'Bắc Ninh',
+                destination: 'Bắc Ninh',
+                type: 'Bản sắc Văn Hóa',
+                price: 2000000,
+                img: 'image/home/bacninh.jpg',
+                link: 'tour/bacninh/bacninh.html',
+                desc: 'Khám phá văn hóa đặc sắc, làng nghề nổi tiếng, chùa chiền cổ kính và ẩm thực Kinh Bắc.',
+                duration: '2 Ngày 1 Đêm'
+            },
+            {
+                id: 3,
+                name: 'Đà Lạt',
+                destination: 'Đà Lạt',
+                type: 'Thiên Nhiên',
+                price: 3000000,
+                img: 'image/home/dalat.jpg',
+                link: 'tour/dalat/dalat.html',
+                desc: 'Trốn khỏi cái nóng, hít hà bầu không khí se lạnh và tận hưởng những khoảnh khắc bình yên.',
+                duration: '3 Ngày 3 Đêm'
+            },
+            {
+                id: 4,
+                name: 'Lũng Cú - Hà Giang',
+                destination: 'Hà Giang',
+                type: 'Lãng Mạn',
+                price: 4000000,
+                img: 'image/home/hagiang.jpg',
+                link: 'tour/HaGiang/HaGiang.html',
+                desc: 'Chuyến đi phiêu lưu, lãng mạn, đậm chất văn hóa tại điểm cực Bắc Tổ Quốc.',
+                duration: '3 Ngày 2 Đêm'
+            },
+            {
+                id: 5,
+                name: 'Đà Lạt - Nha Trang',
+                destination: 'Đà Lạt',
+                type: 'Thiên Nhiên',
+                price: 4790000,
+                img: 'image/home/dalatnhatrang.jpg',
+                link: 'tour/DaLatNhaTrang/DaLatNhaTrang.html',
+                desc: 'Hành trình kết hợp hoàn hảo giữa khí hậu se lạnh của núi rừng và vẻ đẹp sôi động của biển xanh.',
+                duration: '5 Ngày 4 Đêm'
+            },
+            {
+                id: 6,
+                name: 'Đà Lạt Run',
+                destination: 'Đà Lạt',
+                type: 'Trải nghiệm',
+                price: 2990000,
+                img: 'image/home/dalatrun.jpg',
+                link: 'tour/DaLatRun/DaLatRun.html',
+                desc: 'Tour kết hợp du lịch khám phá Đà Lạt và chạy bộ đường mòn dành cho người yêu vận động.',
+                duration: '3 Ngày 2 Đêm'
+            },
+            {
+                id: 7,
+                name: 'Miền tây Sông Nước',
+                destination: 'Miền Tây',
+                type: 'Thiên Nhiên',
+                price: 2750000,
+                img: 'image/home/dulichmientay.jpg',
+                link: 'tour/dulicghmientay/dulicghmientay.html',
+                desc: 'Khám phá trọn vẹn vẻ đẹp miền Tây sông nước với Mỹ Tho, Cần Thơ, Sóc Trăng, Bạc Liêu, Cà Mau.',
+                duration: '3 Ngày 2 Đêm'
+            },
+            {
+                id: 8,
+                name: 'Đà Nẵng - Hội An - Bà Nà Hill - Huế',
+                destination: 'Hội An',
+                type: 'Bản sắc Văn Hóa',
+                price: 2890000,
+                img: 'image/home/hoian.jpg',
+                link: 'tour/dananghoianbanahue/dananghoianbanahue.html',
+                desc: 'Khám phá những điểm đến đặc sắc bậc nhất của miền Trung với vẻ đẹp giao thoa giữa thiên nhiên và văn hóa.',
+                duration: '3 Ngày 2 Đêm'
+            }
+        ];
+
+        /* =========================
+           ADD TO CART FUNCTION
+        ========================= */
+        function addToCart(tour) {
+            console.log('Adding to cart:', tour);
+            
+            // Lấy giỏ hàng từ localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Chuẩn bị dữ liệu tour
+            const cartTour = {
+                id: tour.id || Date.now(),
+                name: tour.name,
+                price: tour.price,
+                quantity: 1,
+                img: tour.img,
+                type: tour.type || 'Du lịch trải nghiệm',
+                date: new Date().toLocaleDateString('vi-VN'),
+                selected: true
+            };
+            
+            // Kiểm tra nếu tour đã có trong giỏ hàng
+            const existingIndex = cart.findIndex(item => item.name === cartTour.name);
+            
+            if (existingIndex > -1) {
+                // Tăng số lượng nếu đã có
+                cart[existingIndex].quantity += 1;
+                cart[existingIndex].selected = true;
+            } else {
+                // Thêm mới vào giỏ hàng
+                cart.push(cartTour);
+            }
+            
+            // Lưu vào localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Hiển thị thông báo
+            showNotification('Đã thêm vào giỏ hàng!', tour.name);
+            
+            // Cập nhật số lượng giỏ hàng (nếu có)
+            updateCartCount();
+            
+                      
+            return true;
+        }
+
+        /* =========================
+           SEARCH FUNCTION
+        ========================= */
+        function executeTourSearch() {
+            console.log('Searching tours...');
+            
+            // Lấy giá trị từ các trường tìm kiếm
+            const destination = document.getElementById('search-destination').value;
+            const type = document.getElementById('search-type').value;
+            const priceRange = document.getElementById('search-price').value;
+            
+            console.log('Search criteria:', { destination, type, priceRange });
+            
+            // Lọc tour theo tiêu chí
+            const filteredTours = tripDatabase.filter(tour => {
+                // Kiểm tra địa điểm
+                const matchDestination = !destination || tour.destination === destination;
+                
+                // Kiểm tra loại hình
+                const matchType = !type || tour.type === type;
+                
+                // Kiểm tra giá
+                let matchPrice = true;
+                if (priceRange === 'under2') {
+                    matchPrice = tour.price < 2500000;
+                } else if (priceRange === '2to4') {
+                    matchPrice = tour.price >= 2500000 && tour.price <= 4000000;
+                } else if (priceRange === 'above4') {
+                    matchPrice = tour.price > 4000000;
+                }
+                
+                return matchDestination && matchType && matchPrice;
+            });
+            
+            console.log('Found', filteredTours.length, 'tours');
+            
+            // Hiển thị kết quả
+            displaySearchResults(filteredTours);
+            
+            // Cuộn đến phần kết quả
+            const resultsSection = document.getElementById('search-results-section');
+            if (resultsSection) {
+                resultsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        /* =========================
+           DISPLAY SEARCH RESULTS
+        ========================= */
+        function displaySearchResults(tours) {
+            const container = document.getElementById('results-display-container');
+            const section = document.getElementById('search-results-section');
+            
+            if (!container || !section) {
+                console.error('Không tìm thấy container kết quả');
+                return;
+            }
+            
+            // Hiển thị section
+            section.classList.remove('hidden');
+            
+            // Hiển thị kết quả
+            if (tours.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-10">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 mb-4">
+                            <i class="fa-solid fa-search text-2xl text-gray-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-700 mb-2">Không tìm thấy tour phù hợp</h3>
+                        <p class="text-gray-500 mb-4">Vui lòng thử lại với tiêu chí tìm kiếm khác.</p>
+                        <button onclick="resetSearch()" class="px-4 py-2 bg-luxury-navy text-white rounded-lg hover:bg-luxury-gold transition">
+                            Đặt lại tìm kiếm
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Tạo HTML cho kết quả
+            let html = '';
+            tours.forEach(tour => {
+                html += `
+                    <div class="search-result-item bg-white rounded-2xl p-6 shadow-md border border-gray-100 animate-fadeInUp">
+                        <div class="flex flex-col md:flex-row gap-6 items-center">
+                            <div class="w-full md:w-1/3">
+                                <img src="${tour.img}" alt="${tour.name}" 
+                                     class="w-full h-48 object-cover rounded-xl">
+                            </div>
+                            <div class="w-full md:w-2/3">
+                                <div class="flex flex-wrap items-center gap-2 mb-2">
+                                    <span class="px-3 py-1 text-xs font-bold rounded-full 
+                                        ${tour.type === 'Sống Xanh' ? 'bg-green-100 text-green-700' : 
+                                          tour.type === 'Bản sắc Văn Hóa' ? 'bg-yellow-100 text-yellow-700' :
+                                          tour.type === 'Thiên Nhiên' ? 'bg-blue-100 text-blue-700' :
+                                          tour.type === 'Lãng Mạn' ? 'bg-pink-100 text-pink-700' :
+                                          'bg-purple-100 text-purple-700'}">
+                                        ${tour.type}
+                                    </span>
+                                    <span class="text-gray-500 text-sm">${tour.duration}</span>
+                                </div>
+                                
+                                <h3 class="font-heading text-2xl font-bold text-luxury-navy mb-3">
+                                    ${tour.name}
+                                </h3>
+                                
+                                <p class="text-gray-600 mb-4">
+                                    ${tour.desc}
+                                </p>
+                                
+                                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                                    <div>
+                                        <span class="text-2xl font-bold text-luxury-gold">
+                                            ${tour.price.toLocaleString('vi-VN')}₫
+                                        </span>
+                                        <span class="text-gray-500 text-sm">/ người</span>
+                                    </div>
+                                    
+                                    <div class="flex gap-3">
+                                        <a href="${tour.link}" 
+                                           class="px-4 py-2 border border-luxury-navy text-luxury-navy rounded-lg 
+                                                  hover:bg-luxury-navy hover:text-white transition">
+                                            Xem chi tiết
+                                        </a>
+                                        
+                                        <button onclick="addToCart(${JSON.stringify(tour).replace(/"/g, "'")})" 
+                                                class="btn-booking px-4 py-2 text-white rounded-lg font-medium 
+                                                       hover:shadow-lg transition">
+                                            Đặt ngay
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        /* =========================
+           RESET SEARCH
+        ========================= */
+        function resetSearch() {
+            // Reset các trường tìm kiếm
+            document.getElementById('search-destination').value = '';
+            document.getElementById('search-type').value = '';
+            document.getElementById('search-price').value = 'all';
+            
+            // Ẩn kết quả
+            const section = document.getElementById('search-results-section');
+            if (section) {
+                section.classList.add('hidden');
+            }
+            
+            // Cuộn lên phần tìm kiếm
+            document.querySelector('.hero-with-search').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        /* =========================
+           CLOSE SEARCH RESULTS
+        ========================= */
+        function closeSearch() {
+            const section = document.getElementById('search-results-section');
+            if (section) {
+                section.classList.add('hidden');
+            }
+        }
+
+        /* =========================
+           SHOW NOTIFICATION
+        ========================= */
+        function showNotification(title, message) {
+            const container = document.getElementById('notification-container');
+            const notificationTitle = document.getElementById('notification-title');
+            const notificationMessage = document.getElementById('notification-message');
+            
+            if (!container || !notificationTitle || !notificationMessage) {
+                console.log(title + ': ' + message);
+                return;
+            }
+            
+            // Cập nhật nội dung
+            notificationTitle.textContent = title;
+            notificationMessage.textContent = message;
+            
+            // Hiển thị thông báo
+            container.classList.remove('hidden');
+            container.style.animation = 'slideInRight 0.3s ease-out';
+            
+            // Tự động ẩn sau 3 giây
+            setTimeout(() => {
+                container.style.animation = 'fadeOut 0.3s ease-in';
+                setTimeout(() => {
+                    container.classList.add('hidden');
+                }, 300);
+            }, 3000);
+        }
+
+        /* =========================
+           UPDATE CART COUNT
+        ========================= */
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            // Tìm phần tử hiển thị số lượng giỏ hàng
+            const cartLinks = document.querySelectorAll('a[href*="cart"]');
+            cartLinks.forEach(link => {
+                // Xóa badge cũ
+                const oldBadge = link.querySelector('.cart-badge');
+                if (oldBadge) {
+                    oldBadge.remove();
+                }
+                
+                // Thêm badge mới nếu có sản phẩm
+                if (cartCount > 0) {
+                    const badge = document.createElement('span');
+                    badge.className = 'cart-badge absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center';
+                    badge.textContent = cartCount;
+                    link.style.position = 'relative';
+                    link.appendChild(badge);
+                }
+            });
+        }
+
+        /* =========================
+           INITIALIZE PAGE
+        ========================= */
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded successfully');
+            
+            // Cập nhật số lượng giỏ hàng
+            updateCartCount();
+            
+            // Thêm sự kiện cho nút tìm kiếm
+            const searchButton = document.querySelector('.btn-search');
+            if (searchButton) {
+                searchButton.addEventListener('click', executeTourSearch);
+            }
+            
+            // Thêm sự kiện Enter cho các trường tìm kiếm
+            const searchInputs = [
+                'search-destination',
+                'search-type',
+                'search-price'
+            ];
+            
+            searchInputs.forEach(inputId => {
+                const input = document.getElementById(inputId);
+                if (input) {
+                    input.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            executeTourSearch();
+                        }
+                    });
+                }
+            });
+            
+            // Thêm sự kiện cho nút "Đặt ngay" trong experiences
+            document.querySelectorAll('.btn-booking').forEach(button => {
+                button.addEventListener('click', function() {
+                    console.log('Booking button clicked');
+                });
+            });
+            
+            // Kiểm tra giỏ hàng
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            console.log('Cart items:', cart.length);
+        });
+
+        /* =========================
+           HANDLE BOOKING FROM SEARCH RESULTS
+        ========================= */
+        function handleBookingFromSearch(tourData) {
+            try {
+                // Parse tour data từ string
+                const tour = typeof tourData === 'string' ? JSON.parse(tourData.replace(/'/g, '"')) : tourData;
+                
+                // Thêm vào giỏ hàng
+                addToCart(tour);
+            } catch (error) {
+                console.error('Error handling booking:', error);
+                showNotification('Lỗi', 'Không thể thêm tour vào giỏ hàng. Vui lòng thử lại.');
+            }
+        }
+    </script>
+
+    <!-- Smooth Scroll Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener("click", function (e) {
+                    const targetId = this.getAttribute("href");
+                    if (targetId.length <= 1) return;
+
+                    const target = document.querySelector(targetId);
+                    if (!target) return;
+
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                });
+            });
+        });
+    </script>
+<script>
+// Kiểm tra trạng thái đăng nhập và cập nhật header
+document.addEventListener("DOMContentLoaded", function () {
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+    const userEmail = localStorage.getItem("userEmail");
+    const userName = localStorage.getItem("userName");
+    const authButtons = document.getElementById("authButtons");
+    const userAvatarDropdown = document.getElementById("userAvatarDropdown");
+    const dropdownUserName = document.getElementById("dropdownUserName");
+    const dropdownUserEmail = document.getElementById("dropdownUserEmail");
+    const userAvatar = document.getElementById("userAvatar");
+    const avatarTrigger = document.getElementById("avatarTrigger");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    // Nếu đã đăng nhập
+    if (isLoggedIn && userEmail) {
+        // Ẩn nút đăng ký/đăng nhập
+        if (authButtons) authButtons.style.display = "none";
+        
+        // Hiển thị avatar dropdown
+        if (userAvatarDropdown) userAvatarDropdown.style.display = "flex";
+        
+        // Cập nhật thông tin người dùng
+        if (dropdownUserName && userName) {
+            dropdownUserName.textContent = userName;
+        }
+        
+        if (dropdownUserEmail) {
+            dropdownUserEmail.textContent = userEmail;
+        }
+        
+        // Cập nhật avatar (nếu có)
+        const userAvatarFromStorage = localStorage.getItem("userAvatar");
+        if (userAvatar && userAvatarFromStorage) {
+            userAvatar.src = userAvatarFromStorage;
+        }
+    }
+
+    // Toggle dropdown menu
+    if (avatarTrigger && dropdownMenu) {
+        avatarTrigger.addEventListener("click", function (e) {
+            e.stopPropagation();
+            avatarTrigger.classList.toggle("active");
+            dropdownMenu.classList.toggle("active");
+        });
+    }
+
+    // Đóng dropdown khi click ra ngoài
+    document.addEventListener("click", function (e) {
+        if (avatarTrigger && dropdownMenu && 
+            !avatarTrigger.contains(e.target) && 
+            !dropdownMenu.contains(e.target)) {
+            avatarTrigger.classList.remove("active");
+            dropdownMenu.classList.remove("active");
+        }
+    });
+
+    // Xử lý đăng xuất
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            
+            // Xóa thông tin đăng nhập
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("userEmail");
+            localStorage.removeItem("userName");
+            localStorage.removeItem("userRole");
+            
+            // Hiển thị thông báo
+            alert("Đã đăng xuất thành công!");
+            
+            // Reload trang để cập nhật header
+            window.location.reload();
+        });
+    }
+    
+    // Xử lý scroll cho header
+    const header = document.querySelector(".header");
+    if (header) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                header.classList.add("header-scrolled");
+            } else {
+                header.classList.remove("header-scrolled");
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeTrip - FAQ</title>
+    
+    <!-- Font và icon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    
+    <!-- Header and footer -->
+    <link rel="stylesheet" href="../css/hfstyle.css">
+    
+    <!-- FAQ styles -->
+    <link rel="stylesheet" href="faqstyle.css">
+    
+    <!-- Thêm meta description cho SEO -->
+    <meta name="description" content="MeTrip - Câu hỏi thường gặp về đặt tour, thanh toán, hủy chuyến và các dịch vụ du lịch tại Việt Nam">
+</head>
+<body>
+    <!-- Header -->
+    <!-- Giữ nguyên header hiện tại -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <p>MeTrip</p>
+            </a>
+
+<nav class="main-nav">
+    <a href="../index.html">TRANG CHỦ</a>            <!-- Về trang chủ -->
+    <a href="../Contact/Contact.html">LIÊN HỆ</a>     <!-- Về Contact -->
+    <a href="../Gioithieu/gt.html">GIỚI THIỆU</a>     <!-- Về Giới thiệu -->
+    <a href="../Blog/Blog.html">BLOG</a>             <!-- Về Blog -->
+    <a href="../Cart/Cart.html">GIỎ HÀNG</a>         <!-- Về Giỏ hàng -->
+</nav>
+
+            <div class="auth-buttons">
+                <a href="#" class="btn btn-outline">Sign Up</a>
+                <a href="#" class="btn btn-outline">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Chúng tôi có thể giúp gì cho bạn?</h1>
+            <p>Tìm kiếm nhanh câu trả lời về đặt vé, thanh toán, hủy chuyến và các vấn đề khác.</p>
+        </div>
+        
+        <!-- Search Box - Thêm id cho phần tử tìm kiếm -->
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="searchInput" placeholder="Tìm kiếm câu hỏi...">
+            <button type="button" id="searchBtn">Tìm</button>
+        </div>
+        
+        <!-- Hiển thị kết quả tìm kiếm -->
+        <div id="searchResults" class="search-results" style="display: none;"></div>
+    </section>
+
+    <main class="container">
+        <!-- Categories Sidebar -->
+        <aside class="sidebar-categories">
+            <div class="category-header">
+                <i class="fa-solid fa-list-ul"></i>
+                <h2>Danh mục</h2>
+            </div>
+            
+            <div class="category-list">
+                <button class="category-item active" data-target="popular">
+                    <i class="fa-regular fa-circle-question"></i>
+                    <span>Câu hỏi phổ biến</span>
+                </button>
+
+                <button class="category-item" data-target="booking">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <span>Đặt tour & thanh toán</span>
+                </button>
+
+                <button class="category-item" data-target="exclusive">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <span>Dịch vụ độc quyền</span>
+                </button>
+
+                <button class="category-item" data-target="cancel">
+                    <i class="fa-solid fa-calendar-xmark"></i> 
+                    <span>Hủy và đổi lịch</span>
+                </button>
+            </div>
+            
+            <div class="support-card-mini">
+                <h3>Cần hỗ trợ ngay?</h3>
+                <p>Đội ngũ của chúng tôi luôn sẵn sàng 24/7.</p>
+                <button class="btn-chat-now" id="chatNowBtn">
+                    <i class="fa-regular fa-comment-dots"></i> Chat ngay
+                </button>
+            </div>
+        </aside>
+        
+        <!-- FAQ Content Area -->
+        <div class="faq-content-area">
+            <!-- Thông báo khi có kết quả tìm kiếm -->
+            <div id="searchNotification" class="search-notification" style="display: none;">
+                <p>Đang hiển thị kết quả tìm kiếm. <button id="clearSearch">Xóa tìm kiếm</button></p>
+            </div>
+            
+            <!-- Các section FAQ -->
+            <section id="popular" class="faq-section active">
+                <h2><i class="fa-solid fa-fire-flame-curved"></i> Câu hỏi phổ biến nhất</h2>
+                <div class="faq-container" id="list-popular"></div>
+            </section>
+
+            <section id="booking" class="faq-section">
+                <h2><i class="fa-regular fa-calendar-days"></i> Đặt tour & thanh toán</h2>
+                <div class="faq-container" id="list-booking"></div>
+            </section>
+
+            <section id="exclusive" class="faq-section">
+                <h2><i class="fa-solid fa-circle-exclamation"></i> Dịch vụ độc quyền</h2>
+                <div class="faq-container" id="list-exclusive"></div>
+            </section>
+
+            <section id="cancel" class="faq-section">
+                <h2><i class="fa-solid fa-calendar-xmark"></i> Hủy và đổi lịch</h2>
+                <div class="faq-container" id="list-cancel"></div>
+            </section>
+
+            <!-- Support Box -->
+            <section class="support-box">
+                <h3>Bạn vẫn còn thắc mắc?</h3>
+                <p>Đội ngũ tư vấn viên luôn sẵn sàng hỗ trợ bạn.</p>
+
+                <div class="support-actions">
+                    <button class="phone" onclick="window.location.href='tel:1900580801'">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <div>
+                            <strong>1900 580 801</strong><br>
+                            <span>Hotline hỗ trợ 24/7</span>
+                        </div>
+                    </button>
+                    <button class="chat" id="chatSupportBtn">
+                        <i class="fa-solid fa-comment"></i>
+                        <span>Chat trực tuyến</span>
+                    </button>
+                    <button class="email" onclick="window.location.href='mailto:metrip@gmail.com'">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>metrip@gmail.com</span>
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="../index.html" class="f-logo">
+                    <p>MeTrip</p>
+                </a>
+                <p class="footer-desc">
+                    Trải nghiệm khám phá Việt Nam tuyệt vời dành cho người trẻ thích du lịch, khám phá, kết nối và tạo kỷ niệm.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Liên kết</h3>
+                <ul class="footer-links">
+                    <li><a href="../Gioithieu/gt.html">Giới Thiệu</a></li>
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="../Blog/Blog.html">Blog</a></li>
+                    <li><a href="../Contact/Contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+
+   <div class="footer-col">
+    <h3>Hỗ Trợ</h3>
+    <ul class="footer-links">
+        <!-- Sử dụng đường dẫn tương đối đúng -->
+        <li><a href="FAQ.html#popular">Câu hỏi phổ biến</a></li>
+        <li><a href="FAQ.html#booking">Đặt tour & thanh toán</a></li>
+        <li><a href="FAQ.html#exclusive">Dịch vụ độc quyền</a></li>
+        <li><a href="FAQ.html#cancel">Huỷ và đổi lịch</a></li>
+    </ul>
+</div>
+
+            <div class="footer-col">
+                <h3>Theo dõi</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="social-link facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div class="contact-info">
+                    <p>Email: <a href="mailto:metrip@gmail.com">metrip@gmail.com</a></p>
+                    <p>Hotline: <span class="highlight">1900 580 801</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>2025 MeTrip. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="faqscript.js"></script>
+</body>
+</html>

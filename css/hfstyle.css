@@ -1,0 +1,420 @@
+
+/* --- Cài đặt chung --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family:'Poppins', sans-serif;
+    background-color: #f9f9f9; 
+    padding: 80px 0 0 0; /* Thêm khoảng cách trên để không bị che khuất bởi header */
+}
+
+/* --- Header --- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 16px;   
+    z-index: 999;
+
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+
+    transition: background 0.3s ease, box-shadow 0.3s ease
+}
+
+.nav-container {
+    display: flex; /* Dàn trang hàng ngang */
+    justify-content: space-between; /* Đẩy 3 phần (Logo, Menu, Button) ra xa nhau */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    max-width: 1400px; /* Giới hạn chiều rộng tối đa cho đẹp */
+    height: 50px; /* Chiều cao cố định của header */
+    margin: 0 auto; /* Căn giữa khung chứa trong header */
+    padding: 0 50px; /* Padding trái phải cho khung chứa */
+}
+
+/* --- Logo --- */
+.logo {
+    display: block; /* Khung bao vừa khít nội dung chữ */
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    height: 150px;
+    width: 200px;
+background-image: url('../image/logo1.png'); 
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position: 64px 45px;
+    Background-color: transparent;
+}
+
+/* --- Chữ MeTrip --- */
+.logo p {
+    font-family: 'Crimson Pro', serif; 
+    font-size: 27px; 
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-top: 53px;
+    margin-right: 35px;
+}
+
+
+/* --- Menu (Main Nav) --- */
+.main-nav {
+    display: flex;
+    gap: 60px; /* Khoảng cách giữa các mục menu */
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #444; /* Màu chữ xám đen */
+    font-size: 16px;
+    font-weight: 500 !important;
+    text-transform: uppercase; /* Viết hoa toàn bộ */
+    font-family: 'Crimson Pro', serif; 
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: #f0ad4e;
+}
+
+.main-nav a.active {
+    color: #fcb040; 
+}
+
+/* --- nút đăng ký và đăng nhập --- */
+.auth-buttons {
+    display: flex;
+    gap: 15px; /* Khoảng cách giữa 2 nút */
+}
+
+.btn {
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 8px; /* Bo tròn góc */
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'Crimson Pro', serif;
+    transition: all 0.3s ease;
+    border: 2px solid transparent; /* Định hình viền trước để không bị nhảy layout */
+}
+.btn-outline {
+    background-color: white;
+    color: #000;
+    border-color: #000;
+}
+
+.btn-outline:hover {
+    background-color: #000;
+    color: white;
+}
+
+/* --- Cài đặt chung cho Footer --- */
+.footer {
+    background-color: #000000; 
+    color: #b0b0b0; 
+    padding: 60px 0 20px; /* Khoảng cách trên dưới */
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr; /* Chia 4 cột, cột đầu rộng hơn chút */
+    gap: 40px; /* Khoảng cách giữa các cột */
+    padding: 0 20px;
+    margin-bottom: 40px;
+}
+
+/* --- Style cho Tiêu đề cột  --- */
+.footer h3 {
+    color: #ffffff;
+    font-family: 'Crimson Pro', serif;
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: left;
+}
+
+/* --- Style cho  LOGO --- */
+.f-logo {
+    display: flex; /* Khung bao vừa khít nội dung chữ */
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    height: 100px;
+    width: 200px;
+  background-image: url('../image/logo1.png');
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-position: 70px 20px;
+    Background-color: transparent;
+
+}
+
+/* --- Chữ MeTrip --- */
+.f-logo p {
+    font-family: 'Crimson Pro', serif; 
+    font-size: 29px; 
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.footer-desc {
+    max-width: 300px; /* Giới hạn độ rộng đoạn văn */
+    margin-top: -20px;
+    text-align: justify;
+}
+
+/* --- Style cho Danh sách liên kết --- */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #b0b0b0;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ffffff; /* Hover vào sáng lên */
+    text-decoration: underline;
+}
+
+/* --- Style cho Mạng xã hội & Liên hệ --- */
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.social-link {
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 50%; /* Hình tròn */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    transition: transform 0.3s;
+}
+
+/* Màu nền cho facebook */
+.social-link.facebook {
+    background-color: #1877f2;
+    color: #fff;
+}
+
+.social-link:hover {
+    transform: translateY(-3px); /* Nhảy nhẹ lên khi hover */
+}
+
+.contact-info p {
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.contact-info a {
+    color: #b0b0b0;
+    text-decoration: underline;
+}
+
+.highlight {
+    color: #fff;
+    font-weight: bold;
+}
+
+/* --- Dòng bản quyền cuối cùng --- */
+.footer-bottom {
+    border-top: 1px solid #333; /* Đường kẻ mờ ngăn cách */
+    text-align: center;
+    padding-top: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #666;
+}
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* USER SECTION STYLES */
+.user-section {
+    display: flex;
+    align-items: center;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Avatar và Dropdown */
+.user-avatar-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.avatar-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 24px;
+    transition: background-color 0.3s ease;
+}
+
+.avatar-wrapper:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+}
+
+.avatar-wrapper .arrow {
+    font-size: 20px;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.avatar-wrapper.active .arrow {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 280px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    padding: 16px 0;
+    margin-top: 10px;
+    border: 1px solid #f0f0f0;
+}
+
+.dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-info {
+    padding: 0 16px 12px;
+    margin-bottom: 8px;
+}
+
+.user-info img {
+    border-color: #D4AF37 !important;
+}
+
+.user-name {
+    font-weight: 700;
+    font-size: 16px;
+    color: #1a202c;
+}
+
+.user-email {
+    font-size: 13px;
+    color: #718096;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: #f1f1f1;
+    margin: 12px 0;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    border-radius: 8px;
+    margin: 0 8px;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Khoảng cách giữa các icon và text */
+.dropdown-item .flex.items-center.gap-3 {
+    gap: 12px;
+}
+
+/* Các icon circle */
+.dropdown-item .w-8.h-8.rounded-full {
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.dropdown-item:hover .w-8.h-8.rounded-full {
+    transform: scale(1.1);
+}
+
+/* Logout button */
+.dropdown-item.hover\:bg-red-50:hover {
+    background-color: #fee2e2 !important;
+}
+
+/* Arrow animation */
+.avatar-wrapper.active .arrow {
+    transform: rotate(180deg);
+    color: #D4AF37;
+}
+
+/* Header khi scroll */
+.header-scrolled .user-avatar {
+    border-color: #333;
+}
+
+.header-scrolled .avatar-wrapper .arrow {
+    color: #333;
+}
+
+.header-scrolled .avatar-wrapper:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}

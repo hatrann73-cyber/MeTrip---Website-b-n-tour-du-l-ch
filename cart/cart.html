@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeTrip - Giỏ hàng</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Crimson+Pro:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <link rel="stylesheet" href="../css/hfstyle.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { luxury: { gold: '#D4AF37', navy: '#0F2A47', charcoal: '#2C3E50' } },
+                    fontFamily: { 'body': ['Poppins', 'sans-serif'], 'heading': ['Crimson Pro', 'serif'] },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="font-body bg-gray-50">
+    <header class="header">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><p>MeTrip</p></a>
+            <nav class="main-nav">
+            <a href="../index.html">TRANG CHỦ</a>
+            <a href="../Contact/Contact.html">LIÊN HỆ</a>
+            <a href="../Gioithieu/gt.html">GIỚI THIỆU</a>
+            <a href="../Blog/Blog.html">BLOG</a>
+            <a href="../cart/cart.html"class="font-heading active">GIỎ HÀNG</a>
+
+            </nav>
+            <div class="auth-buttons">
+                <a href="../Signup/signup.html" class="btn btn-outline">Sign Up</a>
+                <a href="../login/login.html" class="btn btn-outline">Login</a>
+            </div>
+        </div>
+    </header>
+
+  <section class="relative h-[220px] md:h-[300px] flex items-center justify-center overflow-hidden bg-luxury-navy text-center px-4">
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_#D4AF37_0%,_transparent_70%)]"></div>
+    </div>
+
+    <div class="relative z-10 animate-fade-in max-w-5xl mx-auto">
+        
+        <div class="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-gradient-to-r from-[#E2B74B] to-[#D4A017] shadow-lg mb-6">
+            <i class="fa-solid fa-cart-shopping text-luxury-navy text-sm"></i>
+            <span class="text-luxury-navy text-[10px] md:text-[11px] font-bold uppercase tracking-wider">Hành trình của bạn</span>
+        </div>
+
+        <div class="mb-4">
+            <h1 class="font-heading text-white text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-none">
+                VIỆT NAM <span class="text-luxury-gold uppercase tracking-widest ml-2">HÀNH TRÌNH VÀNG</span>
+            </h1>
+        </div>
+        
+        <p class="text-gray-300 text-xs md:text-sm max-w-xl mx-auto font-light leading-relaxed opacity-80">
+            Chỉ còn một bước nữa để bắt đầu chuyến đi tuyệt vời.
+        </p>
+    </div>
+</section>
+
+   <main class="py-16 -mt-10 relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-12 animate-fade-in flex flex-col md:flex-row md:items-end justify-between gap-6 border-b pb-8">
+            <div>
+                <h1 class="font-heading text-4xl md:text-5xl font-bold text-luxury-navy mb-4">Giỏ hàng của bạn</h1>
+                <div class="w-20 h-1 bg-luxury-gold"></div>
+            </div>
+            
+            <!-- Thêm thanh tìm kiếm -->
+            <div class="flex flex-col md:flex-row items-center gap-4">
+                <div class="relative w-full md:w-auto">
+                    <div class="relative flex items-center">
+                        <i class="fa-solid fa-search absolute left-4 text-gray-400"></i>
+                        <input 
+                            type="text" 
+                            id="search-input" 
+                            placeholder="Tìm kiếm tour trong giỏ hàng..." 
+                            class="pl-12 pr-4 py-3 bg-white rounded-2xl border border-gray-200 focus:ring-luxury-gold focus:border-luxury-gold w-full md:w-64 text-sm placeholder-gray-400"
+                            onkeyup="searchCartItems()"
+                        >
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-3 bg-white px-6 py-3 rounded-2xl shadow-sm border border-gray-100">
+                    <input type="checkbox" id="select-all" onclick="toggleSelectAll(this)" class="w-5 h-5 rounded border-gray-300 text-luxury-gold focus:ring-luxury-gold cursor-pointer">
+                    <label for="select-all" class="font-heading text-sm font-bold text-luxury-navy uppercase tracking-wider cursor-pointer">
+                        Chọn tất cả
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            <div class="lg:col-span-8 space-y-6">
+                <div id="cart-items-list" class="space-y-6"></div>
+
+                <div class="mt-8 bg-[#FFF9EA] rounded-3xl p-8 border border-luxury-gold/10 animate-slide-up">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
+                            <i class="fa-regular fa-comment-dots text-luxury-gold text-lg"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-luxury-navy">Bạn cần hỗ trợ?</h3>
+                    </div>
+                    
+                    <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+                        Đội ngũ của chúng tôi sẵn sàng hỗ trợ bạn 24/7
+                    </p>
+                    
+                    <a href="tel:1900580801" class="flex items-center gap-3 group">
+                        <div class="w-8 h-8 flex items-center justify-center">
+                            <i class="fa-solid fa-phone text-luxury-gold text-xl animate-pulse"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-luxury-gold group-hover:underline decoration-2 underline-offset-4">
+                            1900 580 801
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-4">
+                <div class="bg-white rounded-3xl p-8 shadow-sm sticky top-32 border border-gray-100 animate-slide-up">
+                    <h2 class="font-heading text-2xl font-bold text-luxury-navy mb-6">Xác nhận đặt tour</h2>
+                    
+                    <div class="mb-6">
+                      <label class="text-[10px] font-body font-bold uppercase text-gray-400 mb-2 block tracking-widest">
+    Mã ưu đãi (Voucher)
+</label>
+                        <div class="flex gap-2">
+                            <input type="text" id="voucher-input" placeholder="Ví dụ: METRIPVIP" class="flex-1 bg-gray-50 border-gray-200 rounded-xl text-sm focus:ring-luxury-gold focus:border-luxury-gold">
+                            <button onclick="applyVoucher()" 
+    class="bg-luxury-navy text-white px-4 py-2 rounded-xl text-sm font-heading font-bold hover:bg-luxury-gold transition-colors tracking-wider">
+    ÁP DỤNG
+</button>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 border-b border-gray-100 pb-6 mb-6">
+                        <div class="flex justify-between text-gray-500 text-sm">
+                            <span>Tạm tính</span>
+                            <span id="subtotal" class="font-bold text-luxury-navy">0₫</span>
+                        </div>
+                        <div class="flex justify-between text-gray-500 text-sm">
+                            <span>Giảm giá Voucher</span>
+                            <span id="discount-amount" class="font-bold text-green-600">-0₫</span>
+                        </div>
+                        <div class="flex justify-between text-gray-500 text-sm">
+                            <span>Thuế (VAT 10%)</span>
+                            <span id="tax-amount" class="font-bold text-luxury-navy">0₫</span>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center mb-8">
+                        <span class="font-heading text-xl font-bold uppercase">Tổng cộng</span>
+                        <span id="final-total" class="font-heading text-3xl font-black text-luxury-gold">0₫</span>
+                    </div>
+
+                    <button id="checkout-btn" 
+    onclick="handleCheckout()"
+    class="w-full py-5 bg-luxury-navy text-white rounded-2xl uppercase font-heading font-bold tracking-widest hover:bg-luxury-gold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg">
+    XÁC NHẬN ĐẶT TOUR (0)
+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+   <script>
+        let currentDiscount = 0;
+        let allCartItems = []; // Lưu tất cả item để tìm kiếm
+
+        function renderCart(cartToRender = null) {
+            let cart = cartToRender || JSON.parse(localStorage.getItem('cart')) || [];
+            allCartItems = [...cart]; // Lưu tất cả item
+            
+            const container = document.getElementById('cart-items-list');
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="bg-white rounded-[40px] p-16 md:p-24 text-center border border-dashed border-gray-200 shadow-sm animate-fade-in lg:col-span-8">
+                        <div class="mb-8 relative inline-block">
+                            <div class="w-32 h-32 bg-luxury-gold/10 rounded-full flex items-center justify-center mx-auto">
+                                <i class="fa-solid fa-map-location-dot text-6xl text-luxury-gold animate-bounce-slow"></i>
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-white shadow-md rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-suitcase-rolling text-luxury-navy text-sm"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-heading text-2xl md:text-3xl font-bold text-luxury-navy mb-4">${cartToRender ? 'Không tìm thấy tour phù hợp' : 'Giỏ hàng của bạn đang trống'}</h3>
+                        <p class="text-gray-500 mb-10 max-w-sm mx-auto leading-relaxed">${cartToRender ? 'Hãy thử tìm kiếm với từ khóa khác.' : 'Hãy bắt đầu hành trình khám phá Việt Nam của riêng bạn cùng MeTrip.'}</p>
+                        ${!cartToRender ? `<a href="../index.html" class="inline-flex items-center gap-3 px-10 py-4 bg-luxury-navy text-white font-bold rounded-full hover:bg-luxury-gold transition-all duration-300 transform hover:scale-105 shadow-lg tracking-widest text-sm">
+                            KHÁM PHÁ TOUR <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>` : ''}
+                    </div>`;
+                updateTotals([]);
+                return;
+            }
+
+            let html = '';
+            cart.forEach((item, index) => {
+                const isSelected = item.selected ? 'checked' : '';
+                html += `
+                <div class="bg-white rounded-2xl p-6 shadow-sm border ${item.selected ? 'border-luxury-gold ring-1 ring-luxury-gold' : 'border-gray-50'} flex flex-col md:flex-row gap-6 animate-slide-up relative group">
+                    <div class="flex items-center">
+                        <input type="checkbox" ${isSelected} onclick="toggleItemSelection(${index})" class="w-6 h-6 rounded-full border-gray-300 text-luxury-gold focus:ring-luxury-gold cursor-pointer transition-transform hover:scale-110">
+                    </div>
+                    <div class="w-full md:w-52 h-40 shrink-0 overflow-hidden rounded-2xl shadow-inner bg-gray-100">
+                      <img src="../${item.img}" 
+     class="w-full h-full object-cover"
+     onerror="this.src='https://via.placeholder.com/400x300'">
+
+                    </div>
+                    <div class="flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="font-heading text-2xl font-bold text-luxury-navy mb-1">${item.name}</h3>
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <span class="px-2 py-0.5 bg-luxury-gold/10 text-luxury-gold text-[10px] font-bold rounded uppercase tracking-wider">${item.type || 'Luxury Stay'}</span>
+                                        <span class="text-gray-300">|</span>
+                                        <span class="text-gray-500 text-xs flex items-center gap-1"><span class="material-icons text-sm">event</span> ${item.date || 'Linh hoạt'}</span>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-heading text-2xl font-black text-luxury-gold">${(item.price * item.quantity).toLocaleString()}₫</p>
+                                    <p class="text-[10px] text-gray-400 uppercase tracking-tighter">Giá trọn gói</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center pt-6 border-t border-gray-50">
+                            <button onclick="removeItem(${index})" class="flex items-center gap-2 text-gray-400 hover:text-red-500 transition-colors">
+                                <span class="material-icons text-sm">delete</span> <span class="text-[10px] font-bold uppercase">Xóa bỏ</span>
+                            </button>
+                            <div class="flex items-center bg-gray-100 rounded-xl p-1 border border-gray-200">
+                                <button onclick="updateQty(${index}, -1)" class="w-8 h-8 flex items-center justify-center rounded-lg bg-white shadow-sm text-gray-500 hover:text-luxury-gold transition-colors">-</button>
+                                <span class="px-4 text-sm font-bold text-luxury-navy">${item.quantity}</span>
+                                <button onclick="updateQty(${index}, 1)" class="w-8 h-8 flex items-center justify-center rounded-lg bg-white shadow-sm text-gray-500 hover:text-luxury-gold transition-colors">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            });
+            container.innerHTML = html;
+            updateTotals(cart);
+            checkSelectAllStatus(cart);
+        }
+
+        function updateTotals(cart) {
+            const selectedItems = cart.filter(item => item.selected);
+            const subtotal = selectedItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const tax = subtotal * 0.1;
+            const finalTotal = subtotal + tax - currentDiscount;
+            const safeTotal = finalTotal < 0 ? 0 : finalTotal;
+
+            document.getElementById('subtotal').innerText = subtotal.toLocaleString() + '₫';
+            document.getElementById('tax-amount').innerText = tax.toLocaleString() + '₫';
+            document.getElementById('discount-amount').innerText = '-' + currentDiscount.toLocaleString() + '₫';
+            document.getElementById('final-total').innerText = safeTotal.toLocaleString() + '₫';
+            
+            // Cập nhật nút với số lượng tour được chọn
+    const btn = document.getElementById('checkout-btn');
+    btn.innerHTML = `XÁC NHẬN ĐẶT TOUR (${selectedItems.length})`;
+    btn.disabled = selectedItems.length === 0;
+        }
+
+        // Hàm tìm kiếm tour trong giỏ hàng
+        function searchCartItems() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+            const originalCart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            if (searchTerm === '') {
+                renderCart(originalCart);
+                return;
+            }
+            
+            const filteredCart = originalCart.filter(item => 
+                item.name.toLowerCase().includes(searchTerm) ||
+                (item.type && item.type.toLowerCase().includes(searchTerm)) ||
+                (item.date && item.date.toLowerCase().includes(searchTerm))
+            );
+            
+            renderCart(filteredCart);
+        }
+window.handleCheckout = () => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const selectedItems = cart.filter(item => item.selected);
+    
+    if (selectedItems.length === 0) {
+        alert("Vui lòng chọn ít nhất một tour để thanh toán!");
+        return;
+    }
+    
+    if (!isLoggedIn) {
+        alert("Vui lòng đăng nhập để hoàn tất quá trình đặt tour!");
+        sessionStorage.setItem('redirectAfterLogin', window.location.href);
+        window.location.href = '../login/login.html'; 
+    } else {
+        // Chuyển đến trang thanh toán
+        window.location.href = '../payment/payment.html';
+    }
+};
+
+        window.applyVoucher = () => {
+    const code = document.getElementById('voucher-input').value.trim().toUpperCase();
+    
+    // 1. Lấy thông tin đăng nhập từ localStorage
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const userRole = localStorage.getItem('userRole') || 'guest'; // 'loyal', 'new', hoặc 'guest'
+
+    // 2. Tính toán tạm tính để tính % giảm giá
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const selectedItems = cart.filter(item => item.selected);
+    const subtotal = selectedItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+    if (selectedItems.length === 0) {
+        alert("Vui lòng chọn tour trong giỏ hàng trước khi áp dụng mã!");
+        return;
+    }
+
+    // 3. Xử lý các điều kiện mã
+    if (code === "BANKING111") {
+        currentDiscount = subtotal * 0.08; // Giảm 8%
+        alert("Thanh toán qua ngân hàng: Giảm 8% thành công!");
+    } 
+    else if (code === "SUMMER22") {
+        currentDiscount = subtotal * 0.10; // Giảm 10%
+        alert("Ưu đãi mùa hè: Giảm 10% thành công!");
+    } 
+    else if (code === "LOYAL11") {
+        if (!isLoggedIn) {
+            alert("Vui lòng đăng nhập để sử dụng mã Khách hàng thân thiết!");
+            return; // Thoát hàm, không cho áp dụng
+        }
+        if (userRole === "loyal") {
+            currentDiscount = subtotal * 0.11; // Giảm 11% (theo tên mã)
+            alert("Chào mừng khách quen! Bạn được giảm 11%");
+        } else {
+            alert("Mã này chỉ dành cho hạng thành viên Thân thiết.");
+            currentDiscount = 0;
+        }
+    } 
+    else if (code === "NEWFRIENDS") {
+        if (!isLoggedIn) {
+            alert("Vui lòng đăng nhập để sử dụng mã Bạn mới!");
+            return;
+        }
+        if (userRole === "new") {
+            currentDiscount = 100000; // Giảm cố định 100k (hoặc tùy bạn chỉnh)
+            alert("Chào bạn mới! Giảm ngay 100.000₫ cho đơn đầu tiên.");
+        } else {
+            alert("Mã này chỉ dành cho tài khoản mới chưa từng đặt tour.");
+            currentDiscount = 0;
+        }
+    } 
+    else {
+        currentDiscount = 0;
+        if (code !== "") alert("Mã giảm giá không hợp lệ hoặc đã hết hạn.");
+    }
+
+    renderCart(); // Cập nhật lại giao diện và tổng tiền
+};
+
+        window.toggleItemSelection = (index) => {
+            let cart = JSON.parse(localStorage.getItem('cart'));
+            cart[index].selected = !cart[index].selected;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        };
+
+        window.toggleSelectAll = (checkbox) => {
+            let cart = JSON.parse(localStorage.getItem('cart'));
+            cart.forEach(item => item.selected = checkbox.checked);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        };
+
+        function checkSelectAllStatus(cart) {
+            const selectAllBtn = document.getElementById('select-all');
+            if(selectAllBtn) selectAllBtn.checked = cart.length > 0 && cart.every(item => item.selected);
+        }
+
+        window.updateQty = (index, delta) => {
+            let cart = JSON.parse(localStorage.getItem('cart'));
+            cart[index].quantity += delta;
+            if (cart[index].quantity < 1) cart[index].quantity = 1;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        };
+
+        window.removeItem = (index) => {
+            let cart = JSON.parse(localStorage.getItem('cart'));
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCart();
+            
+            // Thêm sự kiện Enter để tìm kiếm
+            document.getElementById('search-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchCartItems();
+                }
+            });
+        });
+    </script>
+<footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="#" class="f-logo">
+                    <p>MeTrip</p>
+                </a>
+                <p class="footer-desc">
+                    Trải nghiệm khám phá Việt Nam tuyệt vời dành cho người trẻ thích du lịch, khám phá, kết nối và tạo kỷ niệm.
+                </p>
+            </div>
+
+             <div>
+            <h3>Liên kết</h3>
+            <ul class="footer-links">
+                <li><a href="../Gioithieu/gt.html">Giới Thiệu</a> </li>
+                <li><a href="../index.html">Trang chủ</a></li>
+                <li><a href="../Blog/Blog.html">Blog</a></li>
+                <li><a href="../Contact/Contact.html">Liên hệ</a></li>
+            </ul>
+        </div>
+
+          <div class="footer-col">
+    <h3>Hỗ Trợ</h3>
+    <ul class="footer-links">
+        <li><a href="../FAQ/FAQ.html#popular">Câu hỏi phổ biến</a></li>
+        <li><a href="../FAQ/FAQ.html#booking">Đặt tour & thanh toán</a></li>
+        <li><a href="../FAQ/FAQ.html#exclusive">Dịch vụ độc quyền</a></li>
+        <li><a href="../FAQ/FAQ.html#cancel">Huỷ và đổi lịch</a></li>
+    </ul>
+</div>
+
+            <div class="footer-col">
+                <h3>Theo dõi</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="social-link facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div class="contact-info">
+                    <p>Email: <a href="mailto:metrip@gmail.com">metrip@gmail.com</a></p>
+                    <p>Hotline: <span class="highlight">1900 580 801</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>2025 MeTrip. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+</body>
+</html>

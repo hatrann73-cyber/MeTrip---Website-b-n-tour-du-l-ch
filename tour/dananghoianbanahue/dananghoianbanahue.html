@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeTrip - Hành Trình Di Sản Miền Trung: Đà Nẵng – Hội An – Huế</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <!-- Header Footer CSS -->
+    <link rel="stylesheet" href="../../css/hfstyle.css">
+ <link rel="stylesheet" href="dananghoianbanahuestyle.css">
+
+</head>
+<body class="page">
+
+    <!-- Header  -->
+    <header class="header">
+    <div class="nav-container">
+        <a href="#" class="logo">
+            <p>MeTrip</p>
+        </a>
+
+         <nav class="main-nav">
+    <a href="../../index.html">TRANG CHỦ</a>
+                <a href="../../Contact/Contact.html">LIÊN HỆ</a>
+                <a href="../../Gioithieu/gt.html">GIỚI THIỆU</a>
+                <a href="../../Blog/Blog.html">BLOG</a>
+                <a href="../../cart/cart.html">GIỎ HÀNG</a>
+            </nav>
+
+            <div class="auth-buttons">
+                  <a href="../../Signup/signup.html" class="btn btn-outline">Sign Up</a>
+    <a href="../../login/login.html" class="btn btn-outline">Login</a>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Tour Header -->
+            <div class="tour-header">
+                <h1 class="tour-title font-heading text-4xl md:text-5xl font-bold">Hành Trình Di Sản Miền Trung: Đà Nẵng – Hội An – Huế</h1>
+                <p class="tour-desc font-body text-gray-600 leading-relaxed">Đà Nẵng năng động với những cây cầu lung linh, Hội An cổ kính rực rỡ đèn lồng, Bà Nà Hills mờ sương huyền ảo và Huế thơ mộng bên sông Hương.</p>
+
+                <div class="tour-info">
+                    <div class="info-item"><span class="material-symbols-outlined">location_on</span><span>Đà Nẵng, Hội An, Huế</span></div>
+                    <div class="info-item"><span class="material-symbols-outlined">groups</span><span>Tối đa 25 người</span></div>
+                    <div class="info-item"><span class="material-symbols-outlined">schedule</span><span>3 ngày 2 đêm</span></div>
+                    <div class="info-item"><span class="material-symbols-outlined">calendar_month</span><span>Khởi hành hàng tuần</span></div>
+                </div>
+
+                <div class="rating">
+                    <div class="stars">
+                        <span class="material-symbols-outlined filled">star</span>
+                        <span class="material-symbols-outlined filled">star</span>
+                        <span class="material-symbols-outlined filled">star</span>
+                        <span class="material-symbols-outlined filled">star</span>
+                        <span class="material-symbols-outlined half-filled">star_half</span>
+                    </div>
+                    <span class="rating-score">4.7/5</span>
+                    <span class="rating-count">(163 đánh giá)</span>
+                </div>
+            </div>
+
+            <!-- Gallery -->
+    <div class="tour-details-layout">
+            <!-- Main Column -->
+            <div class="main-column">
+                <!-- Gallery -->
+                <div class="image-gallery">
+                    <div class="main-image">
+                     <img src="dai-noi-hue-1.jpg" alt="Đại Nội Huế" data-index="0">
+                    </div>
+                    <div class="thumbnail-images">
+                        <div class="thumbnail">
+                              <img src="dothicohoian.jpg" alt="Đô thị cổ Hội An" data-index="1">
+
+                        </div>
+                        <div class="thumbnail">
+                        <img src="Nghe-ca-Hue-tren-song-Huong.jpg" alt="Ca Huế trên sông Hương" data-index="2">
+
+                        </div>
+                            <div class="thumbnail">
+                        <img src="banahill.jpg" alt= Bà Nà Hill" data-index="2">
+
+                        </div>
+                  
+                    </div>
+                </div>
+
+
+ 
+
+            <!-- Nội dung chi tiết -->
+            <div class="tour-layout">
+                <div class="tour-content">
+                    <!-- Mô tả Tour -->
+                    <section class="section">
+                        <h2 class="section-title font-heading text-2xl md:text-3xl font-bold">Mô tả Tour</h2>
+                        <div class="feature-list">
+                            <p class="font-body text-gray-600 leading-relaxed">Tour Đà Nẵng – Hội An – Bà Nà Hills – Huế 3 ngày 2 đêm sẽ đưa bạn check-in những spot hot nhất, từ Cầu Vàng iconic đến phố cổ đêm lung linh, phù hợp cho hội bạn trẻ thích chụp ảnh và trải nghiệm mới mẻ.</p>
+                            <p class="font-body text-gray-600 leading-relaxed mt-4">Nếu bạn đang tìm chuyến đi vừa thư giãn bên biển, vừa phiêu lưu trên núi, vừa có góc sống ảo đẹp mê thì đây chính là lựa chọn hoàn hảo. Hãy cùng khởi hành và lưu giữ những khoảnh khắc đáng nhớ nhé!</p>
+                        </div>
+                    </section>
+
+                    <!-- Điểm nổi bật -->
+                    <section class="section">
+                        <h2 class="section-title font-heading text-2xl md:text-3xl font-bold">Điểm Nổi Bật</h2>
+                        <div class="highlight-cards">
+                            <div class="highlight-card">
+                                <h3 class="font-heading text-xl font-bold">1. Bán đảo Sơn Trà – Lá phổi xanh của Đà Nẵng</h3>
+                                <p class="font-body text-gray-600">Ngắm toàn cảnh thành phố biển từ trên cao, viếng Linh Ứng Tự với tượng Phật Bà 67m – biểu tượng tâm linh nổi tiếng của miền Trung.</p>
+                            </div>
+
+                            <div class="highlight-card">
+                                <h3 class="font-heading text-xl font-bold">2. Phố cổ Hội An – Di sản văn hóa thế giới</h3>
+                                <p class="font-body text-gray-600">Dạo bước phố cổ lung linh đèn lồng, tham quan Chùa Cầu Nhật Bản và thưởng thức Hát Bài Chòi – nét văn hóa dân gian đặc sắc xứ Quảng.</p>
+                            </div>
+
+                            <div class="highlight-card">
+                                <h3 class="font-heading text-xl font-bold">3. Bà Nà Hills – Cầu Vàng kỳ quan thế giới</h3>
+                                <p class="font-body text-gray-600">Trải nghiệm cáp treo đạt kỷ lục thế giới, check-in Cầu Vàng nổi tiếng, khám phá Làng Pháp và khu vui chơi Fantasy Park.</p>
+                            </div>
+
+                            <div class="highlight-card">
+                                <h3 class="font-heading text-xl font-bold">4. Cố đô Huế – Hành trình về miền di sản</h3>
+                                <p class="font-body text-gray-600">Tham quan Đại Nội Huế, chùa Thiên Mụ cổ kính và làng hương Thủy Xuân – nơi lưu giữ tinh hoa văn hóa cố đô.</p>
+                            </div>
+
+                            <div class="highlight-card">
+                                <h3 class="font-heading text-xl font-bold">5. Ca Huế trên sông Hương – Trải nghiệm tinh tế về đêm</h3>
+                                <p class="font-body text-gray-600">Thưởng thức Ca Huế truyền thống trên thuyền rồng, ngắm cầu Tràng Tiền lung linh – nét đẹp lãng mạn rất riêng của xứ Huế.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Lịch trình chi tiết -->
+                    <section class="section">
+                        <h2 class="section-title font-heading text-2xl md:text-3xl font-bold">Lịch trình chi tiết</h2>
+                        <div class="schedule">
+                            <!-- Ngày 1 -->
+                            <div class="schedule-item active">
+                                <div class="schedule-header">
+                                    <div class="day-info">
+                                        <span class="calendar-icon material-symbols-outlined">calendar_today</span>
+                                        <span>NGÀY 1: ĐÀ NẴNG – SƠN TRÀ – NGŨ HÀNH SƠN – HỘI AN</span>
+                                    </div>
+                                    <span class="arrow material-symbols-outlined">expand_more</span>
+                                </div>
+                                <div class="schedule-content">
+                                    <p class="font-body">08:00: Đón khách tại Đà Nẵng, khởi hành tham quan Bán đảo Sơn Trà</p>
+                                    <p class="font-body">09:00: Viếng Linh Ứng Tự – tượng Phật Bà 67m</p>
+                                    <p class="font-body">10:30: Tham quan Công viên Kỳ quan Thế giới Đà Nẵng</p>
+                                    <p class="font-body">12:00: Ăn trưa tại nhà hàng Đà Nẵng</p>
+                                    <p class="font-body">13:30: Tham quan Ngũ Hành Sơn – làng đá mỹ nghệ Non Nước</p>
+                                    <p class="font-body">15:00: Chinh phục Thủy Sơn, tham quan chùa Linh Ứng cổ</p>
+                                    <p class="font-body">16:30: Di chuyển vào phố cổ Hội An</p>
+                                    <p class="font-body">17:30: Tham quan Chùa Cầu Nhật Bản, phố cổ Hội An</p>
+                                    <p class="font-body">18:30: Ăn tối đặc sản Hội An (Cao lầu, cơm gà)</p>
+                                    <p class="font-body">19:30: Ngắm phố cổ Hội An về đêm, thưởng thức Hát Bài Chòi</p>
+                                    <p class="font-body">21:00: Về lại Đà Nẵng, tự do khám phá thành phố biển</p>
+                                </div>
+                            </div>
+
+                            <!-- Ngày 2 -->
+                            <div class="schedule-item">
+                                <div class="schedule-header">
+                                    <div class="day-info">
+                                        <span class="calendar-icon material-symbols-outlined">calendar_today</span>
+                                        <span>NGÀY 2: BÀ NÀ HILLS – HUẾ – CA HUẾ SÔNG HƯƠNG</span>
+                                    </div>
+                                    <span class="arrow material-symbols-outlined">expand_more</span>
+                                </div>
+                                <div class="schedule-content">   
+                                    <p class="font-body">07:00: Ăn sáng, trả phòng khách sạn</p>
+                                    <p class="font-body">08:00: Khởi hành đi Sun World Bà Nà Hills (option tự túc)</p>
+                                    <p class="font-body">09:30: Tham quan Cầu Vàng, Làng Pháp, Fantasy Park</p>
+                                    <p class="font-body">12:00: Ăn trưa buffet tại Bà Nà (option)</p>
+                                    <p class="font-body">14:30: Rời Bà Nà, khởi hành đi Huế qua hầm Hải Vân</p>
+                                    <p class="font-body">16:00: Dừng chân làng chài Lăng Cô chụp hình</p>
+                                    <p class="font-body">17:30: Đến Huế, nhận phòng khách sạn nghỉ ngơi</p>
+                                    <p class="font-body">18:30: Ăn tối đặc sản Huế</p>
+                                    <p class="font-body">19:30: Thưởng thức Ca Huế trên sông Hương, ngắm cầu Tràng Tiền</p>
+                                </div>
+                            </div>
+
+                            <!-- Ngày 3 -->
+                            <div class="schedule-item">
+                                <div class="schedule-header">
+                                    <div class="day-info">
+                                        <span class="calendar-icon material-symbols-outlined">calendar_today</span>
+                                        <span>NGÀY 3: ĐẠI NỘI – CHÙA THIÊN MỤ – LÀNG HƯƠNG</span>
+                                    </div>
+                                    <span class="arrow material-symbols-outlined">expand_more</span>
+                                </div>
+                                <div class="schedule-content">
+                                    <p class="font-body">07:00: Ăn sáng, trả phòng khách sạn</p>
+                                    <p class="font-body">08:00: Tham quan Đại Nội Huế – Hoàng Thành triều Nguyễn</p>
+                                    <p class="font-body">10:30: Tham quan Điện Kiến Trung và các công trình cung đình</p>
+                                    <p class="font-body">11:30: Viếng Chùa Thiên Mụ cổ kính</p>
+                                    <p class="font-body">12:30: Ăn trưa tại nhà hàng Huế</p>
+                                    <p class="font-body">14:00: Tham quan Làng Hương Thủy Xuân, check-in làng nghề truyền thống</p>
+                                    <p class="font-body">15:30: Tiễn khách ra sân bay Huế (sau 14h30)</p>
+                                    <p class="font-body">17:00: Tiễn khách ra sân bay Đà Nẵng (sau 17h00)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- Sidebar Booking -->
+                <aside class="booking-sidebar">
+                    <div class="booking-card">
+                        <!-- Giá vé -->
+                        <div class="price">
+                            <p class="price-label font-body">Giá mỗi khách hàng</p>
+                            <div class="price-item">
+                                <span class="amount font-heading">2.890.000 VNĐ</span>
+                            </div>
+                            <p class="price-note font-body">Giá trên đã bao gồm thuế và phí dịch vụ</p>
+                        </div>
+
+                        <!-- Ngày khởi hành -->
+                        <div class="form-group">
+                            <label class="font-heading">Ngày khởi hành</label>
+                            <div class="date-input-wrapper">
+                                <input type="text" id="start-date" placeholder="dd/mm/yyyy" class="font-body">
+                                <span class="material-symbols-outlined calendar-icon">calendar_month</span>
+                            </div>
+                        </div>
+
+                        <!-- Số lượng người -->
+                        <div class="form-group">
+                            <label class="quantity-label font-heading">Số lượng người tham gia</label>
+                            <div class="quantity-row">
+                                <div class="quantity-control">
+                                    <button type="button" onclick="changeQty('adult', -1)">−</button>
+                                    <span id="adult-qty" class="font-heading">2</span>
+                                    <button type="button" onclick="changeQty('adult', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Thông tin liên hệ -->
+                        <div class="contact-section">
+                            <h3 class="contact-title font-heading">Thông tin liên hệ</h3>
+                            <form class="contact-form">
+                                <div class="form-group">
+                                    <input type="text" name="name" placeholder="Họ và tên..." required class="font-body">
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" name="phone" placeholder="Số điện thoại..." required class="font-body">
+                                </div>
+                                <button type="button" class="btn-book" onclick="addTourToCart()">
+                                    <span class="material-symbols-outlined">shopping_cart</span>
+                                    <span class="font-heading">Đặt tour ngay</span>
+                                </button>
+                            </form>
+
+                            <div class="booking-note">
+                                <p class="font-body">Miễn phí hủy trong <strong>48 giờ</strong> trước khởi hành.</p>
+                                <p class="font-body">Hỗ trợ 24/7: <strong>1900 580 801</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- Trong tour bao gồm -->
+                        <div class="included-section">
+                            <h4 class="included-title font-heading">Trong tour bao gồm:</h4>
+                            <ul class="included-list">
+                                <li class="font-body"><span class="check-icon">✔</span> Xe tham quan (16, 29 theo số lượng)</li>
+                                <li class="font-body"><span class="check-icon">✔</span> Khách sạn 3 hoặc 4 sao</li>
+                                <li class="font-body"><span class="check-icon">✔</span> Vé tham quan theo chương trình</li>
+                                <li class="font-body"><span class="check-icon">✔</span> Ăn theo chương trình</li>
+                                <li class="font-body"><span class="check-icon">✔</span> Hướng dẫn viên tiếng Việt suốt tuyến</li>
+                                <li class="font-body"><span class="check-icon">✔</span> Bảo hiểm du lịch với 120.000.000đ/vụ</li>
+                                <li class="font-body"><span class="check-icon">✔</span> Thuế VAT</li>
+                            </ul>
+                        </div>
+
+                        <!-- Đánh giá -->
+                        <div class="reviews-section">
+                            <h4 class="reviews-title font-heading">Đánh giá của khách hàng</h4>
+
+                            <div class="review-card">
+                                <h5 class="font-heading">Chị Ngọc</h5>
+                                <p class="font-body">Tour tổ chức ổn, điểm tham quan đẹp, thời gian nghỉ ngơi vừa đủ. Ăn uống hợp khẩu vị. Nói chung là trải nghiệm rất ok.</p>
+                            </div>
+
+                            <div class="review-card">
+                                <h5 class="font-heading">Bạn Khánh</h5>
+                                <p class="font-body">Ban đầu hơi lo vì lịch trình khá dày, nhưng đi rồi thấy hợp lý, di chuyển thoải mái. Nhóm mình ai cũng hài lòng.</p>
+                            </div>
+                            
+                            <div class="review-card">
+                                <h5 class="font-heading">Anh Long</h5>
+                                <p class="font-body">Rất ưng cách sắp xếp lịch trình—không bị chạy show. Cảm giác đi chơi đúng nghĩa. Đáng thử</p>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (from hfstyle.css) -->
+   <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <a href="#" class="f-logo">
+                <p>MeTrip</p>
+            </a>
+            <p class="footer-desc">
+                Trải nghiệm khám phá Việt Nam tuyệt vời dành cho người trẻ thích du lịch, khám phá, kết nối và tạo kỷ niệm.
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Liên Kết</h3>
+            <ul class="footer-links">
+                <li><a href="#">Giới thiệu</a></li>
+                <li><a href="#">Danh sách tour</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Hỗ Trợ</h3>
+            <ul class="footer-links">
+  <li><a href="../../FAQ/FAQ.html#popular">Câu hỏi phổ biến</a></li>
+                        <li><a href="../../FAQ/FAQ.html#booking">Đặt tour & thanh toán</a></li>
+                        <li><a href="../../FAQ/FAQ.html#exclusive">Dịch vụ độc quyền</a></li>
+                        <li><a href="../../FAQ/FAQ.html#cancel">Huỷ và đổi lịch</a></li>
+
+
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Theo dõi</h3>
+            <div class="social-icons">
+                <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="social-link facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:metrip@gmail.com">metrip@gmail.com</a></p>
+                <p>Hotline: <span class="highlight">1900 580 801</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>2025 MeTrip. Tất cả quyền được bảo lưu.</p>
+    </div>
+</footer>
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/vn.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Khởi tạo flatpickr
+            flatpickr("#start-date", {
+                locale: "vn",
+                dateFormat: "d/m/Y",
+                minDate: "today"
+            });
+            
+            // Xử lý schedule items
+            const scheduleHeaders = document.querySelectorAll('.schedule-header');
+            scheduleHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const scheduleItem = this.parentElement;
+                    scheduleItem.classList.toggle('active');
+                });
+            });
+            
+            // Xử lý gallery
+            const thumbnails = document.querySelectorAll('.gallery-thumbs img');
+            const mainImage = document.querySelector('.gallery-main img');
+            const imageCounter = document.querySelector('.image-counter');
+            const zoomBtn = document.querySelector('.zoom-btn');
+            
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    const newSrc = this.getAttribute('src');
+                    const index = this.getAttribute('data-index');
+                    
+                    // Cập nhật ảnh chính
+                    mainImage.setAttribute('src', newSrc);
+                    mainImage.setAttribute('data-index', index);
+                    
+                    // Cập nhật counter
+                    imageCounter.textContent = `${parseInt(index) + 1}/4`;
+                    
+                    // Cập nhật active state
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Xử lý zoom button
+            zoomBtn.addEventListener('click', function() {
+                const currentImg = document.querySelector('.gallery-main img');
+                const imgSrc = currentImg.getAttribute('src');
+                
+                // Tạo lightbox đơn giản
+                const lightbox = document.createElement('div');
+                lightbox.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(15, 42, 71, 0.95);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 9999;
+                    cursor: pointer;
+                `;
+                
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    object-fit: contain;
+                    border: 3px solid var(--luxury-gold);
+                    border-radius: 8px;
+                `;
+                
+                lightbox.appendChild(img);
+                document.body.appendChild(lightbox);
+                
+                // Đóng lightbox khi click
+                lightbox.addEventListener('click', function() {
+                    document.body.removeChild(lightbox);
+                });
+            });
+            
+            // Thêm hiệu ứng cho gallery khi load
+            const galleryMain = document.querySelector('.gallery-main');
+            galleryMain.style.opacity = '0';
+            galleryMain.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                galleryMain.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                galleryMain.style.opacity = '1';
+                galleryMain.style.transform = 'translateY(0)';
+            }, 300);
+        });
+        
+        // Hàm thay đổi số lượng
+        function changeQty(type, delta) {
+            const qtyElement = document.getElementById('adult-qty');
+            if (!qtyElement) return;
+            
+            let currentQty = parseInt(qtyElement.textContent) || 1;
+            currentQty += delta;
+            
+            if (currentQty < 1) currentQty = 1;
+            if (currentQty > 10) currentQty = 10;
+            
+            qtyElement.textContent = currentQty;
+            updateTotalPrice();
+        }
+        
+        // Hàm cập nhật tổng tiền
+        function updateTotalPrice() {
+            const qtyElement = document.getElementById('adult-qty');
+            const priceElement = document.querySelector('.amount');
+            
+            if (!qtyElement || !priceElement) return;
+            
+            const quantity = parseInt(qtyElement.textContent) || 1;
+            const unitPrice = 2890000;
+            const totalPrice = quantity * unitPrice;
+            
+            priceElement.textContent = totalPrice.toLocaleString('vi-VN') + ' VNĐ';
+        }
+        
+        // Hàm thêm tour vào giỏ hàng
+        function addTourToCart() {
+            const nameInput = document.querySelector('input[name="name"]');
+            const phoneInput = document.querySelector('input[name="phone"]');
+            const dateInput = document.getElementById('start-date');
+            const qtyElement = document.getElementById('adult-qty');
+            
+            if (!nameInput || !nameInput.value) {
+                alert("Vui lòng nhập họ và tên!");
+                nameInput.focus();
+                return;
+            }
+            
+            if (!phoneInput || !phoneInput.value) {
+                alert("Vui lòng nhập số điện thoại!");
+                phoneInput.focus();
+                return;
+            }
+            
+            if (!dateInput || !dateInput.value) {
+                alert("Vui lòng chọn ngày khởi hành!");
+                return;
+            }
+            
+            const quantity = qtyElement ? parseInt(qtyElement.textContent) : 1;
+            
+            // Tạo đối tượng tour
+            const tourData = {
+                id: "dnhbh_" + Date.now(),
+                name: "Tour Miền Trung",
+                destination: "Đà Nẵng, Hội An, Huế",
+                type: "Bản sắc Văn Hóa",
+                price: 2890000,
+                quantity: quantity,
+                img: "image/home/hoian.jpg",
+                date: dateInput.value,
+                contactName: nameInput.value,
+                contactPhone: phoneInput.value,
+                selected: true
+            };
+            
+            // Lưu vào localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(tourData);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Hiển thị thông báo
+            alert("Tour đã được thêm vào giỏ hàng!\nSẽ chuyển đến trang giỏ hàng...");
+            
+            setTimeout(() => {
+                window.location.href = "../../Cart/Cart.html";
+            }, 1000);
+        }
+    </script>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <a href="#" class="f-logo">
+                <p>MeTrip</p>
+            </a>
+            <p class="footer-desc">
+                Trải nghiệm khám phá Việt Nam tuyệt vời dành cho người trẻ thích du lịch, khám phá, kết nối và tạo kỷ niệm.
+            </p>
+        </div>
+
+                   <div>
+            <h3>Liên kết</h3>
+            <ul class="footer-links">
+                <li><a href="../../Gioithieu/gt.html">Giới Thiệu</a> </li>
+                <li><a href="../../index.html">Trang chủ</a></li>
+                <li><a href="../../Blog/Blog.html">Blog</a></li>
+                <li><a href="../../Contact/Contact">Liên hệ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Hỗ Trợ</h3>
+            <ul class="footer-links">
+  <li><a href="../../FAQ/FAQ.html#popular">Câu hỏi phổ biến</a></li>
+                        <li><a href="../../FAQ/FAQ.html#booking">Đặt tour & thanh toán</a></li>
+                        <li><a href="../../FAQ/FAQ.html#exclusive">Dịch vụ độc quyền</a></li>
+                        <li><a href="../../FAQ/FAQ.html#cancel">Huỷ và đổi lịch</a></li>
+
+
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Theo dõi</h3>
+            <div class="social-icons">
+                <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="social-link facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:metrip@gmail.com">metrip@gmail.com</a></p>
+                <p>Hotline: <span class="highlight">1900 580 801</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>2025 MeTrip. Tất cả quyền được bảo lưu.</p>
+    </div>
+</footer>
+
+</body>
+</html>

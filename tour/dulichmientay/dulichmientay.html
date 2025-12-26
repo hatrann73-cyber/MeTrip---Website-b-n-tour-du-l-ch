@@ -1,0 +1,459 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeTrip - Du Lịch Miền Tây 3 Ngày 2 Đêm</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <!-- Header Footer CSS -->
+    <link rel="stylesheet" href="../../css/hfstyle.css">
+    <link rel="stylesheet" href="dulichmientaystyle.css">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Tour Miền Tây 3 ngày 2 đêm khám phá Cần Thơ, Cà Mau, Bạc Liêu. Trải nghiệm chợ nổi Cái Răng, Đất Mũi Cà Mau, du thuyền sông Hậu. Giá từ 2.750.000 VNĐ">
+    <meta name="keywords" content="du lịch miền tây, tour 3 ngày 2 đêm, cần thơ, cà mau, chợ nổi cái răng, đất mũi cà mau">
+    <meta property="og:title" content="Tour Du Lịch Miền Tây 3 Ngày 2 Đêm - MeTrip">
+    <meta property="og:description" content="Khám phá trọn vẹn miền Tây sông nước: Cần Thơ, Cà Mau, Bạc Liêu. Trải nghiệm độc đáo với giá ưu đãi">
+    <meta property="og:image" content="https://yourdomain.com/images/muicamau.jpg">
+    <meta property="og:url" content="https://yourdomain.com/tour/dulichmientay.html">
+
+</head>
+<body class="page">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <p>MeTrip</p>
+            </a>
+
+            <nav class="main-nav">
+                <a href="../../index.html">TRANG CHỦ</a>
+                <a href="../../Contact/Contact.html">LIÊN HỆ</a>
+                <a href="../../Gioithieu/gt.html">GIỚI THIỆU</a>
+                <a href="../../Blog/Blog.html">BLOG</a>
+                <a href="../../cart/cart.html">GIỎ HÀNG</a>
+            </nav>
+
+            <div class="auth-buttons">
+                <a href="../../Signup/signup.html" class="btn btn-outline">Sign Up</a>
+                <a href="../../login/login.html" class="btn btn-outline">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tour Title -->
+    <section class="tour-title">
+        <h1 class="font-heading text-4xl md:text-5xl font-bold">Du Lịch Miền Tây – Miền sông nước êm đềm</h1>
+        <p class="font-body text-gray-600 leading-relaxed">Hành trình 3 ngày 2 đêm khám phá vẻ đẹp trù phú, ẩm thực phong phú và văn hóa đặc sắc của miền Tây Nam Bộ.</p>
+
+        <div class="tour-info-icon">
+            <span><i class="fa-solid fa-location-dot"></i> Miền Tây (Cần Thơ, Cà Mau, Bạc Liêu)</span>
+            <span><i class="fa-solid fa-user-group"></i> Tối đa 30 người</span>
+            <span><i class="fa-solid fa-clock"></i> 3 ngày 2 đêm</span>
+            <span><i class="fa-regular fa-calendar-days"></i> Khởi hành hàng tuần</span>
+        </div>
+
+        <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>                     
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <span><b>4.8/5</b></span>
+            <span>(180 đánh giá)</span>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <div class="main-container container">
+        
+        <!-- Left Column -->
+        <div class="left-column">
+            <!-- Gallery -->
+            <div class="gallery">
+                <img id="mainImage" src="muicamau.jpg" class="main-img" onclick="openModal(this.src)">
+                <div class="thumbnail-wrapper">
+                    <div class="thumb-list">
+                                             <img src="chonoicairang.jpg" onclick="changeImage(this)">
+                        <img src="du_thuyen_can_tho_aa.jpg" onclick="changeImage(this)">
+                        <img src="Nha-Cong-tu-Bac-Lieu3.jpg" onclick="changeImage(this)">
+                        <img src="chonoicairang.jpg" onclick="changeImage(this)">
+                        <img src="culao.jpg" onclick="changeImage(this)">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modal -->
+            <div id="imageModal" class="modal" onclick="closeModal()">
+                <span class="close">&times;</span>
+                <img id="modalImage" class="modal-content">
+            </div>
+
+            <!-- Description -->
+            <h2 class="section-title font-heading text-2xl md:text-3xl font-bold">Mô tả Tour</h2>
+            <p class="description font-body text-gray-600 leading-relaxed">
+                Bạn đã sẵn sàng cho một hành trình khám phá "miền Tây sông nước" chưa? Miền Tây Nam Bộ luôn mang trong mình sức hút đặc biệt: những dòng sông hiền hòa, những miệt vườn trái cây trĩu quả, những chợ nổi nhộn nhịp và những con người chất phác, mến khách. Tour Miền Tây 3 ngày 2 đêm sẽ đưa bạn băng qua sông Tiền, sông Hậu, khám phá chợ nổi Cái Răng, chinh phục Đất Mũi Cà Mau và cảm nhận vẻ đẹp chân thật nhất của miền sông nước phương Nam. <br><br>
+                Nếu bạn đang tìm một chuyến đi vừa thư giãn, vừa khám phá ẩm thực, vừa đậm chất văn hóa thì Miền Tây chính là điểm đến hoàn hảo. Hãy cùng MeTrip bắt đầu hành trình trải nghiệm vùng đất trù phú này!
+            </p>
+
+            <!-- Highlights -->
+            <h2 class="section-title font-heading text-2xl md:text-3xl font-bold">Điểm Nổi Bật</h2>
+            <ul class="highlights">
+                <p class="font-body"><i class="fa-solid fa-check"></i> Khám phá <strong>Chợ nổi Cái Răng</strong> – chợ nổi lớn nhất miền Tây</p>
+                <p class="font-body"><i class="fa-solid fa-check"></i> Chinh phục <strong>Đất Mũi Cà Mau</strong> – điểm cực Nam thiêng liêng của Tổ quốc</p>
+                <p class="font-body"><i class="fa-solid fa-check"></i> Check-in các thắng cảnh biểu tượng: <strong>Bến Ninh Kiều, Cánh đồng điện gió Bạc Liêu, Nhà Công tử Bạc Liêu</strong></p>
+                <p class="font-body"><i class="fa-solid fa-check"></i> Trải nghiệm <strong>du thuyền sông Hậu</strong> – thưởng thức ẩm thực và âm nhạc đờn ca tài tử (đã bao gồm trong tour)</p>
+                <p class="font-body"><i class="fa-solid fa-check"></i> Tham quan <strong>Miệt vườn Bến Tre</strong> – thưởng thức trái cây, kẹo dừa đặc sản</p>
+                <p class="font-body"><i class="fa-solid fa-check"></i> Thưởng thức <strong>ẩm thực miền Tây & hải sản tươi ngon</strong> hấp dẫn</p>
+                <p class="font-body"><i class="fa-solid fa-check"></i> Tự do khám phá <strong>chợ đêm Cần Thơ</strong>, giao lưu văn nghệ đờn ca tài tử</p>
+            </ul>
+
+            <!-- Itinerary -->
+            <h2 class="section-title font-heading text-2xl md:text-3xl font-bold">Lịch trình chi tiết</h2>
+            <div class="itinerary">
+                
+                <!-- Day 1 -->
+                <div class="day-item active">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div class="day-title">
+                            <i class="fa-regular fa-calendar-days"></i> Ngày 1: TP.HCM – Mỹ Tho – Bến Tre – Cần Thơ
+                        </div>
+                        <span class="arrow"><i class="fa-solid fa-angle-down"></i></span>
+                    </div>
+                    <div class="day-content">
+                        <p class="font-body text-gray-600">
+                            <li><strong>SÁNG NGÀY 1</strong></li>
+                            - Xe và Hướng dẫn viên đón khách tại:<br>
+                            <b>06h15</b>: Quận 1, TP.HCM<br>
+                            <b>06h30</b>: Quận 3, TP.HCM<br>
+                            - Đoàn ổn định chỗ ngồi, giao lưu cùng HDV và khởi hành đi Miền Tây.
+                        </p>
+                        <p class="font-body text-gray-600">
+                            <li><strong>TRƯA NGÀY 1</strong></li>
+                            <b>09h45:</b> Đến Bến Tre – Xuống thuyền máy lướt sông Tiền<br>
+                            
+                            <b>10h00:</b> Khám phá Cù Lao Thới Sơn – Miệt vườn trái cây<br>
+                            <span>
+                                                             <i class="fa-solid fa-map-pin"></i> Thưởng thức trái cây tươi tại vườn<br>
+                                <i class="fa-solid fa-map-pin"></i> Nghe đờn ca tài tử đặc trưng miền Tây<br>
+                                <i class="fa-solid fa-map-pin"></i> Trải nghiệm chèo xuồng ba lá qua rạch dừa nước<br>
+                            </span>
+                            <b>11h30:</b> Tham quan cơ sở sản xuất kẹo dừa truyền thống<br>
+                            <img src="keo_dua.jpeg" alt="Kẹo dừa Bến Tre"><br>
+                            <b>12h00:</b> Dùng bữa trưa đặc sản miền Tây tại nhà hàng<br>
+                            (cá lóc nướng trui, lẩu mắm, bánh xèo,...)<br>
+                            <b>14h00:</b> Di chuyển về Cần Thơ – Nhận phòng khách sạn 3 sao<br>
+                            <b>19h00:</b> Dùng bữa tối trên du thuyền sông Hậu<br>
+<img src="duthuyencantho.jpg" alt="Du thuyền"><br>
+
+                            <span>
+                              
+                                <i class="fa-solid fa-map-pin"></i> Thưởng thức ẩm thực miền Tây trên du thuyền<br>
+                                <i class="fa-solid fa-map-pin"></i> Ngắm cảnh Bến Ninh Kiều lung linh về đêm<br>
+                                <i class="fa-solid fa-map-pin"></i> Thưởng thức chương trình đờn ca tài tử<br>
+                            </span>
+                            <b>21h00:</b> Tự do khám phá chợ đêm Cần Thơ<br>
+                            <b>22h00:</b> Nghỉ ngơi tại khách sạn – Kết thúc ngày 1<br>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="day-item">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div class="day-title">
+                            <i class="fa-regular fa-calendar-days"></i> Ngày 2: Cần Thơ – Chợ nổi Cái Răng – Cà Mau – Đất Mũi
+                        </div>
+                        <span class="arrow"><i class="fa-solid fa-angle-down"></i></span>
+                    </div>
+                    <div class="day-content">
+                        <p class="font-body text-gray-600">
+                            <b>05h45:</b> Ăn sáng nhẹ – Lên tàu khám phá Chợ nổi Cái Răng<br>
+                            <span>
+                                <img src="chonoicairang.jpg" alt="Chợ nổi Cái Răng bình minh"><br>
+                                <i class="fa-solid fa-map-pin"></i> Trải nghiệm chợ nổi lớn nhất miền Tây<br>
+                                <i class="fa-solid fa-map-pin"></i> Thưởng thức hủ tiếu gõ trên ghe<br>
+                                <i class="fa-solid fa-map-pin"></i> Mua sắm trái cây tươi ngon<br>
+                            </span>
+                            <b>08h30:</b> Về khách sạn ăn buffet sáng – Trả phòng<br>
+                            <b>09h30:</b> Khởi hành đi Cà Mau<br>
+                            <b>12h00:</b> Dùng bữa trưa tại Cà Mau – Nghỉ ngơi<br>
+                            <b>14h00:</b> Chinh phục Đất Mũi Cà Mau – Cực Nam Tổ quốc<br>
+                            <span>
+                                <img src="datmuicamau.png" alt="Đất Mũi Cà Mau"><br>
+                                <i class="fa-solid fa-map-pin"></i> Đi thuyền qua rừng ngập mặn<br>
+                                <i class="fa-solid fa-map-pin"></i> Check-in cột mốc GPS 0001<br>
+                                <i class="fa-solid fa-map-pin"></i> Tham quan biểu tượng Mẹ Âu Cơ<br>
+                                <i class="fa-solid fa-map-pin"></i> Ngắm biển Khánh Hội/Khánh Tiến<br>
+                            </span>
+                            <b>17h00:</b> Nhận phòng khách sạn tại TP. Cà Mau<br>
+                            <b>19h00:</b> Dùng bữa tối hải sản tươi ngon<br>
+                            <b>20h30:</b> Tự do khám phá đêm phố Cà Mau<br>
+                            <b>22h00:</b> Nghỉ ngơi tại khách sạn – Kết thúc ngày 2.<br>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="day-item">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div class="day-title">
+                            <i class="fa-regular fa-calendar-days"></i> Ngày 3: Cà Mau – Bạc Liêu – Sóc Trăng – TP.HCM
+                        </div>
+                        <span class="arrow"><i class="fa-solid fa-angle-down"></i></span>
+                    </div>
+                    <div class="day-content">
+                        <p class="font-body text-gray-600">
+                            <b>07h00:</b> Dùng điểm tâm, sau đó làm thủ tục check-out<br>
+                            <b>08h00:</b> Khởi hành đi Bạc Liêu<br>
+                            <b>09h00:</b> Check-in Cánh đồng điện gió Bạc Liêu<br>
+                            <span>
+                                <img src="diengiobaclieu.jpg" alt="Cánh đồng điện gió"><br>
+                                - Một trong những cánh đồng điện gió lớn nhất Việt Nam<br>
+                                - Background sống ảo đẹp mê mẩn<br>
+                                - Tìm hiểu về năng lượng tái tạo<br>
+                            </span>
+                            <b>10h30:</b> Tham quan Nhà Công tử Bạc Liêu<br>
+                            <span>
+                                <img src="Nha-Cong-tu-Bac-Lieu3.jpg" alt="Nhà Công tử Bạc Liêu"><br>
+                                - Kiến trúc Pháp cổ độc đáo<br>
+                                - Tìm hiểu về lịch sử "công tử Bạc Liêu" nổi tiếng<br>
+                                - Khám phá văn hóa địa phương<br>
+                            </span>
+                            <b>12h00:</b> Dùng bữa trưa tại nhà hàng Bạc Liêu<br>
+                            <b>13h00:</b> Khởi hành đi Sóc Trăng<br>
+                            <b>14h00:</b> Tham quan Chùa Som Rông (Chùa Dơi)<br>
+                            <b>15h30:</b> Khởi hành về TP.HCM<br>
+                            <b>17h30:</b> Dừng chân nghỉ ngơi tại Cái Bè – Tiền Giang<br>
+                            <b>19h00:</b> Về đến TP.HCM – Kết thúc hành trình 3N2Đ MIỀN TÂY SÔNG NƯỚC<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <div class="booking-card">
+                <h3 class="price-title font-heading">Giá mỗi khách hàng</h3>
+                <p class="price-adult font-heading">2.750.000 VND</p>
+                <p class="price-descrip font-body">Giá trên đã bao gồm thuế và phí dịch vụ</p>
+                
+                <label class="font-heading">Ngày khởi hành</label>
+                <input type="date" class="input font-body">
+                
+                <div class="booking-box">
+                    <h2 class="font-heading">Số lượng người tham gia</h2>
+                    <div class="counter-group">
+                        <p class="label font-body">Số lượng:</p>
+                        <div class="counter">
+                            <button onclick="changeCount('adult', 1)">+</button>
+                            <span id="adult" class="font-heading">2</span>
+                            <button onclick="changeCount('adult', -1)">−</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <form>
+                    <label class="font-heading">Thông tin liên hệ</label>
+                    <input type="text" id="contactName" placeholder="Họ và tên..." class="input font-body" required>
+                    <input type="text" id="contactPhone" placeholder="Số điện thoại..." class="input font-body" required>
+                    
+                    <button type="button" class="btn-book" onclick="addToCart()">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                        <span class="font-heading">Đặt tour ngay</span>
+                    </button>
+                </form>
+                
+                <p class="note font-body">Miễn phí huỷ trong <b>48h</b> trước khi khởi hành.<br>Hỗ trợ 24/7: <b>1900 580 801</b>.</p>
+                
+                <label class="font-heading">Trong tour đã bao gồm các chi phí:</label>
+                <ul class="included">
+                    <p class="font-body text-gray-600"><i class="fa-solid fa-check"></i> Khách sạn 3 sao</p>
+                    <p class="font-body text-gray-600"><i class="fa-solid fa-check"></i> Ăn uống theo chương trình</p>
+                    <p class="font-body text-gray-600"><i class="fa-solid fa-check"></i> Vé tham quan</p>
+                    <p class="font-body text-gray-600"><i class="fa-solid fa-check"></i> Hướng dẫn viên</p>
+                    <p class="font-body text-gray-600"><i class="fa-solid fa-check"></i> Xe du lịch đời mới</p>
+                    <p class="font-body text-gray-600"><i class="fa-solid fa-check"></i> Bảo hiểm du lịch</p>
+                </ul>
+                
+                <article>
+                    <h3 class="review-title font-heading">Đánh giá của khách hàng</h3>
+                    <div class="review-card">
+                        <strong class="font-heading">Review 1 – Anh Phong, chị An (TP.HCM)</strong>
+                        <p class="font-body">"Chúng mình chọn tour này vì muốn chill sông nước mà vẫn có chỗ check-in đẹp. Cánh đồng quạt gió với cực Nam là hai điểm yêu thích nhất. Ăn uống ngon, tối du thuyền Cần Thơ lãng mạn nữa. Sẽ giới thiệu cho bạn bè!"</p>
+                    </div>
+                    <div class="review-card">
+                        <strong class="font-heading">Review 2 – Nhóm bạn trẻ quận 7</strong>
+                        <p class="font-body">"Cả nhóm 8 đứa đi để đổi gió cuối tuần, kết quả ai cũng mê luôn. Sống ảo từ miệt vườn đến Đất Mũi, ăn hải sản Cà Mau no căng. Đoàn đông vui, dễ kết bạn mới. 10/10, lần sau chắc chắn book lại"</p>
+                    </div>
+                    <div class="review-card">
+                        <strong class="font-heading">Review 3 – Anh Tuấn (Hà Nội)</strong>
+                        <p class="font-body">"Tour miền Tây này chill thật sự luôn! Chợ nổi buổi sáng đẹp mê, Đất Mũi thì tự hào cực kỳ. Lịch trình vừa đủ, không mệt mà vẫn đi được nhiều điểm đẹp. HDV vui tính, chụp ảnh có tâm lắm. Đi về album đầy ảnh sống ảo, đáng tiền!"</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="#" class="f-logo">
+                    <p>MeTrip</p>
+                </a>
+                <p class="footer-desc">
+                    Trải nghiệm khám phá Việt Nam tuyệt vời dành cho người trẻ thích du lịch, khám phá, kết nối và tạo kỷ niệm.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Liên kết</h3>
+                <ul class="footer-links">
+                    <li><a href="../../Gioithieu/gt.html">Giới Thiệu</a></li>
+                    <li><a href="../../index.html">Trang chủ</a></li>
+                    <li><a href="../../Blog/Blog.html">Blog</a></li>
+                    <li><a href="../../Contact/Contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Hỗ Trợ</h3>
+                <ul class="footer-links">
+                    <li><a href="../../FAQ/FAQ.html#popular">Câu hỏi phổ biến</a></li>
+                    <li><a href="../../FAQ/FAQ.html#booking">Đặt tour & thanh toán</a></li>
+                    <li><a href="../../FAQ/FAQ.html#exclusive">Dịch vụ độc quyền</a></li>
+                    <li><a href="../../FAQ/FAQ.html#cancel">Huỷ và đổi lịch</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Theo dõi</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="social-link facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div class="contact-info">
+                    <p>Email: <a href="mailto:metrip@gmail.com">metrip@gmail.com</a></p>
+                    <p>Hotline: <span class="highlight">1900 580 801</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>2025 MeTrip. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Gallery Functions
+        function changeImage(element) {
+            document.getElementById("mainImage").src = element.src;
+        }
+        
+        function openModal(src) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            modal.style.display = "flex";
+            modalImg.src = src;
+        }
+        
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+        
+        // Itinerary Functions
+        function toggleDay(header) {
+            const item = header.parentElement;
+            item.classList.toggle("active");
+        }
+        
+        // Counter Functions
+        function changeCount(id, delta) {
+            const element = document.getElementById(id);
+            let currentCount = parseInt(element.innerText);
+            let newCount = currentCount + delta;
+            
+            if (newCount >= 0) {
+                element.innerText = newCount;
+            }
+        }
+        
+        // Add to Cart Function
+        function addToCart() {
+            const quantity = parseInt(document.getElementById('adult').innerText);
+            const travelDate = document.querySelector('input[type="date"]').value;
+
+            if (!travelDate) {
+                alert("Vui lòng chọn ngày khởi hành trước khi đặt tour!");
+                return;
+            }
+
+            const tourData = {
+                id: Date.now(),
+                name: "Miền Tây Sông Nước",
+                price: 2750000,
+                quantity: quantity,
+                date: travelDate,
+                img: "image/home/dulichmientay.jpg",
+                selected: true,
+                type: "THIÊN NHIÊN"
+            };
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingIndex = cart.findIndex(item => item.name === tourData.name && item.date === tourData.date);
+            
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += tourData.quantity;
+            } else {
+                cart.push(tourData);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            window.location.href = "../../cart/cart.html";
+        }
+        
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        
+        // Add fade in animation to gallery on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.style.opacity = '0';
+            mainImage.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                mainImage.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                mainImage.style.opacity = '1';
+                mainImage.style.transform = 'translateY(0)';
+            }, 300);
+            
+            // Set min date for date input to today
+            const today = new Date().toISOString().split('T')[0];
+            document.querySelector('input[type="date"]').min = today;
+        });
+    </script>
+</body>
+</html>

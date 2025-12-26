@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family:'Poppins', sans-serif;
+    background-color: #f9f9f9; 
+    padding: 120px 0 0 0; /* Thêm khoảng cách trên để không bị che khuất bởi header */
+
+}
+
+
+/* WRAPPER */
+.wrapper {
+    max-width: 1100px;
+    width: 95%;
+    margin: 60px auto;
+    background: white;
+    display: flex;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 8px 30px rgba(0,0,0,0.15);
+}
+
+/* LEFT */
+.login-left {
+    width: 50%;
+    position: relative;
+}
+
+.login-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+.btn-login:active {
+    transform: scale(0.96);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.overlay h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 14px;
+    width: 80%;
+    margin-bottom: 18px;
+}
+
+.btn-signin {
+    padding: 10px 28px;
+    border-radius: 20px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+/* RIGHT */
+.login-right {
+    width: 50%;
+    padding: 40px 45px;
+    text-align: center;
+}
+
+/* 🔥 CHỮ ĐỔ BÓNG */
+.title-shadow {
+    font-size: 36px;
+    color: #4b8ef1;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    font-size: 20px;
+    color: #4b8ef1;
+    margin-bottom: 15px;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+/* Vòng tròn chứa icon */
+.social div {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+/* Icon mặc định */
+.social div i {
+    font-size: 20px;
+    color: #555;
+    transition: 0.25s ease;
+}
+
+/* Khi hover 👉 đổi màu xanh + icon trắng */
+.social div:hover {
+    background: #4b8ef1;
+    transform: translateY(-3px) scale(1.1);
+}
+
+.social div:hover i {
+    color: #fff;
+}
+
+.sub {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 18px;
+}
+
+.input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* 🔥 NÚT NHẤN LÚN */
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background: #4b8ef1;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #2f6fd3;
+}
+
+.login-right {
+    text-shadow: 0px 4px 6px rgba(0,0,0,0.3);
+}

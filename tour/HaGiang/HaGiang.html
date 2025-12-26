@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeTrip - Hà Giang</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <!-- Header Footer CSS -->
+    <link rel="stylesheet" href="../../css/hfstyle.css">
+ <link rel="stylesheet" href="styletour4.css">
+
+
+</head>
+<body class="page">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <p>MeTrip</p>
+            </a>
+
+            <nav class="main-nav">
+                <a href="../../index.html">TRANG CHỦ</a>
+                <a href="../../Contact/Contact.html">LIÊN HỆ</a>
+                <a href="../../Gioithieu/gt.html">GIỚI THIỆU</a>
+                <a href="../../Blog/Blog.html">BLOG</a>
+                <a href="../../cart/cart.html">GIỎ HÀNG</a>
+            </nav>
+
+            <div class="auth-buttons">
+                <a href="../../Signup/signup.html" class="btn btn-outline">Sign Up</a>
+                <a href="../../login/login.html" class="btn btn-outline">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tour Title -->
+    <section class="tour-title">
+        <h1 class="font-heading text-4xl md:text-5xl font-bold">Về Hà Giang – nơi trái tim muốn lang thang</h1>
+        <p class="font-body text-gray-600 leading-relaxed">Hành trình 3 ngày 3 đêm chạm vào vẻ đẹp hùng vĩ, hoang sơ và đầy mê hoặc của miền biên viễn Tổ quốc.</p>
+
+        <div class="tour-info-icon">
+            <span><i class="fa-solid fa-location-dot"></i> Hà Giang</span>
+            <span><i class="fa-solid fa-user-group"></i> Tối đa 25 người</span>
+            <span><i class="fa-solid fa-clock"></i> 3 ngày 3 đêm</span>
+            <span><i class="fa-regular fa-calendar-days"></i> Khởi hành hàng tuần</span>
+        </div>
+
+        <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>                     
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <span><b>4.5/5</b></span>
+            <span>(128 đánh giá)</span>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <div class="main-container container">
+        
+        <!-- Left Column -->
+        <div class="left-column">
+            <!-- Gallery -->
+            <div class="gallery">
+                <img id="mainImage" src="img/Tour-Ha-Giang.jpg" class="main-img" onclick="openModal(this.src)">
+                <div class="thumbnail-wrapper">
+                    <div class="thumb-list">
+                        <img src="img/Tour-Ha-Giang.jpg" onclick="changeImage(this)">
+                        <img src="img/KAYAK SÔNG NHO QUẾ-2.jpg" onclick="changeImage(this)">
+                        <img src="img/Nhà của Pao.jpg" onclick="changeImage(this)">
+                        <img src="img/Thung lũng Sủng Là.jpg" onclick="changeImage(this)">
+                        <img src="img/dinh-thu-vua-meo-7.jpg" onclick="changeImage(this)">
+                        <img src="img/ĐÈO MÃ PÍ LÈNG-1.jpg" onclick="changeImage(this)">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modal -->
+            <div id="imageModal" class="modal" onclick="closeModal()">
+                <span class="close">&times;</span>
+                <img id="modalImage" class="modal-content">
+            </div>
+
+            <!-- Description -->
+            <h2 class="section-title font-heading text-2xl md:text-3xl font-bold">Mô tả Tour</h2>
+            <p class="description font-body text-gray-600 leading-relaxed">
+                Bạn đã sẵn sàng cho một hành trình chạm tới "nóc nhà của Tổ quốc" chưa? Hà Giang – Lũng Cú luôn mang trong mình sức hút đặc biệt: những cung đường quanh co ôm trọn núi đồi, những bản làng mộc mạc ẩn mình trong mây, và lá cờ Tổ quốc tung bay đầy tự hào trên đỉnh cột cờ Lũng Cú. Tour Hà Giang – Lũng Cú sẽ đưa bạn băng qua cao nguyên đá Đồng Văn kỳ vĩ, đứng trước hẻm Tu Sản sâu thẳm, ngắm dòng Nho Quế xanh ngọc và cảm nhận vẻ đẹp chân thật nhất của miền biên viễn. <br><br>
+                Nếu bạn đang tìm một chuyến đi vừa phiêu lưu, vừa lãng mạn, vừa đậm chất văn hóa thì Hà Giang chính là điểm đến hoàn hảo. Hãy cùng MeTrip bắt đầu hành trình khám phá vùng đất tuyệt đẹp này!
+            </p>
+
+            <!-- Highlights -->
+            <h2 class="section-title font-heading text-2xl md:text-3xl font-bold">Điểm Nổi Bật</h2>
+            <ul class="highlights">
+                <p class="font-body"><i class="fa-solid fa-check"></i> Khám phá <strong>Cao nguyên đá Đồng Văn</strong> – di sản địa chất toàn cầu</p>
+                <p class="font-body"><i class="fa-solid fa-check"></i> Chinh phục <strong>Cột cờ Lũng Cú</strong> – điểm cực Bắc thiêng liêng của Tổ quốc</p>
+                <p class="font-body"><i class="fa-solid fa-check"></i> Check-in các thắng cảnh biểu tượng: <strong>Đèo Quản Bạ, Núi Đôi Cô Tiên, Mã Pí Lèng</strong></p>
+                <p class="font-body"><i class="fa-solid fa-check"></i> Trải nghiệm <strong>thuyền/kayak sông Nho Quế</strong> – hẻm Tu Sản (đã bao gồm trong tour)</p>
+                <p class="font-body"><i class="fa-solid fa-check"></i> Tham quan <strong>Nhà của Pao, Dinh thự Vua Mèo</strong> – giá trị văn hóa & kiến trúc đặc sắc</p>
+                <p class="font-body"><i class="fa-solid fa-check"></i> Thưởng thức <strong>đặc sản vùng cao & BBQ buffet</strong> hấp dẫn</p>
+                <p class="font-body"><i class="fa-solid fa-check"></i> Tự do khám phá <strong>Phố cổ Đồng Văn</strong> về đêm, giao lưu lửa trại (tuỳ mùa)</p>
+            </ul>
+
+            <!-- Itinerary -->
+            <h2 class="section-title font-heading text-2xl md:text-3xl font-bold">Lịch trình chi tiết</h2>
+            <div class="itinerary">
+                
+                <!-- Day 1 -->
+                <div class="day-item active">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div class="day-title">
+                            <i class="fa-regular fa-calendar-days"></i> Ngày 1: Hà Nội – Hà Giang – Quản Bạ – Yên Minh – Đồng Văn
+                        </div>
+                        <span class="arrow"><i class="fa-solid fa-angle-down"></i></span>
+                    </div>
+                    <div class="day-content">
+                        <p class="font-body text-gray-600">
+                            <li><strong>ĐÊM TRƯỚC NGÀY 1 (D-1)</strong></li>
+                            - Xe và Hướng dẫn viên đón khách tại:<br>
+                            <b>20h30</b>: Bến xe Mỹ Đình<br>
+                            <b>21h00</b>: Cổng Rạp Xiếc Trung Ương<br>
+                            <b>21h20</b>: Nhà hát Lớn Hà Nội<br>
+                            <b>21h40</b>: Ngã tư Sở<br>
+                            - Đoàn ổn định chỗ ngồi, giao lưu cùng HDV và nghỉ đêm trên xe,
+                            chuẩn bị cho hành trình khám phá Hà Giang – nơi cực Bắc thiêng liêng của Tổ quốc.
+                        </p>
+                        <p class="font-body text-gray-600">
+                            <li><strong>NGÀY 1</strong></li>
+                            <b>06h00:</b> Chạm Hà Giang – nạp năng lượng<br>
+                            (phở Tráng Kìm, bánh cuốn trứng chan nước xương, bún cá,...)<br>
+                            <b>07h00:</b> Check-in <b>Cột mốc KM0</b> – Con đường Hạnh Phúc<br>
+                            <img src="img/km0.jpg" alt="Cột mốc KM0"><br>
+                            <b>08h00:</b> Khám phá <b>Đèo Quản Bạ – Cổng Trời – Núi Đôi Cô Tiên</b><br>
+                            <span>
+                                <img src="img/đèo quản baj.jpg" alt="Đèo Quản Bạ"><br>
+                                <i class="fa-solid fa-map-pin"></i> Nằm ở độ cao gần 1.500m, đèo Quản Bạ được ví như cánh cửa dẫn vào cao nguyên đá Đồng Văn.<br>
+                                <i class="fa-solid fa-map-pin"></i> Tại Cổng Trời Quản Bạ, quý khách thoả thích ngắm:<br>
+                                - Toàn cảnh thị trấn Tam Sơn mờ sương<br>
+                                - Núi Đôi Cô Tiên – kiệt tác của thiên nhiên với hình dạng độc đáo<br>
+                                - Những ruộng bậc thang uốn lượn đẹp như tranh<br>
+                            </span>
+                            <b>10h00:</b> Tham quan <b>Nhà của Pao</b> – bối cảnh phim "Chuyện của Pao"<br>
+                            <img src="img/Nhà của Pao-1.jpg" alt="Nhà của Pao"><br>
+                            <b>12h00:</b> Dùng bữa trưa tại Yên Minh – Nghỉ ngơi<br>
+                            (thắng cố, gà đồi, cải mèo, lợn cắp nách,...)<br>
+                            <b>14h00:</b> Check-in <b>Thung Lũng Sủng Là</b> – "TRÁI TIM CAO NGUYÊN ĐÁ"<br>
+                            <span>
+                                <img src="img/thung lũng sủng là-2.jpg" alt="Thung Lũng Sủng Là"><br>
+                                <i class="fa-solid fa-map-pin"></i> Sủng Là mang vẻ đẹp thơ mộng với:<br>
+                                - Những ngôi nhà trình tường vàng<br>
+                                - Hoa tam giác mạch nở quanh năm<br>
+                                - Khung cảnh yên bình đặc trưng của người Mông<br>
+                            </span>
+                            <b>15h00:</b> Tham quan <b>Dinh thự Vua Mèo – họ Vương</b><br>
+                            <span>
+                                <img src="img/dinh thự.jpg" alt="Dinh thự Vua Mèo"><br>
+                                <i class="fa-solid fa-map-pin"></i> Dinh họ Vương – nơi ở của Vua Mèo Vương Chí Sình<br>
+                                <i class="fa-solid fa-map-pin"></i> Công trình mang kiến trúc giao thoa: Trung Hoa – Pháp – Mông<br>
+                                <i class="fa-solid fa-map-pin"></i> Nơi lưu giữ nhiều câu chuyện thú vị về vùng đất Đồng Văn trong thời phong kiến.<br>
+                            </span>
+                            <b>17h00:</b> Đến Phố cổ Đồng Văn – Nhận phòng khách sạn<br>
+                            <b>20h00:</b> Dùng bữa tối tại nhà hàng<br>
+                            <b>19h30:</b> Tự do khám phá Phố cổ Đồng Văn về đêm<br>
+                                                        <b>21h30:</b> Nghỉ ngơi tại khách sạn – Kết thúc ngày 1<br>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="day-item">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div class="day-title">
+                            <i class="fa-regular fa-calendar-days"></i> Ngày 2: Đồng Văn – Lũng Cú – Mã Pí Lèng – Nho Quế
+                        </div>
+                        <span class="arrow"><i class="fa-solid fa-angle-down"></i></span>
+                    </div>
+                    <div class="day-content">
+                        <p class="font-body text-gray-600">
+                            <b>07h00:</b> Ăn sáng tại khách sạn<br>
+                            (Thưởng thức phở xí quách Đồng Văn, bánh cuốn trứng,…)<br>
+                            <b>08h00:</b> Chinh phục <b>Cột cờ Lũng Cú – Điểm Đầu Tổ Quốc</b><br>
+                            <span>
+                                <img src="img/cột cờ.jpg" alt="Cột cờ Lũng Cú"><br>
+                                <i class="fa-solid fa-map-pin"></i> Cột cờ Lũng Cú nằm ở độ cao 1.470m – biểu tượng thiêng liêng của cực Bắc.<br>
+                                Tại đây, quý khách sẽ:<br>
+                                - Leo 389 bậc đá để lên đỉnh<br>
+                                - Ngắm lá cờ Tổ quốc 54m² tung bay<br>
+                                - Nhìn toàn cảnh núi non hùng vĩ & bản Lô Lô Chải từ trên cao<br>
+                            </span>
+                            <b>11h00:</b> Dùng bữa trưa tại nhà hàng địa phương<br>
+                            <b>14h00:</b> Check-in <b>Đèo Mã Pí Lèng</b> – Đệ Nhất Hùng Quan Việt Nam<br>
+                            <span>
+                                <img src="img/deo_ma_pi_leng.jpg" alt="Đèo Mã Pí Lèng"><br>
+                                Mã Pí Lèng là một trong "Tứ đại đỉnh đèo", nổi tiếng với:<br>
+                                <i class="fa-solid fa-map-pin"></i> Hẻm vực Tu Sản sâu nhất Đông Nam Á<br>
+                                <i class="fa-solid fa-map-pin"></i> Đường đèo ôm núi đầy mê hoặc<br>
+                                <i class="fa-solid fa-map-pin"></i> Sông Nho Quế xanh ngọc ngay dưới chân<br>
+                            </span>
+                            <b>15h00:</b> Trải Nghiệm <b>Thuyền/KAYAK sông Nho Quế</b><br>
+                            <span>
+                                <img src="img/kayak.jpg" alt="Kayak sông Nho Quế"><br>
+                                - Trôi giữa hẻm Tu Sản – kiệt tác tự nhiên huyền bí<br>
+                                - Chụp ảnh với màu nước xanh ngọc độc nhất vô nhị<br>
+                            </span>
+                            <b>18h00:</b> Thưởng thức Buffet BBQ vùng cao<br>
+                            <b>19h30:</b> Tự do khám phá Đồng Văn hoặc tham gia giao lưu lửa trại (tuỳ mùa)<br>
+                            <b>21h30:</b> Về khách sạn nghỉ ngơi – Kết thúc ngày 2.<br>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="day-item">
+                    <div class="day-header" onclick="toggleDay(this)">
+                        <div class="day-title">
+                            <i class="fa-regular fa-calendar-days"></i> Ngày 3: Đồng Văn – Lũng Cú – Trả khách
+                        </div>
+                        <span class="arrow"><i class="fa-solid fa-angle-down"></i></span>
+                    </div>
+                    <div class="day-content">
+                        <p class="font-body text-gray-600">
+                            <b>07h00:</b> Dùng điểm tâm, sau đó làm thủ tục check-out<br>
+                            <b>08h00:</b> Tham quan <b>chợ phiên</b> (nếu vào ngày chủ nhật)<br>
+                            <span>
+                                <img src="img/chophien.jpg" alt="Chợ phiên"><br>
+                                - Một trong những chợ phiên đẹp nhất vùng cao<br>
+                                - Nơi trao đổi hàng hóa, văn hóa của người Mông – Tày – Dao<br>
+                                - Trải nghiệm mua đặc sản: mèn mén, thịt trâu gác bếp, rượu ngô,...<br>
+                            </span>
+                            <b>10h00:</b> Khởi hành về lại TP Hà Giang<br>
+                            <b>12h00:</b> Dùng bữa trưa tại nhà hàng<br>
+                            <b>11h00:</b> Tiếp tục hành trình về Hà Nội<br>
+                            <b>19h00:</b> Về đến Hà Nội – Kết thúc hành trình 3N3Đ HÀ GIANG – LŨNG CÚ<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <div class="booking-card">
+                <h3 class="price-title font-heading">Giá mỗi khách hàng</h3>
+                <p class="price-adult font-heading">4.000.000 VND</p>
+                <p class="price-descrip font-body">Giá trên đã bao gồm thuế và phí dịch vụ</p>
+                
+                <label class="font-heading">Ngày khởi hành</label>
+                <input type="date" class="input font-body">
+                
+                <div class="booking-box">
+                    <h2 class="font-heading">Số lượng người tham gia</h2>
+                    <div class="counter-group">
+                        <p class="label font-body">Số lượng:</p>
+                        <div class="counter">
+                            <button onclick="changeCount('adult', 1)">+</button>
+                            <span id="adult" class="font-heading">2</span>
+                            <button onclick="changeCount('adult', -1)">−</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <form>
+                    <label class="font-heading">Thông tin liên hệ</label>
+                    <input type="text" id="contactName" placeholder="Họ và tên..." class="input font-body" required>
+                    <input type="text" id="contactPhone" placeholder="Số điện thoại..." class="input font-body" required>
+                    
+                    <button type="button" class="btn-book" onclick="addToCart()">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                        <span class="font-heading">Đặt tour ngay</span>
+                    </button>
+                </form>
+                
+                <p class="note font-body">Miễn phí huỷ trong <b>48h</b> trước khi khởi hành.<br>Hỗ trợ 24/7: <b>1900 580 801</b>.</p>
+                
+                <label class="font-heading">Trong tour đã bao gồm các chi phí:</label>
+                <ul class="included">
+                    <p class="font-body text-gray-600"><i class="fa-solid fa-check"></i> Khách sạn</p>
+                    <p class="font-body text-gray-600"><i class="fa-solid fa-check"></i> Ăn uống</p>
+                    <p class="font-body text-gray-600"><i class="fa-solid fa-check"></i> Vé tham quan</p>
+                    <p class="font-body text-gray-600"><i class="fa-solid fa-check"></i> Hướng dẫn viên</p>
+                </ul>
+                
+                <article>
+                    <h3 class="review-title font-heading">Đánh giá của khách hàng</h3>
+                    <div class="review-card">
+                        <strong class="font-heading">Review 1 – Chị Thu Hà (TP.HCM)</strong>
+                        <p class="font-body">"Tour Hà Giang – Lũng Cú thực sự vượt xa mong đợi của mình. Cảnh đẹp hùng vĩ đến nghẹt thở, đặc biệt là lúc đứng trên đỉnh cột cờ Lũng Cú nhìn xuống toàn cảnh núi rừng. HDV rất nhiệt tình, chụp ảnh cực có tâm. Lịch trình hợp lý. Quá xứng đáng cho một chuyến đi 'để đời'!"</p>
+                    </div>
+                    <div class="review-card">
+                        <strong class="font-heading">Review 2 – Chị Anh Thư</strong>
+                        <p class="font-body">"Hà Giang đúng nghĩa là thiên đường của những ai thích khám phá. Đèo Mã Pì Lèng và dòng Nho Quế xanh ngọc nhìn ngoài đời còn đẹp hơn ảnh rất nhiều. Tour tổ chức chuyên nghiệp, xe giường nằm êm và sạch. Mình chắc chắn sẽ quay lại Hà Giang vào mùa hoa tam giác mạch!"</p>
+                    </div>
+                    <div class="review-card">
+                        <strong class="font-heading">Review 3 – Nhóm bạn trẻ Hà Nội</strong>
+                        <p class="font-body">"Cả nhóm tụi mình đi tour để 'đổi gió', ai ngờ thành kỷ niệm khó quên luôn. Đồ ăn ngon, chỗ nghỉ sạch sẽ, lịch trình hợp lý. Điểm thích nhất là được ngồi thuyền khám phá hẻm Tu Sản – cảm giác hoành tráng lắm. 10/10 cho MeTrip!"</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="#" class="f-logo">
+                    <p>MeTrip</p>
+                </a>
+                <p class="footer-desc">
+                    Trải nghiệm khám phá Việt Nam tuyệt vời dành cho người trẻ thích du lịch, khám phá, kết nối và tạo kỷ niệm.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Liên kết</h3>
+                <ul class="footer-links">
+                    <li><a href="../../Gioithieu/gt.html">Giới Thiệu</a></li>
+                    <li><a href="../../index.html">Trang chủ</a></li>
+                    <li><a href="../../Blog/Blog.html">Blog</a></li>
+                    <li><a href="../../Contact/Contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Hỗ Trợ</h3>
+                <ul class="footer-links">
+                    <li><a href="../../FAQ/FAQ.html#popular">Câu hỏi phổ biến</a></li>
+                    <li><a href="../../FAQ/FAQ.html#booking">Đặt tour & thanh toán</a></li>
+                    <li><a href="../../FAQ/FAQ.html#exclusive">Dịch vụ độc quyền</a></li>
+                    <li><a href="../../FAQ/FAQ.html#cancel">Huỷ và đổi lịch</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Theo dõi</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="social-link facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div class="contact-info">
+                    <p>Email: <a href="mailto:metrip@gmail.com">metrip@gmail.com</a></p>
+                    <p>Hotline: <span class="highlight">1900 580 801</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>2025 MeTrip. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Gallery Functions
+        function changeImage(element) {
+            document.getElementById("mainImage").src = element.src;
+        }
+        
+        function openModal(src) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            modal.style.display = "flex";
+            modalImg.src = src;
+        }
+        
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+        
+        // Itinerary Functions
+        function toggleDay(header) {
+            const item = header.parentElement;
+            item.classList.toggle("active");
+        }
+        
+        // Counter Functions
+        function changeCount(id, delta) {
+            const element = document.getElementById(id);
+            let currentCount = parseInt(element.innerText);
+            let newCount = currentCount + delta;
+            
+            if (newCount >= 0) {
+                element.innerText = newCount;
+            }
+        }
+        
+        // Add to Cart Function
+        function addToCart() {
+            const quantity = parseInt(document.getElementById('adult').innerText);
+            const travelDate = document.querySelector('input[type="date"]').value;
+
+            if (!travelDate) {
+                alert("Vui lòng chọn ngày khởi hành trước khi đặt tour!");
+                return;
+            }
+
+            const tourData = {
+                id: Date.now(),
+                name: "Hà Giang",
+                price: 4000000,
+                quantity: quantity,
+                date: travelDate,
+                img: "image/home/hagiang.jpg",
+                selected: true,
+                type: "LÃNG MẠN"
+            };
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingIndex = cart.findIndex(item => item.name === tourData.name && item.date === tourData.date);
+            
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += tourData.quantity;
+            } else {
+                cart.push(tourData);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            window.location.href = "../../cart/cart.html";
+        }
+        
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        
+        // Add fade in animation to gallery on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.style.opacity = '0';
+            mainImage.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                mainImage.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                mainImage.style.opacity = '1';
+                mainImage.style.transform = 'translateY(0)';
+            }, 300);
+            
+            // Set min date for date input to today
+            const today = new Date().toISOString().split('T')[0];
+            document.querySelector('input[type="date"]').min = today;
+        });
+    </script>
+</body>
+</html>

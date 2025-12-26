@@ -1,0 +1,283 @@
+/* ===== AUTH (LOGIN + SIGNUP) STYLES ===== */
+
+/* Base styles - using direct CSS for compatibility */
+.auth-main {
+    padding: 80px 20px;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+}
+
+.auth-wrapper {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+/* LEFT SIDE */
+.auth-left {
+    position: relative;
+    order: 2;
+}
+
+.auth-left img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.auth-left .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(15, 42, 71, 0.85), rgba(15, 42, 71, 0.8), rgba(15, 42, 71, 0.85));
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.auth-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.auth-left p {
+    font-family: 'Poppins', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 280px;
+}
+
+.auth-left .btn-light {
+    padding: 12px 32px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.auth-left .btn-light:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* RIGHT SIDE */
+.auth-right {
+    padding: 40px;
+}
+
+.auth-right h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.social a {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid #e5e7eb;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social a:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.or-text {
+    font-family: 'Poppins', sans-serif;
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.or-text::before,
+.or-text::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: #e5e7eb;
+}
+
+.or-text::before {
+    left: 0;
+}
+
+.or-text::after {
+    right: 0;
+}
+
+.auth-right form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.auth-right input {
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background: rgba(249, 250, 251, 0.5);
+    font-family: 'Poppins', sans-serif;
+    color: #374151;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.auth-right input:focus {
+    outline: none;
+    border-color: #2986FE;
+    box-shadow: 0 0 0 3px rgba(41, 134, 254, 0.2);
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+    color: #6b7280;
+}
+
+.forgot-password {
+    font-family: 'Poppins', sans-serif;
+    color: #2986FE;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.forgot-password:hover {
+    color: #1a75e8;
+    text-decoration: underline;
+}
+
+.signup-link {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #f3f4f6;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #6b7280;
+}
+
+.signup-link a {
+    color: #2986FE;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    color: #1a75e8;
+}
+
+/* Primary Button */
+.btn-primary {
+    width: 100%;
+    padding: 16px 24px;
+    background: #2986FE;
+    color: white;
+    border-radius: 30px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(41, 134, 254, 0.3);
+}
+
+.btn-primary:hover {
+    background: #1a75e8;
+    box-shadow: 0 6px 20px rgba(41, 134, 254, 0.4);
+}
+
+.btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+    .auth-wrapper {
+        flex-direction: row;
+    }
+    
+    .auth-left {
+        order: 1;
+        flex: 0 0 40%;
+    }
+    
+    .auth-left img {
+        height: 100%;
+    }
+    
+    .auth-right {
+        order: 2;
+        flex: 0 0 60%;
+        padding: 60px;
+    }
+    
+    .auth-right h1 {
+        font-size: 44px;
+    }
+    
+    .auth-left h2 {
+        font-size: 36px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .auth-right h1 {
+        font-size: 48px;
+    }
+}

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeTrip - Đăng ký</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="../css/hfstyle.css">
+    <link rel="stylesheet" href="signupstyle.css">
+
+
+</head>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.querySelector(".header");
+
+    if (!header) return;
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            header.classList.add("header-scrolled");
+        } else {
+            header.classList.remove("header-scrolled");
+        }
+    });
+});
+</script>
+<body class="page">
+<!-- PHẦN HEADER CẦN CẬP NHẬT -->
+<header class="header">
+    <div class="nav-container">
+        <a href="../index.html" class="logo">
+            <p>MeTrip</p>
+        </a>
+        <nav class="main-nav">
+            <a href="../index.html">TRANG CHỦ</a>
+            <a href="../Contact/Contact.html">LIÊN HỆ</a>
+            <a href="../Gioithieu/gt.html">GIỚI THIỆU</a>
+            <a href="../Blog/Blog.html">BLOG</a>
+            <a href="../cart/cart.html">GIỎ HÀNG</a>
+        </nav>
+
+        <!-- KHU VỰC NGƯỜI DÙNG -->
+        <div class="user-section" id="userSection">
+            <!-- Nếu chưa đăng nhập - Hiển thị nút đăng ký/đăng nhập -->
+            <div class="auth-buttons" id="authButtons">
+                <a href="../Signup/signup.html" class="btn btn-outline">Sign Up</a>
+                <a href="../login/login.html" class="btn btn-outline">Login</a>
+            </div>
+            
+            <!-- Nếu đã đăng nhập - Hiển thị avatar và dropdown -->
+            <div class="user-avatar-dropdown" id="userAvatarDropdown" style="display: none;">
+                <div class="avatar-wrapper" id="avatarTrigger">
+                    <img src="avatar.jpg" alt="Avatar" class="user-avatar" id="userAvatar">
+                    <span class="material-symbols-outlined arrow">expand_more</span>
+                </div>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <div class="user-info">
+                        <p class="user-name" id="dropdownUserName">Người dùng</p>
+                        <p class="user-email" id="dropdownUserEmail">user@example.com</p>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <a href="../profile/profile.html" class="dropdown-item">
+                        <span class="material-symbols-outlined">person</span>
+                        Trang cá nhân
+                    </a>
+                    <a href="../orders/orders.html" class="dropdown-item">
+                        <span class="material-symbols-outlined">receipt_long</span>
+                        Đơn hàng của tôi
+                    </a>
+                    <a href="../settings/settings.html" class="dropdown-item">
+                        <span class="material-symbols-outlined">settings</span>
+                        Cài đặt
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item logout" id="logoutBtn">
+                        <span class="material-symbols-outlined">logout</span>
+                        Đăng xuất
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- LOGIN BOX -->
+<div class="wrapper">
+    <!-- LEFT -->
+    <div class="login-left">
+        <img src="1.jpg" alt="mountain">
+        <div class="overlay">
+            <h2>WELCOME BACK!</h2>
+            <p>
+                Đăng nhập để quản lý đơn đặt tour và nhận các đề xuất cá nhân hóa.
+            </p>
+            <button class="btn-signin" onclick="window.location.href='../login/login.html'">Đăng Nhập</button>
+        </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="login-right">
+        <h1 class="title-shadow">TẠO<br>TÀI KHOẢN</h1>
+
+        <div class="social">
+            <div><i class="fab fa-twitter"></i></div>
+            <div><i class="fab fa-facebook-f"></i></div>
+            <div><i class="fab fa-instagram"></i></div>
+        </div>
+
+        <p class="sub">Hoặc sử dụng email để đăng ký</p>
+
+        <form id="signupForm">
+            <input type="text" id="name" class="input" placeholder="Họ và tên" required>
+            <input type="email" id="email" class="input" placeholder="Email" required>
+            <input type="password" id="password" class="input" placeholder="Mật khẩu (ít nhất 6 ký tự)" minlength="6" required>
+            <input type="password" id="confirmPassword" class="input" placeholder="Xác nhận mật khẩu" required>
+            
+            <div class="terms" style="margin: 15px 0; text-align: left;">
+                <label style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px;">
+                    <input type="checkbox" id="acceptTerms" required style="margin-top: 3px;">
+                    <span>Tôi đồng ý với <a href="#" style="color: #4b8ef1;">Điều khoản dịch vụ</a> và <a href="#" style="color: #4b8ef1;">Chính sách bảo mật</a> của MeTrip</span>
+                </label>
+            </div>
+
+            <button type="submit" class="btn-login" id="signupBtn">Đăng Ký</button>
+            
+            <div id="signupMessage" style="margin-top: 15px; text-align: center; font-size: 14px;"></div>
+        </form>
+
+    </div>
+</div>
+
+<!-- Footer -->
+    <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <a href="#" class="f-logo">
+                        <p>MeTrip</p>
+                    </a>
+                    <p class="footer-desc">
+                        Trải nghiệm khám phá Việt Nam tuyệt vời dành cho người trẻ thích du lịch, khám phá, kết nối và tạo kỷ niệm.
+                    </p>
+                </div>
+
+             <div>
+            <h3>Liên kết</h3>
+            <ul class="footer-links">
+                <li><a href="../Gioithieu/gt.html">Giới Thiệu</a> </li>
+                <li><a href="../index.html">Trang chủ</a></li>
+                <li><a href="../Blog/Blog.html">Blog</a></li>
+                <li><a href="../Contact/Contact.html">Liên hệ</a></li>
+            </ul>
+        </div>
+
+                <div class="footer-col">
+                    <h3>Hỗ Trợ</h3>
+                    <ul class="footer-links">
+                 <li><a href="../../FAQ/FAQ.html#popular">Câu hỏi phổ biến</a></li>
+                        <li><a href="../../FAQ/FAQ.html#booking">Đặt tour & thanh toán</a></li>
+                        <li><a href="../../FAQ/FAQ.html#exclusive">Dịch vụ độc quyền</a></li>
+                        <li><a href="../../FAQ/FAQ.html#cancel">Huỷ và đổi lịch</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Theo dõi</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-link facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                    <div class="contact-info">
+                        <p>Email: <a href="mailto:metrip@gmail.com">metrip@gmail.com</a></p>
+                        <p>Hotline: <span class="highlight">1900 580 801</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>2025 MeTrip. Tất cả quyền được bảo lưu.</p>
+            </div>
+    </footer>
+
+<!-- JAVASCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const signupForm = document.getElementById("signupForm");
+    const signupBtn = document.getElementById("signupBtn");
+    const signupMessage = document.getElementById("signupMessage");
+
+    // Xử lý đăng ký
+    signupForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const confirmPassword = document.getElementById("confirmPassword").value.trim();
+        const acceptTerms = document.getElementById("acceptTerms").checked;
+
+        // Kiểm tra input
+        if (!name || !email || !password || !confirmPassword) {
+            showMessage("Vui lòng điền đầy đủ thông tin!", "error");
+            return;
+        }
+
+        if (!acceptTerms) {
+            showMessage("Vui lòng đồng ý với Điều khoản dịch vụ!", "error");
+            return;
+        }
+
+        // Kiểm tra email hợp lệ
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showMessage("Email không hợp lệ!", "error");
+            return;
+        }
+
+        // Kiểm tra mật khẩu
+        if (password.length < 6) {
+            showMessage("Mật khẩu phải có ít nhất 6 ký tự!", "error");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            showMessage("Mật khẩu xác nhận không khớp!", "error");
+            return;
+        }
+
+        // Kiểm tra email đã tồn tại chưa
+        const existingUser = localStorage.getItem("userAccount");
+        if (existingUser) {
+            const user = JSON.parse(existingUser);
+            if (user.email === email) {
+                showMessage("Email đã được sử dụng!", "error");
+                return;
+            }
+        }
+
+        // Tạo tài khoản mới
+        const user = {
+            name: name,
+            email: email,
+            password: password,
+            role: "new", // Mặc định là khách hàng mới
+            signupDate: new Date().toISOString()
+        };
+
+        // Lưu vào localStorage
+        localStorage.setItem("userAccount", JSON.stringify(user));
+        
+        // Đăng nhập luôn sau khi đăng ký
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("userEmail", email);
+        localStorage.setItem("userName", name);
+        localStorage.setItem("userRole", "new");
+
+        showMessage("Đăng ký thành công! Đang chuyển hướng...", "success");
+
+        // Chuyển hướng sau 1.5 giây
+        setTimeout(() => {
+            window.location.href = "../index.html";
+        }, 1500);
+    });
+
+    // Hiển thị thông báo
+    function showMessage(message, type) {
+        signupMessage.textContent = message;
+        signupMessage.style.color = type === "success" ? "green" : "red";
+        signupMessage.style.fontWeight = "bold";
+        
+        // Xóa thông báo sau 3 giây
+        setTimeout(() => {
+            signupMessage.textContent = "";
+        }, 3000);
+    }
+});
+</script>
+<script>
+// Kiểm tra trạng thái đăng nhập và cập nhật header
+document.addEventListener("DOMContentLoaded", function () {
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+    const userEmail = localStorage.getItem("userEmail");
+    const userName = localStorage.getItem("userName");
+    const authButtons = document.getElementById("authButtons");
+    const userAvatarDropdown = document.getElementById("userAvatarDropdown");
+    const dropdownUserName = document.getElementById("dropdownUserName");
+    const dropdownUserEmail = document.getElementById("dropdownUserEmail");
+    const userAvatar = document.getElementById("userAvatar");
+    const avatarTrigger = document.getElementById("avatarTrigger");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    // Nếu đã đăng nhập
+    if (isLoggedIn && userEmail) {
+        // Ẩn nút đăng ký/đăng nhập
+        if (authButtons) authButtons.style.display = "none";
+        
+        // Hiển thị avatar dropdown
+        if (userAvatarDropdown) userAvatarDropdown.style.display = "flex";
+        
+        // Cập nhật thông tin người dùng
+        if (dropdownUserName && userName) {
+            dropdownUserName.textContent = userName;
+        }
+        
+        if (dropdownUserEmail) {
+            dropdownUserEmail.textContent = userEmail;
+        }
+        
+        // Cập nhật avatar (nếu có)
+        const userAvatarFromStorage = localStorage.getItem("userAvatar");
+        if (userAvatar && userAvatarFromStorage) {
+            userAvatar.src = userAvatarFromStorage;
+        }
+    }
+
+    // Toggle dropdown menu
+    if (avatarTrigger && dropdownMenu) {
+        avatarTrigger.addEventListener("click", function (e) {
+            e.stopPropagation();
+            avatarTrigger.classList.toggle("active");
+            dropdownMenu.classList.toggle("active");
+        });
+    }
+
+    // Đóng dropdown khi click ra ngoài
+    document.addEventListener("click", function (e) {
+        if (avatarTrigger && dropdownMenu && 
+            !avatarTrigger.contains(e.target) && 
+            !dropdownMenu.contains(e.target)) {
+            avatarTrigger.classList.remove("active");
+            dropdownMenu.classList.remove("active");
+        }
+    });
+
+    // Xử lý đăng xuất
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            
+            // Xóa thông tin đăng nhập
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("userEmail");
+            localStorage.removeItem("userName");
+            localStorage.removeItem("userRole");
+            
+            // Hiển thị thông báo
+            alert("Đã đăng xuất thành công!");
+            
+            // Reload trang để cập nhật header
+            window.location.reload();
+        });
+    }
+    
+    // Xử lý scroll cho header
+    const header = document.querySelector(".header");
+    if (header) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                header.classList.add("header-scrolled");
+            } else {
+                header.classList.remove("header-scrolled");
+            }
+        });
+    }
+});
+</script>
+
+
+</body>
+</html>

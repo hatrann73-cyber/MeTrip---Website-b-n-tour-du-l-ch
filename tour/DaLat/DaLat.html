@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeTrip - Hà Giang</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <!-- Header Footer CSS -->
+    <link rel="stylesheet" href="../../css/hfstyle.css">
+ <link rel="stylesheet" href="styletour3.css">
+
+
+</head>
+<body class="page">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <p>MeTrip</p>
+            </a>
+
+            <nav class="main-nav">
+                <a href="../../index.html">TRANG CHỦ</a>
+                <a href="../../Contact/Contact.html">LIÊN HỆ</a>
+                <a href="../../Gioithieu/gt.html">GIỚI THIỆU</a>
+                <a href="../../Blog/Blog.html">BLOG</a>
+                <a href="../../cart/cart.html">GIỎ HÀNG</a>
+            </nav>
+
+            <div class="auth-buttons">
+                <a href="../../Signup/signup.html" class="btn btn-outline">Sign Up</a>
+                <a href="../../login/login.html" class="btn btn-outline">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tour Title -->
+    <section class="tour-title">
+        <h1 class="font-heading text-4xl md:text-5xl font-bold">Đà Lạt - Thành Phố Ngàn Hoa Và Sương Mù</h1>
+        <p class="font-body text-gray-600 leading-relaxed">Hành trình 3 ngày 3 đêm khám phá "Tiểu Paris" của Việt Nam, nơi hội tụ vẻ đẹp lãng mạn của thiên nhiên, văn hóa và ẩm thực độc đáo.</p>
+
+        <div class="tour-info-icon">
+            <span><i class="fa-solid fa-location-dot"></i> Đà Lạt</span>
+            <span><i class="fa-solid fa-user-group"></i> Tối đa 30 người</span>
+            <span><i class="fa-solid fa-clock"></i> 3 ngày 3 đêm</span>
+            <span><i class="fa-regular fa-calendar-days"></i> Khởi hành hàng tuần</span>
+        </div>
+
+        <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>                     
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <span><b>4.2/5</b></span>
+            <span>(218 đánh giá)</span>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <div class="main-container container">
+        
+        <!-- Left Column -->
+        <div class="left-column">
+            <!-- Gallery -->
+            <div class="gallery">
+                 <img id="mainImage" src="img/tp.jpg" class="main-img"onclick="openModal(this.src)">
+                <div class="thumbnail-wrapper">
+                    <div class="thumb-list">
+                           <img src="img/tp.jpg" onclick="changeImage(this)">
+            <img src="img/núi-2.jpg" onclick="changeImage(this)">
+            <img src="img/lake-1.jpg" onclick="changeImage(this)">
+            <img src="img/núi-1.jpg" onclick="changeImage(this)">
+                        <img src="img/mongo land.jpg" onclick="changeImage(this)">
+            <img src="img/núi-3.jpg" onclick="changeImage(this)">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modal -->
+            <div id="imageModal" class="modal" onclick="closeModal()">
+                <span class="close">&times;</span>
+                <img id="modalImage" class="modal-content">
+            </div>
+
+            <!-- Description -->
+            <h2 class="section-title font-heading text-2xl md:text-3xl font-bold">Mô tả Tour</h2>
+            <p class="description font-body text-gray-600 leading-relaxed">
+                Đà Lạt - thành phố của sương mù, của những đồi thông bạt ngàn và những đóa hoa khoe sắc quanh năm. Tour Đà Lạt 3 ngày 3 đêm của MeTrip sẽ đưa bạn đến với "Tiểu Paris" phương Đông, nơi mỗi góc phố, mỗi con dốc đều ẩn chứa một câu chuyện, một vẻ đẹp riêng.
+
+Bạn sẽ được trải nghiệm Đà Lạt toàn diện: từ những công trình kiến trúc cổ kính, những ngôi chùa độc đáo, đến các điểm check-in "sống ảo" mới nhất, cùng với đó là ẩm thực đặc sắc núi rừng Tây Nguyên. Đặc biệt, bạn sẽ có cơ hội cảm nhận Đà Lạt về đêm với chợ đêm sầm uất và không khí se lạnh đặc trưng.
+
+Hãy cùng MeTrip viết nên những kỷ niệm đẹp tại thành phố ngàn hoa!
+
+            <!-- Highlights -->
+            <h2 class="section-title font-heading text-2xl md:text-3xl font-bold">Điểm Nổi Bật</h2>
+            <ul class="highlights">
+                <p class="font-body"><i class="fa-solid fa-check"></i> <strong>Tham quan Chùa Linh Phước (Chùa Ve Chai):</strong> – công trình nghệ thuật độc đáo từ mảnh sành, sứ</p>
+                <p class="font-body"><i class="fa-solid fa-check"></i> <strong>Khám phá Thiền Viện Trúc Lâm: </strong> – chốn thanh tịnh bên hồ Tuyền Lâm</p>
+                <p class="font-body"><i class="fa-solid fa-check"></i> <strong>  Trải nghiệm Mongo Land:  </strong> - trang trại du mục phong cách Châu Âu</p>
+                <p class="font-body"><i class="fa-solid fa-check"></i> <strong> Vui chơi tại Langbiang Land: </strong> – tổ hợp giải trí đỉnh cao dưới chân núi Langbiang</p>
+                <p class="font-body"><i class="fa-solid fa-check"></i> <strong> Thưởng thức ẩm thực đặc sắc: </strong> – buffet rau Đà Lạt, BBQ nướng, cơm niêu</p>
+                <p class="font-body"><i class="fa-solid fa-check"></i> <strong> Khám phá đêm Đà Lạt: </strong> chợ đêm, Quảng trường Lâm Viên</p>
+                <p class="font-body"><i class="fa-solid fa-check"></i>  <strong>Mua sắm đặc sản </strong> tại làng nghề truyền thống với giá ưu đãi</p>
+            </ul>
+
+            <!-- Itinerary -->
+            <h2 class="section-title font-heading text-2xl md:text-3xl font-bold">Lịch trình chi tiết</h2>
+            <div class="itinerary">
+                
+                <!-- NGÀY 1 -->
+            <div class="day-item">
+                <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-title">
+                        <i class="fa-regular fa-calendar-days" style="color: #2986FE;"></i> Ngày 1:  Chùa Linh Phước – Thiền Viện Trúc Lâm – Hoàng hôn phố núi
+                    </div>
+                    <span class="arrow"><i class="fa-solid fa-angle-down"style="color: #2986FE;"></i></span>
+                </div>
+
+                <div class="day-content">
+   <p>
+        <li><strong> ĐÊM TRƯỚC NGÀY 1 ( D-1): TP.HCM → Đà Lạt | Khởi hành – Nghỉ đêm trên xe </strong></li>
+     - Xe và Hướng dẫn viên đón khách tại: <br>
+        <b>22h00</b>: Bến xe An Sương <br>
+        <b>22h30</b>: Trung tâm Triển lãm Tân Bình <br>
+        <b>22h55</b>: Hùng Vương Plazai<br>
+        <b>23h25</b>: Nhà Văn hóa Thanh Niên Quận 1<br>
+- Đoàn làm quen, giao lưu và nghỉ ngơi trên xe. Xe tiếp tục lăn bánh đưa Quý khách hướng về thành phố ngàn hoa Đà Lạt. <br>
+    </p>
+    <p>
+        <li><strong> NGÀY 1 </strong></li>
+    <b>06h00:</b> Đến Đà Lạt – Dùng điểm tâm sáng <br> (Quý khách thưởng thức bữa sáng với các món đặc sản địa phương: bánh căn, bánh mì xíu mại, bún riêu, bún bò, hủ tiếu,...)<br> 
+
+    <b>07h00:</b> Tham quan <b>Chùa Linh Phước (Chùa Ve Chai)</b> – Điểm đến tâm linh đầy ấn tượng! <br>
+<span>
+<img src="img/Chùa LP-1.jpg" > <br>
+       - Bên cạnh khung cảnh thiên nhiên thơ mộng và ẩm thực đặc sắc, Đà Lạt còn sở hữu những công trình kiến trúc và điểm đến tâm linh lâu đời. Nổi bật nhất chính là Chùa Linh Phước, hay còn được biết đến với cái tên độc đáo là Chùa Ve Chai Đà Lạt. <br>
+  <i class="fa-solid fa-map-pin"></i> Vẻ Đẹp Độc Nhất Vô Nhị<br>
+Cái tên "Chùa Ve Chai" ra đời từ chính kiến trúc có một không hai của ngôi chùa. Được khởi công xây dựng từ năm 1949 và trùng tu lớn vào năm 1990 dưới sự chỉ huy của Thượng Tọa Thích Tâm Vị, toàn bộ khuôn viên chùa (rộng 6.666,84m²) được khảm từ hàng triệu mảnh sành, sứ vụn một cách vô cùng tinh xảo và sống động, tạo nên những tác phẩm nghệ thuật đỉnh cao.<br>
+  <i class="fa-solid fa-map-pin"></i> Ngôi Chùa Của Những Kỷ Lục Việt Nam<br>
+- Ngôi chùa được tạo tác từ nhiều mảnh sành sứ nhất Việt Nam. <br>
+- Tượng Phật Di Lặc bằng bê tông trong nhà cao nhất Việt Nam.<br>
+- Bộ bàn ghế bằng gốc cây gỗ sao chạm 12 con giáp lớn nhất Việt Nam.<br>
+- Tượng Quan Thế Âm Bồ Tát được kết từ 600.000 bông hoa bất tử.<br>
+- Tháp chuông cao nhất Việt Nam.<Br>
+- Công trình kiến trúc tái hiện cảnh Mục Liên tìm mẹ qua 18 tầng địa ngục lớn nhất Việt Nam (một trải nghiệm tham quan đầy ý nghĩa).<br>
+    </span>
+
+    <b>09h00:</b> Tham quan <b>Thiền Viện Trúc Lâm</b> <br>
+
+    <span>
+  <i class="fa-solid fa-map-pin"></i> Thiền Viện Trúc Lâm Đà Lạt: Chốn Yên Bình Tuyệt Đẹp Bên Hồ Tuyền Lâm <br>
+<img src="img/TVTL.jpeg" > <br>
+Đà Lạt không chỉ có hoa và sương mù, mà còn ẩn chứa những không gian thanh tịnh tuyệt vời. Nằm kiêu hãnh trên ngọn đồi Phụng Hoàng với tầm nhìn bao quát Hồ Tuyền Lâm xanh biếc, Thiền Viện Trúc Lâm chính là điểm đến tâm linh và danh thắng không thể bỏ qua. <br>
+  <i class="fa-solid fa-map-pin"></i> Kiến Trúc Thiền Tịnh Giữa Rừng Thông <br>
+Đây là một trong những Thiền Viện lớn nhất Việt Nam, được xây dựng theo lối kiến trúc Phật giáo đời Trần từ năm 1993, dưới sự chỉ đạo của Hòa thượng Thích Thanh Từ. Nơi đây nổi tiếng bởi sự hài hòa tuyệt đối giữa kiến trúc uy nghiêm (gồm Chánh Điện, Lầu Chuông...) và cảnh quan thiên nhiên hùng vĩ bao quanh bởi rừng thông bạt ngàn. <br>
+  <i class="fa-solid fa-map-pin"></i> Đến Trúc Lâm Để Tìm Lại Chính Mình<br>
+Thiền Viện Trúc Lâm không chỉ là một danh thắng, mà còn là một nơi để mọi người tìm về giá trị cốt lõi, tìm về sự an lạc trong tâm hồn giữa cuộc sống hối hả.<br>
+    </span>
+
+     <b>12h00:</b> Dùng bữa trưa – Nhận phòng khách sạn nghỉ ngơi <br>
+
+     <b>16h00:</b> Tham quan & ngắm hoa hoàng hôn tại Hoàng Hôn Chiều Coffee</br>
+
+     <b>18h00:</b> Quý khách dùng bữa tối bằng bữa tiệc <b> buffet rau </b>hoành tráng tại nhà hàng với hầu hết các loại rau sạch tại Đà Lạt.<br>
+
+      <b>19h30:</b> Quý khách tự do vui chơi, khám phá Đà Lạt với Chợ đêm Âm Phủ.<br>
+
+      <b>21h30:</b> Đoàn tập trung, di chuyển lên xe để về lại khách sạn nghỉ ngơi. Kết thúc lịch trình ngày 1.<br>
+     
+       </p>
+                </div>
+            </div>
+
+            <!-- NGÀY 2 -->
+            <div class="day-item">
+                <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-title">
+                        <i class="fa-regular fa-calendar-days" style="color: #2986FE;"></i> Ngày 2: Mongo Land – Langbiang Land – Quảng trường Lâm Viên – Chợ đêm 
+                    </div>
+                    <span class="arrow"><i class="fa-solid fa-angle-down"style="color: #2986FE;"></i></span>
+                </div>
+
+                <div class="day-content">
+        <p>
+    <b>07h00:</b> Đoàn dùng điểm tâm tại khách sạn <br> 
+
+    <b>08h00:</b> Đoàn bắt đầu hành trình tham quan ngày 2 <br>
+    <b>08h40:</b> Quý khách tham quan, vui chơi tại <b> Mongo Land </b>( Giá vé đã bao gồm trong tour). <br>
+    <span>
+<img src="img/mongo land.jpg" > <br>
+      - Bên cạnh những đồi thông lãng mạn hay vườn hoa thơ mộng truyền thống, Đà Lạt lại vừa chào đón một "tân binh" cực kỳ hấp dẫn, khuấy đảo cộng đồng mê du lịch và check-in: đó chính là Mongo Land Đà Lạt!<br>
+      - Không chỉ là một khu du lịch sinh thái thông thường, Mongo Land được ví như một trang trại du mục thu nhỏ, nơi bạn có thể tạm rời xa phố thị ồn ào để đắm mình vào không gian đồng quê châu Âu độc đáo ngay trên cao nguyên Lâm Viên.<br>
+<i class="fa-solid fa-map-pin"></i> Những Trải Nghiệm "Triệu Like" và Hoạt Động Vui Chơi Hấp Dẫn<br>
+<i class="fa-solid fa-map-pin"></i> Thiên Đường Sống Ảo & Gặp Gỡ Cư Dân Đáng Yêu<br>
+<i class="fa-solid fa-map-pin"></i> Trượt cỏ – bắn cung – thuê trang phục sống ảo<br>
+<i class="fa-solid fa-map-pin"></i> Trang trại du mục – vibe châu Âu thu nhỏ<br>
+<i class="fa-solid fa-map-pin"></i>Check-in lều Mông Cổ, xích đu, cầu gỗ<br>
+    </span>
+    <b>11h00:</b> Dùng bữa trưa tại nhà hàng <br>
+    <b>12h30:</b>  Quý khách về lại khách sạn nghỉ ngơi</br>
+    <b>14h00:</b> Đoàn di chuyển tham quan <b> LangBiang Land</b></br>
+    <span>
+<img src="img/Langbiang.jpeg" > <br>
+      <i class="fa-solid fa-map-pin"></i> Langbiang không chỉ là "Nóc nhà Đà Lạt" với câu chuyện tình huyền thoại, mà giờ đây, ngay dưới chân núi hùng vĩ này, đã xuất hiện một tổ hợp du lịch mới toanh: Langbiang Land. Đây là điểm đến lý tưởng, kết hợp hài hòa giữa vẻ đẹp hoang sơ của núi rừng Lạc Dương và vô số trải nghiệm văn hóa, vui chơi giải trí hiện đại. <br>
+  - Trải Nghiệm Văn Hóa Bản Địa Tây Nguyên (Cơm lam – gà nướng – nhà dài K’Ho)<br>
+  - Giải Trí Đỉnh Cao Với Trò Chơi Cảm Giác Mạnh ( Go-kart, trượt phao cầu vồng, công viên khủng long- vườn thú)<br>
+  - Thiên Đường Sống Ảo Giữa Đại Ngàn ( Hồ vô cực, Cầu bán nguyệt, Thác hoa đào, Tượng vũ điệu Langbiang <br>
+    </span>
+     <b>17h30:</b> Đoàn thưởng thức bữa tối với<b> Buffet BBQ</b></br>
+      <b>19h30:</b> Tự do vui chơi tham quan quảng trường Lâm Viên + chợ đêm Đà Lạt <br>
+<img src="img/QTLV.jpeg" > <br>
+      <b>21h30:</b> Quý khách tập trung di chuyển về khách sạn nghỉ ngơi. Kết thúc lịch trình ngày 2 <br>
+</p>
+                </div>
+            </div>
+
+            <!-- NGÀY 3 -->
+            <div class="day-item">
+                <div class="day-header" onclick="toggleDay(this)">
+                    <div class="day-title">
+                        <i class="fa-regular fa-calendar-days" style="color: #2986FE;"></i> Ngày 3: Tham quan - mua sắm - trở về TP.HCM
+                    </div>
+                    <span class="arrow"><i class="fa-solid fa-angle-down"style="color: #2986FE;"></i></span>
+                </div>
+
+                <div class="day-content">
+    <p>
+    <b>07h00:</b> Dùng điểm tâm, sau đó làm thủ tục check-out <br>  
+
+    <b>08h00:</b> Đoàn tiếp tục tham quan + mua sắm tại Đặc Sản Đà Lạt <br>
+    <span>  - Cơ sở sản xuất mứt và các sản phẩm sấy khô đặc sản Đà Lạt<br>
+Tại đây quý khách sẽ được thưởng thức các món mứt kẹo đặc sản của Đà Lạt MIỄN PHÍ. Quý khách có thể mua các loại đặc sản của Đà Lạt tại nơi đây với chất lượng và giá cả được đảm bảo.<br>
+    </span>
+    <b>10h00:</b> Quý khách tiếp tục di chuyển hướng về TP.HCM <br>
+    <b>12h00:</b> Đoàn dùng bữa trưa với đặc sản Cơm niêu tại trạm dừng chân</br>
+     <b>13h30:</b> Đoàn tiếp tục di chuyển</b></br>
+      <b>19h30:</b> Về tới TP.HCM. Kết thúc hành trình 3 ngày 3 đêm tham quan Đà Lạt <br>
+</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <div class="booking-card">
+                <h3 class="price-title font-heading">Giá mỗi khách hàng</h3>
+                <p class="price-adult font-heading">3.000.000 VND</p>
+                <p class="price-descrip font-body">Giá trên đã bao gồm thuế và phí dịch vụ</p>
+                
+                <label class="font-heading">Ngày khởi hành</label>
+                <input type="date" class="input font-body">
+                
+                <div class="booking-box">
+                    <h2 class="font-heading">Số lượng người tham gia</h2>
+                    <div class="counter-group">
+                        <p class="label font-body">Số lượng:</p>
+                        <div class="counter">
+                            <button onclick="changeCount('adult', 1)">+</button>
+                            <span id="adult" class="font-heading">2</span>
+                            <button onclick="changeCount('adult', -1)">−</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <form>
+                    <label class="font-heading">Thông tin liên hệ</label>
+                    <input type="text" id="contactName" placeholder="Họ và tên..." class="input font-body" required>
+                    <input type="text" id="contactPhone" placeholder="Số điện thoại..." class="input font-body" required>
+                    
+                    <button type="button" class="btn-book" onclick="addToCart()">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                        <span class="font-heading">Đặt tour ngay</span>
+                    </button>
+                </form>
+                
+                <p class="note font-body">Miễn phí huỷ trong <b>48h</b> trước khi khởi hành.<br>Hỗ trợ 24/7: <b>1900 580 801</b>.</p>
+                
+                <label class="font-heading">Trong tour đã bao gồm các chi phí:</label>
+                <ul class="included">
+                    <p class="font-body text-gray-600"><i class="fa-solid fa-check"></i> Khách sạn</p>
+                    <p class="font-body text-gray-600"><i class="fa-solid fa-check"></i> Ăn uống</p>
+                    <p class="font-body text-gray-600"><i class="fa-solid fa-check"></i> Vé tham quan</p>
+                    <p class="font-body text-gray-600"><i class="fa-solid fa-check"></i> Hướng dẫn viên</p>
+                </ul>
+                
+                <article>
+                    <h3 class="review-title font-heading">Đánh giá của khách hàng</h3>
+                     <div class="review-card">
+                <strong>Review 1 – Bạn Thuỳ Trang (Cần Thơ) </strong>
+                <p>“Tour Đà Lạt lần này làm mình rất hài lòng. Thời tiết mát lạnh, cảnh thì đẹp mê. Lịch trình dẫn đi nhiều điểm mới, chụp hình sống ảo cháy máy luôn. Hướng dẫn viên dễ thương, hài hước. Đúng kiểu nghỉ dưỡng mà ai cũng nên thử!”</p>
+            </div>
+
+            <div class="review-card">
+                <strong>Review 2 – Anh Đức (Bến Tre) </strong>
+                <p>“Mình từng đi Đà Lạt nhiều lần nhưng đi tour của MeTrip lại có trải nghiệm hoàn toàn khác. Được dẫn đi mấy nơi ít người biết, cảnh đẹp mà yên bình lắm. Khách sạn sạch, ăn uống ngon. Giá tour hợp lý so với chất lượng.”</p>
+            </div>
+<div class="review-card">
+                <strong>Review 3 –Gia đình chị Gia Hân (TP.HCM)
+</strong>
+                <p>“Nhân viên tour Đà Lạt chăm sóc rất chu đáo. Lịch trình nhẹ nhàng, phù hợp cho cả nhà. Bé nhà mình thích nhất là Đồi chè Cầu Đất và đường hầm đất sét. Đây là chuyến đi ấm áp và vui nhất của tụi mình năm nay.”</p>
+            </div>
+            </article>
+        </div>
+    </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <a href="#" class="f-logo">
+                    <p>MeTrip</p>
+                </a>
+                <p class="footer-desc">
+                    Trải nghiệm khám phá Việt Nam tuyệt vời dành cho người trẻ thích du lịch, khám phá, kết nối và tạo kỷ niệm.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Liên kết</h3>
+                <ul class="footer-links">
+                    <li><a href="../../Gioithieu/gt.html">Giới Thiệu</a></li>
+                    <li><a href="../../index.html">Trang chủ</a></li>
+                    <li><a href="../../Blog/Blog.html">Blog</a></li>
+                    <li><a href="../../Contact/Contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Hỗ Trợ</h3>
+                <ul class="footer-links">
+                    <li><a href="../../FAQ/FAQ.html#popular">Câu hỏi phổ biến</a></li>
+                    <li><a href="../../FAQ/FAQ.html#booking">Đặt tour & thanh toán</a></li>
+                    <li><a href="../../FAQ/FAQ.html#exclusive">Dịch vụ độc quyền</a></li>
+                    <li><a href="../../FAQ/FAQ.html#cancel">Huỷ và đổi lịch</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Theo dõi</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="social-link facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div class="contact-info">
+                    <p>Email: <a href="mailto:metrip@gmail.com">metrip@gmail.com</a></p>
+                    <p>Hotline: <span class="highlight">1900 580 801</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>2025 MeTrip. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Gallery Functions
+        function changeImage(element) {
+            document.getElementById("mainImage").src = element.src;
+        }
+        
+        function openModal(src) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            modal.style.display = "flex";
+            modalImg.src = src;
+        }
+        
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+        
+        // Itinerary Functions
+        function toggleDay(header) {
+            const item = header.parentElement;
+            item.classList.toggle("active");
+        }
+        
+        // Counter Functions
+        function changeCount(id, delta) {
+            const element = document.getElementById(id);
+            let currentCount = parseInt(element.innerText);
+            let newCount = currentCount + delta;
+            
+            if (newCount >= 0) {
+                element.innerText = newCount;
+            }
+        }
+        
+        // Add to Cart Function
+        function addToCart() {
+            const quantity = parseInt(document.getElementById('adult').innerText);
+            const travelDate = document.querySelector('input[type="date"]').value;
+
+            if (!travelDate) {
+                alert("Vui lòng chọn ngày khởi hành trước khi đặt tour!");
+                return;
+            }
+
+            const tourData = {
+                id: Date.now(),
+                name: "Lũng Cú - Hà Giang",
+                price: 4000000,
+                quantity: quantity,
+                date: travelDate,
+                img: "image/home/hagiang.jpg",
+                selected: true,
+                type: "LÃNG MẠN"
+            };
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingIndex = cart.findIndex(item => item.name === tourData.name && item.date === tourData.date);
+            
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += tourData.quantity;
+            } else {
+                cart.push(tourData);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            window.location.href = "../../cart/cart.html";
+        }
+        
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        
+        // Add fade in animation to gallery on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.style.opacity = '0';
+            mainImage.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                mainImage.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                mainImage.style.opacity = '1';
+                mainImage.style.transform = 'translateY(0)';
+            }, 300);
+            
+            // Set min date for date input to today
+            const today = new Date().toISOString().split('T')[0];
+            document.querySelector('input[type="date"]').min = today;
+        });
+    </script>
+</body>
+</html>
