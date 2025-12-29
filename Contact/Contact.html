@@ -208,5 +208,297 @@
         <p>2025 MeTrip. Tất cả quyền được bảo lưu.</p>
     </div>
 </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.contact-form');
+    const submitBtn = document.querySelector('.btn-submit');
+    
+    // Thêm HTML cho thông báo lỗi
+    const errorMessageHTML = `
+        <div class="error-message" style="
+            background-color: #ffebee;
+            color: #c62828;
+            padding: 10px 16px;
+            border-radius: 6px;
+            border-left: 4px solid #c62828;
+            margin-top: 15px;
+            display: none;
+            font-size: 14px;
+        ">
+            <i class="fas fa-exclamation-circle"></i>
+            <span class="error-text"></span>
+        </div>
+    `;
+    
+    form.insertAdjacentHTML('beforeend', errorMessageHTML);
+    
+    // Lấy các input cần validate
+    const inputs = {
+        firstName: form.querySelector('input[placeholder="First Name"]'),
+        lastName: form.querySelector('input[placeholder="Last Name"]'),
+        email: form.querySelector('input[type="email"]'),
+        phone: form.querySelector('input[placeholder="Phone"]'),
+        message: form.querySelector('textarea')
+    };
+    
+    const errorMessage = document.querySelector('.error-message');
+    const errorText = document.querySelector('.error-text');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Ngăn form submit mặc định
+        
+        // Reset trạng thái lỗi
+        errorMessage.style.display = 'none';
+        Object.values(inputs).forEach(input => {
+            input.style.borderColor = '#bdbdbd';
+        });
+        
+        // Kiểm tra validation
+        let isValid = true;
+        let errorMessages = [];
+        
+        // Check First Name
+        if (!inputs.firstName.value.trim()) {
+            isValid = false;
+            inputs.firstName.style.borderColor = '#c62828';
+            errorMessages.push('Vui lòng nhập First Name');
+        }
+        
+        // Check Last Name
+        if (!inputs.lastName.value.trim()) {
+            isValid = false;
+            inputs.lastName.style.borderColor = '#c62828';
+            if (!errorMessages.includes('Vui lòng nhập Last Name')) {
+                errorMessages.push('Vui lòng nhập Last Name');
+            }
+        }
+        
+        // Check Email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!inputs.email.value.trim()) {
+            isValid = false;
+            inputs.email.style.borderColor = '#c62828';
+            errorMessages.push('Vui lòng nhập Email');
+        } else if (!emailRegex.test(inputs.email.value.trim())) {
+            isValid = false;
+            inputs.email.style.borderColor = '#c62828';
+            errorMessages.push('Email không hợp lệ');
+        }
+        
+        // Check Phone (ít nhất 10 số)
+        const phoneRegex = /^\d{10,}$/;
+        if (!inputs.phone.value.trim()) {
+            isValid = false;
+            inputs.phone.style.borderColor = '#c62828';
+            errorMessages.push('Vui lòng nhập số điện thoại');
+        } else if (!phoneRegex.test(inputs.phone.value.trim().replace(/\D/g, ''))) {
+            isValid = false;
+            inputs.phone.style.borderColor = '#c62828';
+            errorMessages.push('Số điện thoại phải có ít nhất 10 chữ số');
+        }
+        
+        // Check Message
+        if (!inputs.message.value.trim()) {
+            isValid = false;
+            inputs.message.style.borderColor = '#c62828';
+            errorMessages.push('Vui lòng nhập Message');
+        }
+        
+        // Nếu có lỗi, hiển thị thông báo
+        if (!isValid) {
+            errorText.textContent = errorMessages.join(', ');
+            errorMessage.style.display = 'block';
+            
+            // Hiệu ứng shake cho form khi có lỗi
+            form.style.animation = 'shake 0.5s ease';
+            setTimeout(() => {
+                form.style.animation = '';
+            }, 500);
+            
+            return; // Dừng lại nếu có lỗi
+        }
+        
+        // Nếu hợp lệ, hiển thị thông báo thành công
+        showSuccessMessage();
+        
+        // TẮT DÒNG NÀY NẾU MUỐN THỬ NGHIỆM KHÔNG GỬI DỮ LIỆU THẬT
+        // sendFormData(form); // Gửi dữ liệu qua AJAX
+    });
+    
+    // Hàm hiển thị thông báo thành công
+    function showSuccessMessage() {
+        // Tạo hoặc lấy thông báo thành công
+        let successMsg = form.querySelector('.success-message');
+        if (!successMsg) {
+            successMsg = document.createElement('div');
+            successMsg.className = 'success-message';
+            successMsg.style.cssText = `
+                background: linear-gradient(135deg, #4CAF50, #2E7D32);
+                color: white;
+                padding: 16px 24px;
+                border-radius: 10px;
+                margin-top: 25px;
+                text-align: center;
+                font-weight: bold;
+                font-size: 16px;
+                box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+                animation: slideDown 0.5s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            `;
+            form.appendChild(successMsg);
+        }
+        
+        successMsg.innerHTML = `
+            <i class="fas fa-check-circle" style="font-size: 20px;"></i>
+            <span>✅ Đã lưu thông tin thành công! Cảm ơn bạn đã liên hệ.</span>
+        `;
+        successMsg.style.display = 'flex';
+        
+        // Thay đổi trạng thái nút submit
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Đã gửi thành công!';
+        submitBtn.style.background = '#4CAF50';
+        submitBtn.disabled = true;
+        
+        // Reset form (tùy chọn)
+        // form.reset();
+        
+        // Khôi phục nút sau 3 giây
+        setTimeout(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.style.background = '';
+            submitBtn.disabled = false;
+            
+            // Ẩn thông báo thành công sau 5 giây
+            setTimeout(() => {
+                successMsg.style.opacity = '0';
+                successMsg.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                    successMsg.style.opacity = '1';
+                }, 500);
+            }, 2000);
+        }, 3000);
+    }
+    
+    // Thêm sự kiện input để xóa lỗi khi người dùng bắt đầu nhập
+    Object.values(inputs).forEach(input => {
+        input.addEventListener('input', function() {
+            this.style.borderColor = '#bdbdbd';
+            if (errorMessage.style.display === 'block') {
+                errorMessage.style.display = 'none';
+            }
+            
+            // Thêm hiệu ứng focus đẹp
+            if (this.value.trim()) {
+                this.style.borderColor = '#4CAF50';
+                this.style.boxShadow = '0 0 0 2px rgba(76, 175, 80, 0.1)';
+            }
+        });
+        
+        input.addEventListener('blur', function() {
+            this.style.boxShadow = '';
+            if (!this.value.trim()) {
+                this.style.borderColor = '#bdbdbd';
+            }
+        });
+    });
+    
+    // Thêm CSS animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideDown {
+            from { 
+                opacity: 0; 
+                transform: translateY(-20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        
+        /* Hiệu ứng khi input được nhập đúng */
+        .contact-form input:valid,
+        .contact-form textarea:valid {
+            border-color: #4CAF50 !important;
+        }
+        
+        /* Hiệu ứng loading cho nút submit */
+        .btn-submit.loading {
+            position: relative;
+            color: transparent;
+        }
+        
+        .btn-submit.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            margin: -10px 0 0 -10px;
+            border: 2px solid #fff;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Hàm gửi dữ liệu form qua AJAX (nếu cần)
+    function sendFormData(formElement) {
+        submitBtn.classList.add('loading');
+        submitBtn.disabled = true;
+        
+        // Tạo FormData object
+        const formData = new FormData(formElement);
+        
+        // Thêm timestamp
+        formData.append('submit_time', new Date().toISOString());
+        
+        // Gửi AJAX request
+        fetch('https://formspree.io/f/your-form-id', { // Thay bằng endpoint thực tế
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+            
+            if (response.ok) {
+                showSuccessMessage();
+                formElement.reset();
+            } else {
+                throw new Error('Gửi form thất bại');
+            }
+        })
+        .catch(error => {
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+            
+            errorText.textContent = 'Có lỗi xảy ra khi gửi form. Vui lòng thử lại.';
+            errorMessage.style.display = 'block';
+            console.error('Form submission error:', error);
+        });
+    }
+});
+</script>
 </body>
 </html>
