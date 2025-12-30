@@ -566,3 +566,7 @@ body {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+.hotline-number {
+    font-weight: bold;
+    color: #fff;
+}
