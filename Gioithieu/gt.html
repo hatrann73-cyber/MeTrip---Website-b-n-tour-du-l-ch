@@ -138,6 +138,95 @@
         </div>
     </section>
 
+    <!-- SLIDER SECTION -->
+    <section class="slider-container">
+        <button class="nav-arrow prev" id="prevBtn">&#10094;</button>
+
+        <div class="slider-track" id="sliderTrack">
+            <div class="slide active"><img src="images/5.jpg" alt="Phong cảnh Việt Nam"></div>
+            <div class="slide"><img src="images/28.JPG" alt="ẢNH ĐẸP"></div>
+            <div class="slide"><img src="images/29.jpg" alt="ẢNH"></div>
+            <div class="slide"><img src="images/run.JPG" alt="ẢNH ĐẸP"></div>
+            <div class="slide"><img src="images/thiennhien.jpg" alt="Thiên nhiên"></div>
+            <div class="slide"><img src="images/dantoc.jpg" alt="người dân tộc"></div>
+ 	    <div class="slide"><img src="images/7.jpg" alt="hoian"></div>
+            <div class="slide"><img src="images/6.jpg" alt="hue"></div>
+
+            <div class="slide"><img src="https://picsum.photos/id/1040/1200/800" alt="Biển đảo"></div>
+        </div>
+        
+        <button class="nav-arrow next" id="nextBtn">&#10095;</button>
+    </section>
+
+    <script>
+        // JavaScript cho slider (từ phiên bản cũ)
+        const slides = document.querySelectorAll('.slide');
+        const track = document.getElementById('sliderTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        let currentIndex = 0;
+        let autoSlide;
+
+        function positionArrows() {
+            const activeSlide = document.querySelector('.slide.active img');
+            const sliderRect = document.querySelector('.slider-container').getBoundingClientRect();
+            const imgRect = activeSlide.getBoundingClientRect();
+
+            // Tính tâm ảnh so với container
+            const centerY = imgRect.top - sliderRect.top + imgRect.height / 2;
+
+            prevBtn.style.top = `${centerY}px`;
+            nextBtn.style.top = `${centerY}px`;
+        }
+
+        function updateSlider() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentIndex].classList.add('active');
+
+            const slideWidth = slides[0].offsetWidth + 32;
+            const center = window.innerWidth / 2 - slideWidth;
+            track.style.transform = `translateX(${-slideWidth * currentIndex + center}px)`;
+
+            // căn lại mũi tên sau khi ảnh scale
+            setTimeout(positionArrows, 50);
+        }
+
+        function startAutoSlide() {
+            autoSlide = setInterval(() => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlider();
+            }, 3500);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlide);
+        }
+
+        nextBtn.addEventListener('click', () => {
+            stopAutoSlide();
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlider();
+            startAutoSlide();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            stopAutoSlide();
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlider();
+            startAutoSlide();
+        });
+
+        window.addEventListener('resize', positionArrows);
+
+        /* INIT */
+        updateSlider();
+        startAutoSlide();
+    </script>
+
+
+
+
     <!-- TEAM SECTION -->
     <section class="team-section-pro">
         <div class="container">
@@ -196,65 +285,64 @@
         </div>
     </section>
 
-    <!-- PARTNERSHIP PROCESS -->
-    <section class="partnership-section-pro">
+       <!-- PARTNERSHIP ROADMAP -->
+    <section class="partner-roadmap-section">
         <div class="container">
-            <div class="team-header">
-                <div class="section-subtitle">Hợp tác</div>
-                <h2 class="section-title font-heading">Vì Sao Chọn<br>Làm Đối Tác Với MeTrip</h2>
-                <p class="section-description font-body">
-                    Với mạng lưới đối tác toàn quốc, chúng tôi là nền tảng đặt dịch vụ du lịch hàng đầu 
-                    phục vụ thị trường khách du lịch tự túc (FIT).
-                </p>
+            <h1>Why Partner with Us</h1>
+            <p class="section-description">
+                Với mạng lưới đối tác toàn quốc, chúng tôi là nền tảng đặt dịch vụ du lịch hàng đầu phục vụ thị trường khách du lịch tự túc (FIT).
+            </p>
+
+            <div class="roadmap-container">
+                <svg class="roadmap-svg" viewBox="0 0 1000 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M700 50 C 700 150, 600 250, 400 250 C 200 250, 150 400, 350 500 C 550 600, 750 550, 750 700" 
+                          stroke="currentColor" stroke-width="2" stroke-dasharray="8 8" />
+                </svg>
+
+                <div class="roadmap-step step-1">
+                    <div class="step-dot"></div>
+                    <div class="step-content">
+                        <h3>Tiếp cận thế hệ trẻ</h3>
+                        <p>Kết nối với hơn 500K bạn trẻ yêu du lịch qua nền tảng số và mạng xã hội.</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-step step-2">
+                    <div class="step-dot"></div>
+                    <div class="step-content">
+                        <h3>Giải pháp công nghệ tin cậy</h3>
+                        <p>Hệ thống đặt tour thông minh, dashboard quản lý và hỗ trợ 24/7.</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-step step-3">
+                    <div class="step-dot"></div>
+                    <div class="step-content">
+                        <h3>Đội ngũ địa phương tài năng</h3>
+                        <p>Đội ngũ hướng dẫn viên trẻ trung, am hiểu địa phương và đam mê xê dịch, luôn sẵn sàng đồng hành cùng bạn trên mọi hành trình khám phá Việt Nam.</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-step step-4">
+                    <div class="step-dot"></div>
+                    <div class="step-content">
+                        <h3>Kênh Marketing tích hợp</h3>
+                        <p>Từ quảng cáo hiệu suất cao đến mạng lưới người nổi tiếng (KOL), giúp đối tác tiếp cận lượng khán giả rộng lớn và đa dạng.</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-step step-5">
+                    <div class="step-dot"></div>
+                    <div class="step-content">
+                        <h3>Đối tác vô song</h3>
+                        <p>Hợp tác cùng nhiều đơn vị lữ hành uy tín trong nước để mang đến các tour chất lượng, an toàn và đầy cảm hứng dành cho thế hệ trẻ yêu thích khám phá.</p>
+                    </div>
+                </div>
             </div>
-            
-            <div class="process-timeline">
-                <div class="process-line"></div>
-                
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3 class="font-heading text-2xl mb-3">Tiếp Cận Thế Hệ Trẻ</h3>
-                        <p class="font-body text-gray-600">
-                            Kết nối với hơn 500K bạn trẻ yêu du lịch qua nền tảng số và mạng xã hội.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3 class="font-heading text-2xl mb-3">Công Nghệ Hiện Đại</h3>
-                        <p class="font-body text-gray-600">
-                            Hệ thống đặt tour thông minh, dashboard quản lý và hỗ trợ 24/7.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3 class="font-heading text-2xl mb-3">Marketing Tích Hợp</h3>
-                        <p class="font-body text-gray-600">
-                            Chiến dịch digital marketing, KOLs và content sáng tạo thu hút giới trẻ.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3 class="font-heading text-2xl mb-3">Hỗ Trợ Toàn Diện</h3>
-                        <p class="font-body text-gray-600">
-                            Đào tạo, tư vấn và đồng hành cùng đối tác trong mọi giai đoạn phát triển.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 4rem;">
-                <a href="../Contact/Contact.html" class="btn-pro" style="background: var(--luxury-gold); color: var(--luxury-navy);">
-                    <span>Trở thành đối tác ngay</span>
+
+            <div class="roadmap-cta">
+                <a href="../Contact/Contact.html" class="roadmap-btn">
+                    <span>Trở thành đối tác</span>
                     <i class="fas fa-handshake"></i>
                 </a>
             </div>
@@ -352,7 +440,7 @@
         </div>
     </section>
 
-    <!-- Footer sẽ được import từ file riêng -->
+ 
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
