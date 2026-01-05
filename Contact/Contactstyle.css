@@ -1,72 +1,93 @@
-
-/* --- Cài đặt chung --- */
-* {
-    margin: 0;
-    padding: 0;
+.contact-page * {
     box-sizing: border-box;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #ffffff; 
-	color: #333;
+    background-color: #ffffff;
+    color: #333;
 }
 
+/* ===== CONTAINER ===== */
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
 
-/* ===== CONTENT LAYOUT ===== */
+/* ===== PAGE HEADER ===== */
+.contact-header-wrapper {
+    margin: 40px 0 60px;
+}
+
+.contact-subtitle {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.contact-header h1 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 44px;
+    font-weight: 900;
+    margin-bottom: 16px;
+}
+
+.contact-desc {
+    font-size: 16px;
+    max-width: 720px;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* ===== MAIN CONTENT ===== */
 .contact-content {
     display: grid;
     grid-template-columns: 400px 1fr;
-    column-gap: 80px; /* khoảng cách giữa 2 box */
+    gap: 80px;
     align-items: flex-start;
 }
 
-/* ===== LEFT ===== */
+/* ===== LEFT COLUMN ===== */
 .contact-left-wrapper {
     display: flex;
-	justify-content: left;
     flex-direction: column;
-    align-items: flex-start;
-    width: 400px;
+    gap: 14px;
 }
-
 
 .contact-left {
     background: #ffffff;
-	width: 400px;
     padding: 24px;
     border-radius: 15px;
     box-shadow: 6px 5px 2px rgba(0, 0, 0, 0.1);
 }
 
 .contact-left h2 {
-	 font-family: 'Crimson Pro', serif;
+    font-family: 'Crimson Pro', serif;
     font-size: 30px;
-	font-weight: 900;
-    margin-bottom: 5px;
+    font-weight: 900;
+    color: #2f80ed;
+    margin-bottom: 6px;
 }
 
 .contact-left > p {
-	font-family: 'Crimson Pro', serif;
+    font-family: 'Crimson Pro', serif;
     font-size: 14px;
-	font-weight: 600;
-    color: #000000;
-    margin-bottom: 0px;
+    font-weight: 600;
+    margin-bottom: 16px;
 }
 
-/* CONTACT BOX */
+/* CONTACT INFO */
 .contact-box {
     display: flex;
     gap: 12px;
-    padding: 14px 16px;
-    margin-bottom: 0px;
+    padding: 12px 0;
 }
 
 .contact-box i {
-    font-size: 22px;
-    color: #000000;
-    margin-top: 8px;
-	font-weight: 100px;
+    font-size: 20px;
+    margin-top: 4px;
 }
 
 .contact-text {
@@ -75,17 +96,15 @@ body {
 }
 
 .contact-main {
+    font-family: 'Crimson Pro', serif;
     font-size: 15px;
-font-family: 'Crimson Pro', serif;
     font-weight: 600;
-    color: rgba(0, 0, 0, 1);
-	cursor: pointer;
-	transition: color 0.2s ease;
+    cursor: pointer;
 }
 
 .contact-main:hover {
-	color: #2f80ed;
-	text-decoration: underline;
+    color: #2f80ed;
+    text-decoration: underline;
 }
 
 .contact-sub {
@@ -93,45 +112,35 @@ font-family: 'Crimson Pro', serif;
     color: rgba(0, 0, 0, 0.5);
 }
 
-/* OFFICE BOX */
+/* OFFICE */
 .office-box {
-	background: rgba(191, 234, 254, 0.25);
-	padding: 8px 11px;
-	border-radius: 10px;
-	margin-bottom: 14px;
-	box-shadow: 5px 4px 2px rgba(0,0,0,0.1);
+    background: rgba(191, 234, 254, 0.25);
+    padding: 10px 12px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    box-shadow: 5px 4px 2px rgba(0,0,0,0.1);
 }
 
 .office-box h4 {
-	font-size: 19px;
-	font-family: 'Crimson Pro', serif;
-	font-weight: 600;
-	margin-bottom: 6px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
 }
 
 .office-box p {
-	font-size: 12px;
-	color: rgba(0, 0, 0, 0.5);
-	line-heigt: 1.5;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+    line-height: 1.5;
 }
 
-/*RESPONSE TIME*/
+/* RESPONSE TIME */
 .response-time {
-    margin-top: 10px;
     font-size: 13px;
     color: #444;
-    border-radius: 10px;
 }
 
-/* ===== RIGHT (CONTACT FORM) ===== */
-.contact-right {
-    background: transparent;
-    padding: 0;
-    border-radius: 0;
-    box-shadow: none;
-    margin-top: 10px;
-}
-
+/* ===== RIGHT COLUMN (FORM) ===== */
 .contact-right h2 {
     font-family: 'Crimson Pro', serif;
     font-size: 30px;
@@ -140,37 +149,32 @@ font-family: 'Crimson Pro', serif;
     margin-bottom: 24px;
 }
 
-
-/* FORM */
-/* FORM */
 .contact-form {
-    width: 70%;
+    width: 100%;
+    max-width: 720px;
 }
 
-/* ROW */
+/* FORM ROW */
 .form-row {
     display: flex;
     gap: 24px;
-    margin-bottom: 50px;
+    margin-bottom: 32px;
 }
 
-/* GROUP */
 .form-group {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-/* LABEL */
 .form-group label {
-    font-size: 23px;
-	font-family: 'Crimson Pro', serif;
+    font-family: 'Crimson Pro', serif;
+    font-size: 20px;
     font-weight: 600;
-    color: #000;
     margin-bottom: 6px;
 }
 
-/* INPUT + TEXTAREA */
+/* INPUTS */
 .contact-form input,
 .contact-form textarea {
     width: 100%;
@@ -178,41 +182,31 @@ font-family: 'Crimson Pro', serif;
     border-radius: 8px;
     border: 1px solid #bdbdbd;
     font-size: 14px;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
 }
 
-
-/* TEXTAREA */
 .contact-form textarea {
     height: 140px;
     resize: none;
     margin-bottom: 22px;
 }
 
-/* PLACEHOLDER */
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: rgba(0, 0, 0, 0.45);
-}
-
-/* FOCUS */
 .contact-form input:focus,
 .contact-form textarea:focus {
     border-color: #2f80ed;
+    outline: none;
     box-shadow: 0 0 0 2px rgba(47, 128, 237, 0.15);
 }
 
-/* SUBMIT BUTTON */
+/* SUBMIT */
 .btn-submit {
     width: 100%;
     height: 44px;
     border-radius: 22px;
     background: #2f80ed;
-	font-family: 'Crimson Pro', serif;
-    color: #fff;
-    font-size: 28px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 22px;
     font-weight: 700;
+    color: #fff;
     border: none;
     cursor: pointer;
 }
@@ -222,10 +216,9 @@ font-family: 'Crimson Pro', serif;
     transform: translateY(-1px);
 }
 
+/* ===== MAP ===== */
 .contact-map {
-     margin-top: 60px;
-    margin-left: 480px; /* 400 (left) + 80 (gap) */
-    max-width: calc(100% - 480px);
+    margin-top: 80px;
 }
 
 .contact-map h2 {
@@ -233,15 +226,52 @@ font-family: 'Crimson Pro', serif;
     font-size: 24px;
     font-weight: 800;
     color: #2f80ed;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .contact-map iframe {
-    width: 70%;
-    height: 320px;
+    width: 100%;
+    height: 360px;
     border-radius: 12px;
     border: none;
+     margin-bottom: 16px;
 }
+/* ===== CENTER CONTACT HEADER ===== */
+.contact-header-wrapper {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 60px 0;
+}
+
+.contact-header {
+    max-width: 800px;
+}
+
+/* CONTACT US */
+.contact-subtitle {
+    color: #2f80ed;              
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+/* TITLE */
+.contact-header h1 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+/* DESCRIPTION */
+.contact-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+}
+
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
@@ -249,18 +279,11 @@ font-family: 'Crimson Pro', serif;
         grid-template-columns: 1fr;
     }
 
-    .contact-left-wrapper,
-    .contact-left {
-        width: 100%;
-    }
-
     .form-row {
         flex-direction: column;
     }
-.contact-map {
-        margin-left: 0;
-        max-width: 100%;
-        margin-top: 40px;
+
+    .contact-header h1 {
+        font-size: 36px;
     }
 }
-

@@ -149,69 +149,71 @@
                 <a href="login/login.html" class="btn btn-outline">Login</a>
             </div>
             
-            <!-- Nếu đã đăng nhập - Hiển thị avatar và dropdown -->
-            <div class="user-avatar-dropdown" id="userAvatarDropdown" style="display: none;">
-                <div class="avatar-wrapper" id="avatarTrigger">
-                    <img src="image/avatar.jpg" alt="Avatar" class="user-avatar" id="userAvatar">
-                    
-                </div>
-               <div class="dropdown-menu" id="dropdownMenu">
-    <!-- Header dropdown -->
-    <div class="user-info">
-        <div class="flex items-center gap-3">
-            <img src="image/avatar.jpg" alt="Avatar" class="w-10 h-10 rounded-full border-2 border-luxury-gold">
-            <div>
-                <p class="user-name font-bold text-gray-900" id="dropdownUserName">thu hà</p>
-                <p class="user-email text-sm text-gray-600" id="dropdownUserEmail">g@gmail.com</p>
-            </div>
-        </div>
+        <!-- Nếu đã đăng nhập - Hiển thị avatar và dropdown -->
+<div class="user-avatar-dropdown" id="userAvatarDropdown" style="display: none;">
+    <div class="avatar-wrapper" id="avatarTrigger">
+        <img src="image/avatar.jpg" alt="Avatar" class="user-avatar" id="userAvatar">
+        <span class="avatar-arrow material-icons">expand_more</span>
     </div>
-    
-    <!-- Separator -->
-    <div class="dropdown-divider"></div>
-    
-    <!-- Menu items -->
-    <a href="profile/profile.html" class="dropdown-item hover:bg-gray-50">
-        <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
-                <span class="material-icons text-blue-600 text-lg">person</span>
-            </div>
-            <span class="text-gray-700 font-medium">Trang cá nhân</span>
-        </div>
-    </a>
-    
-    <a href="cart/cart.html" class="dropdown-item hover:bg-gray-50">
-        <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
-                <span class="material-icons text-green-600 text-lg">receipt_long</span>
-            </div>
-            <span class="text-gray-700 font-medium">Đơn hàng của tôi</span>
-        </div>
-    </a>
-    
-    <a href="settings/settings.html" class="dropdown-item hover:bg-gray-50">
-        <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
-                <span class="material-icons text-purple-600 text-lg">settings</span>
-            </div>
-            <span class="text-gray-700 font-medium">Cài đặt</span>
-        </div>
-    </a>
-    
-    <!-- Separator -->
-    <div class="dropdown-divider"></div>
-    
-    <!-- Logout -->
-    <a href="#" class="dropdown-item hover:bg-red-50" id="logoutBtn">
-        <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center">
-                <span class="material-icons text-red-600 text-lg">logout</span>
-            </div>
-            <span class="text-red-600 font-medium">Đăng xuất</span>
-        </div>
-    </a>
 </div>
-</header>
+    
+    <div class="dropdown-menu" id="dropdownMenu">
+        <!-- User Info -->
+        <div class="user-info">
+            <div class="user-avatar-name">
+                <img src="image/avatar.jpg" alt="Avatar" class="dropdown-avatar">
+                <div>
+                    <p class="user-name" id="dropdownUserName">thu hà</p>
+                    <p class="user-email" id="dropdownUserEmail">g@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Separator -->
+        <div class="dropdown-divider"></div>
+        
+        <!-- Menu Items -->
+        <a href="profile/profile.html" class="dropdown-item">
+            <div class="menu-item">
+                <div class="menu-icon bg-blue-100">
+                    <span class="material-icons text-blue-600">person</span>
+                </div>
+                <span class="menu-text">Trang cá nhân</span>
+            </div>
+        </a>
+        
+        <a href="cart/cart.html" class="dropdown-item">
+            <div class="menu-item">
+                <div class="menu-icon bg-green-100">
+                    <span class="material-icons text-green-600">receipt_long</span>
+                </div>
+                <span class="menu-text">Đơn hàng của tôi</span>
+            </div>
+        </a>
+        
+        <a href="settings/settings.html" class="dropdown-item">
+            <div class="menu-item">
+                <div class="menu-icon bg-purple-100">
+                    <span class="material-icons text-purple-600">settings</span>
+                </div>
+                <span class="menu-text">Cài đặt</span>
+            </div>
+        </a>
+        
+        <!-- Separator -->
+        <div class="dropdown-divider"></div>
+        
+        <!-- Logout -->
+        <a href="#" class="dropdown-item logout-item" id="logoutBtn">
+            <div class="menu-item">
+                <div class="menu-icon bg-red-100">
+                    <span class="material-icons text-red-600">logout</span>
+                </div>
+                <span class="menu-text text-red-600">Đăng xuất</span>
+            </div>
+        </a>
+    </div>
+</div>
 
 </header>
 
@@ -326,7 +328,7 @@
     </div>
 
     <!-- CURATED COLLECTIONS -->
-    <section id="exclusive-collection" class="curated-collections py-15 bg-white dark:bg-luxury-charcoal"></section>
+
     <section id="exclusive-collection" class="curated-collections pt-10 pb-24 bg-white dark:bg-luxury-charcoal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 animate-slide-up">
@@ -475,6 +477,7 @@
         </div>
         <div id="results-display-container" class="space-y-6"></div>
     </div>
+
    
     <!-- EXPERIENCES SECTION -->
     <section id="experiences-section" class="experiences-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
@@ -512,9 +515,15 @@
                         <a class="text-primary font-medium hover:underline" href="tour/binhthuanphanthiet/binhthuanphanthiet.html">
                             Tìm hiểu thêm
                         </a>
-                        <button onclick="addToCart({name: 'Bình Thuận – Phan Thiết', price: 2250000, img: 'image/home/phanthiet.jpg', type: 'Sống Xanh'})" class="btn-booking px-4 py-2 text-white rounded-full text-sm font-heading font-bold transition">
-                            ĐẶT NGAY
-                        </button>
+<button class="btn-book"
+  data-id="binhthuan-phanthiet"
+  data-name="Bình Thuận – Phan Thiết"
+  data-price="2250000"
+  data-img="image/home/phanthiet.jpg"
+  data-type="Sống Xanh">
+  ĐẶT NGAY
+</button>
+
                     </div>
                 </div>
             </div>
@@ -543,9 +552,16 @@
                         <a class="text-primary font-medium hover:underline" href="tour/bacninh/bacninh.html">
                             Tìm hiểu thêm
                         </a>
-                        <button onclick="addToCart({name: 'Bắc Ninh', price: 2000000, img: 'image/home/bacninh.jpg', type: 'Bản sắc Văn Hóa'})" class="btn-booking px-4 py-2 text-white rounded-full text-sm font-heading font-bold transition">
-                            ĐẶT NGAY
-                        </button>
+                     
+<button class="btn-book"
+  data-id="bacninh"
+  data-name="Bắc Ninh"
+  data-price="2000000"
+  data-img="image/home/bacninh.jpg"
+  data-type="Bản sắc Văn Hóa">
+  ĐẶT NGAY
+</button>
+
                     </div>                
                 </div>
             </div>
@@ -574,9 +590,15 @@
                         <a class="text-primary font-medium hover:underline" href="tour/DaLat/DaLat.html">
                             Tìm hiểu thêm
                         </a>
-                        <button onclick="addToCart({name: 'Đà Lạt', price: 3000000, img: 'image/home/dalat.jpg', type: 'Lãng Mạn'})" class="btn-booking px-4 py-2 text-white rounded-full text-sm font-heading font-bold transition">
-                            ĐẶT NGAY
-                        </button>
+                       <button class="btn-book"
+  data-id="dalat"
+  data-name="Đà Lạt"
+  data-price="3000000"
+  data-img="image/home/dalat.jpg"
+  data-type="Lãng Mạn">
+  ĐẶT NGAY
+</button>
+
                     </div>
                 </div>
             </div>
@@ -605,9 +627,17 @@
                         <a class="text-primary font-medium hover:underline" href="tour/HaGiang/HaGiang.html">
                             Tìm hiểu thêm
                         </a>
-                        <button onclick="addToCart({name: 'Hà Giang', price: 4000000, img: 'image/home/hagiang.jpg', type: 'Lãng Mạn'})" class="btn-booking px-4 py-2 text-white rounded-full text-sm font-heading font-bold transition">
-                            ĐẶT NGAY
-                        </button>
+                 
+           <button class="btn-book"
+  data-id="hagiang"
+  data-name="Hà Giang"
+  data-price="4000000"
+  data-img="image/home/hagiang.jpg"
+  data-type="Lãng Mạn">
+  ĐẶT NGAY
+</button>
+
+
                     </div>
                 </div>
             </div>
@@ -636,9 +666,16 @@
                         <a class="text-primary font-medium hover:underline" href="tour/DaLatNhaTrang/DaLatNhaTrang.html">
                             Tìm hiểu thêm
                         </a>
-                        <button onclick="addToCart({name: 'Đà Lạt - Nha Trang', price: 4790000, img: 'image/home/dalatnhatrang.jpg', type: 'Thiên Nhiên'})" class="btn-booking px-4 py-2 text-white rounded-full text-sm font-heading font-bold transition">
-                            ĐẶT NGAY
-                        </button>
+                       
+           <button class="btn-book"
+  data-id="dalatnhatrang"
+  data-name="Đà Lạt - Nha Trang"
+  data-price="3000000"
+  data-img="image/home/dalatnhatrang.jpg"
+  data-type="Thiên Nhiên">
+  ĐẶT NGAY
+</button>
+
                     </div>
                 </div>
             </div>
@@ -667,9 +704,16 @@
                         <a class="text-primary font-medium hover:underline" href="tour/DaLatRun/DaLatRun.html">
                             Tìm hiểu thêm
                         </a>
-                        <button onclick="addToCart({name: 'Đà Lạt Run', price: 2990000, img: 'image/home/dalatrun.jpg', type: 'Trải Nghiệm'})" class="btn-booking px-4 py-2 text-white rounded-full text-sm font-heading font-bold transition">
-                            ĐẶT NGAY
-                        </button>
+                      
+   <button class="btn-book"
+  data-id="dalatrun"
+  data-name="Đà Lạt Run"
+  data-price="3000000"
+  data-img="image/home/dalatrun.jpg"
+  data-type="Trải Nghiệm">
+  ĐẶT NGAY
+</button>
+
                     </div>
                 </div>
             </div>
@@ -698,9 +742,15 @@
                       <a class="text-primary font-medium hover:underline" href="tour/dulichmientay/dulichmientay.html">
     Tìm hiểu thêm
 </a>
-                        <button onclick="addToCart({name: 'Miền Tây', price: 2750000, img: 'image/home/dulichmientay.jpg', type: 'Thiên Nhiên'})" class="btn-booking px-4 py-2 text-white rounded-full text-sm font-heading font-bold transition">
-                            ĐẶT NGAY
-                        </button>
+                      
+ <button class="btn-book"
+  data-id="mientay"
+  data-name="Miền Tây"
+  data-price="2750000"
+  data-img="image/home/dulichmientay.jpg"
+  data-type="Thiên Nhiên">
+  ĐẶT NGAY
+</button>
                     </div>        
                 </div>
             </div>
@@ -729,10 +779,16 @@
                         <a class="text-primary font-medium hover:underline" href="tour/dananghoianbanahue/dananghoianbanahue.html">
                             Tìm hiểu thêm
                         </a>
-                        <button onclick="addToCart({name: 'Miền Trung', price: 2890000, img: 'image/home/hoian.jpg', type: 'Bản sắc Văn Hóa'})" class="btn-booking px-4 py-2 text-white rounded-full text-sm font-heading font-bold transition">
-                            ĐẶT NGAY
-                        </button>
-                    </div>
+                     
+ <button class="btn-book"
+  data-id="mientrung"
+  data-name="Miền Trung"
+  data-price="2890000"
+  data-img="image/home/hoian.jpg"
+  data-type="Bản sắc Văn Hóa">
+  ĐẶT NGAY
+</button>
+                               </div>
                 </div>
             </div>
         </div>
@@ -877,8 +933,6 @@
     </section>
 
     <!-- PROMO SECTION -->
-    <section class="promo py-24 bg-gradient-to-b from-luxury-cream/30 to-white dark:from-gray-900 dark:to-luxury-charcoal relative overflow-hidden">
-       <!-- PROMO SECTION -->
 <section class="promo py-24 bg-gradient-to-b from-luxury-cream/30 to-white dark:from-gray-900 dark:to-luxury-charcoal relative overflow-hidden">
     <!-- Decorative Elements -->
     <div class="floating-element floating-1"></div>
@@ -1543,7 +1597,7 @@
         <div class="footer-container">
             <!-- CỘT 1 -->
             <div>
-                <a href="#" class="f-logo">
+                <a href="index.html" class="f-logo">
                     <p>MeTrip</p>
                 </a>
                 <p class="footer-desc">
@@ -1600,17 +1654,6 @@
             2025 MeTrip. Tất cả quyền được bảo lưu.
         </div>
     </footer>
-
-    <!-- NOTIFICATION CONTAINER -->
-    <div id="notification-container" class="fixed top-4 right-4 z-50 hidden">
-        <div id="notification" class="bg-green-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3">
-            <i class="fa-solid fa-check-circle text-xl"></i>
-            <div>
-                <p class="font-medium" id="notification-title">Đã thêm vào giỏ hàng!</p>
-                <p class="text-sm opacity-90" id="notification-message"></p>
-            </div>
-        </div>
-    </div>
 
     <script>
         /* =========================
@@ -1690,7 +1733,7 @@
                 type: 'Thiên Nhiên',
                 price: 2750000,
                 img: 'image/home/dulichmientay.jpg',
-                link: 'tour/dulicghmientay/dulicghmientay.html',
+                link: 'tour/dulichmientay/dulichmientay.html',
                 desc: 'Khám phá trọn vẹn vẻ đẹp miền Tây sông nước với Mỹ Tho, Cần Thơ, Sóc Trăng, Bạc Liêu, Cà Mau.',
                 duration: '3 Ngày 2 Đêm'
             },
@@ -1710,48 +1753,87 @@
         /* =========================
            ADD TO CART FUNCTION
         ========================= */
-        function addToCart(tour) {
-            console.log('Adding to cart:', tour);
-            
-            // Lấy giỏ hàng từ localStorage
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            
-            // Chuẩn bị dữ liệu tour
-            const cartTour = {
-                id: tour.id || Date.now(),
-                name: tour.name,
-                price: tour.price,
-                quantity: 1,
-                img: tour.img,
-                type: tour.type || 'Du lịch trải nghiệm',
-                date: new Date().toLocaleDateString('vi-VN'),
-                selected: true
-            };
-            
-            // Kiểm tra nếu tour đã có trong giỏ hàng
-            const existingIndex = cart.findIndex(item => item.name === cartTour.name);
-            
-            if (existingIndex > -1) {
-                // Tăng số lượng nếu đã có
-                cart[existingIndex].quantity += 1;
-                cart[existingIndex].selected = true;
-            } else {
-                // Thêm mới vào giỏ hàng
-                cart.push(cartTour);
-            }
-            
-            // Lưu vào localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-            
-            // Hiển thị thông báo
-            showNotification('Đã thêm vào giỏ hàng!', tour.name);
-            
-            // Cập nhật số lượng giỏ hàng (nếu có)
-            updateCartCount();
-            
-                      
-            return true;
-        }
+/* =========================
+   ADD TO CART FUNCTION (SỬA LẠI)
+========================= */
+function addToCart(tour) {
+    console.log('Adding to cart with date:', tour.date, 'quantity:', tour.quantity);
+    
+    // Lấy giỏ hàng từ localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Kiểm tra xem tour có phải là object không
+    if (typeof tour !== 'object') {
+        console.error('Tour data is not an object:', tour);
+        return false;
+    }
+    
+    // Chuẩn bị dữ liệu tour với đầy đủ thông tin
+    const cartTour = {
+        id: tour.id || Date.now(),
+        name: tour.name || 'Tour không tên',
+        price: Number(tour.price) || 0,
+        quantity: Number(tour.quantity || 1),
+        img: tour.img || 'image/default.jpg',
+        type: tour.type || 'Du lịch trải nghiệm',
+        date: tour.date || null,
+        selected: true
+    };
+    
+    console.log('Cart tour to add:', cartTour);
+    
+    // Kiểm tra nếu tour đã có trong giỏ hàng (cùng tên và cùng ngày)
+    const existingIndex = cart.findIndex(item => 
+        item.name === cartTour.name && 
+        item.date === cartTour.date
+    );
+    
+    if (existingIndex > -1) {
+        // Tăng số lượng nếu đã có
+        cart[existingIndex].quantity += cartTour.quantity;
+        cart[existingIndex].selected = true;
+        console.log('Updated existing item:', cart[existingIndex]);
+    } else {
+        // Thêm mới vào giỏ hàng
+        cart.push(cartTour);
+        console.log('Added new item:', cartTour);
+    }
+    
+    // Lưu vào localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // Hiển thị thông báo với ngày
+    const dateDisplay = cartTour.date ? formatDate(cartTour.date) : 'linh hoạt';
+    showNotification('Đã thêm vào giỏ hàng!', 
+        `${cartTour.name} - Ngày: ${dateDisplay} - SL: ${cartTour.quantity}`);
+    
+    // Cập nhật số lượng giỏ hàng (nếu có)
+    updateCartCount();
+    
+    return true;
+}
+
+// Thêm hàm formatDate để hiển thị ngày đẹp
+function formatDate(dateString) {
+    if (!dateString) return 'linh hoạt';
+    try {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('vi-VN');
+    } catch (e) {
+        return dateString;
+    }
+}
+
+// Hàm cập nhật số lượng giỏ hàng
+function updateCartCount() {
+    const cartCount = document.querySelector('.cart-count');
+    if (cartCount) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCount.textContent = totalItems;
+        cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
+    }
+}
 
         /* =========================
            SEARCH FUNCTION
@@ -1952,95 +2034,7 @@
             }, 3000);
         }
 
-        /* =========================
-           UPDATE CART COUNT
-        ========================= */
-        function updateCartCount() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
-            
-            // Tìm phần tử hiển thị số lượng giỏ hàng
-            const cartLinks = document.querySelectorAll('a[href*="cart"]');
-            cartLinks.forEach(link => {
-                // Xóa badge cũ
-                const oldBadge = link.querySelector('.cart-badge');
-                if (oldBadge) {
-                    oldBadge.remove();
-                }
-                
-                // Thêm badge mới nếu có sản phẩm
-                if (cartCount > 0) {
-                    const badge = document.createElement('span');
-                    badge.className = 'cart-badge absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center';
-                    badge.textContent = cartCount;
-                    link.style.position = 'relative';
-                    link.appendChild(badge);
-                }
-            });
-        }
-
-        /* =========================
-           INITIALIZE PAGE
-        ========================= */
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Page loaded successfully');
-            
-            // Cập nhật số lượng giỏ hàng
-            updateCartCount();
-            
-            // Thêm sự kiện cho nút tìm kiếm
-            const searchButton = document.querySelector('.btn-search');
-            if (searchButton) {
-                searchButton.addEventListener('click', executeTourSearch);
-            }
-            
-            // Thêm sự kiện Enter cho các trường tìm kiếm
-            const searchInputs = [
-                'search-destination',
-                'search-type',
-                'search-price'
-            ];
-            
-            searchInputs.forEach(inputId => {
-                const input = document.getElementById(inputId);
-                if (input) {
-                    input.addEventListener('keypress', function(e) {
-                        if (e.key === 'Enter') {
-                            executeTourSearch();
-                        }
-                    });
-                }
-            });
-            
-            // Thêm sự kiện cho nút "Đặt ngay" trong experiences
-            document.querySelectorAll('.btn-booking').forEach(button => {
-                button.addEventListener('click', function() {
-                    console.log('Booking button clicked');
-                });
-            });
-            
-            // Kiểm tra giỏ hàng
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            console.log('Cart items:', cart.length);
-        });
-
-        /* =========================
-           HANDLE BOOKING FROM SEARCH RESULTS
-        ========================= */
-        function handleBookingFromSearch(tourData) {
-            try {
-                // Parse tour data từ string
-                const tour = typeof tourData === 'string' ? JSON.parse(tourData.replace(/'/g, '"')) : tourData;
-                
-                // Thêm vào giỏ hàng
-                addToCart(tour);
-            } catch (error) {
-                console.error('Error handling booking:', error);
-                showNotification('Lỗi', 'Không thể thêm tour vào giỏ hàng. Vui lòng thử lại.');
-            }
-        }
-    </script>
-
+     
     <!-- Smooth Scroll Script -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -2061,95 +2055,128 @@
             });
         });
     </script>
+
+
+
+<script src="js/jschung.js"></script>
+
+<!-- BOOKING POPUP -->
+<div id="bookingPopup">
+  <div class="popup-box">
+    <h3>Chọn thông tin tour</h3>
+
+    <label>Ngày khởi hành</label>
+    <input type="date" id="popup-date">
+
+    <label>Số lượng khách</label>
+    <input type="number" id="popup-qty" value="1" min="1">
+
+    <div class="popup-actions">
+      <button class="cancel" onclick="closePopup()">Hủy</button>
+      <button class="confirm" onclick="confirmBooking()">Xác nhận</button>
+    </div>
+  </div>
+</div>
 <script>
-// Kiểm tra trạng thái đăng nhập và cập nhật header
-document.addEventListener("DOMContentLoaded", function () {
-    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-    const userEmail = localStorage.getItem("userEmail");
-    const userName = localStorage.getItem("userName");
-    const authButtons = document.getElementById("authButtons");
-    const userAvatarDropdown = document.getElementById("userAvatarDropdown");
-    const dropdownUserName = document.getElementById("dropdownUserName");
-    const dropdownUserEmail = document.getElementById("dropdownUserEmail");
-    const userAvatar = document.getElementById("userAvatar");
-    const avatarTrigger = document.getElementById("avatarTrigger");
-    const dropdownMenu = document.getElementById("dropdownMenu");
-    const logoutBtn = document.getElementById("logoutBtn");
+let selectedTour = null;
 
-    // Nếu đã đăng nhập
-    if (isLoggedIn && userEmail) {
-        // Ẩn nút đăng ký/đăng nhập
-        if (authButtons) authButtons.style.display = "none";
-        
-        // Hiển thị avatar dropdown
-        if (userAvatarDropdown) userAvatarDropdown.style.display = "flex";
-        
-        // Cập nhật thông tin người dùng
-        if (dropdownUserName && userName) {
-            dropdownUserName.textContent = userName;
-        }
-        
-        if (dropdownUserEmail) {
-            dropdownUserEmail.textContent = userEmail;
-        }
-        
-        // Cập nhật avatar (nếu có)
-        const userAvatarFromStorage = localStorage.getItem("userAvatar");
-        if (userAvatar && userAvatarFromStorage) {
-            userAvatar.src = userAvatarFromStorage;
-        }
+function openPopup(tour) {
+  selectedTour = tour;
+  document.getElementById("popup-date").value = "";
+  document.getElementById("popup-qty").value = 1;
+  document.getElementById("bookingPopup").style.display = "block";
+}
+
+function closePopup() {
+  document.getElementById("bookingPopup").style.display = "none";
+}
+
+function confirmBooking() {
+    const date = document.getElementById("popup-date").value;
+    const qty = +document.getElementById("popup-qty").value;
+
+    if (!date) {
+        alert("Vui lòng chọn ngày khởi hành");
+        return;
     }
 
-    // Toggle dropdown menu
-    if (avatarTrigger && dropdownMenu) {
-        avatarTrigger.addEventListener("click", function (e) {
-            e.stopPropagation();
-            avatarTrigger.classList.toggle("active");
-            dropdownMenu.classList.toggle("active");
-        });
-    }
+    // Thêm quantity và date vào tour
+    const tourWithDetails = {
+        ...selectedTour,
+        date: date,
+        quantity: qty
+    };
 
-    // Đóng dropdown khi click ra ngoài
-    document.addEventListener("click", function (e) {
-        if (avatarTrigger && dropdownMenu && 
-            !avatarTrigger.contains(e.target) && 
-            !dropdownMenu.contains(e.target)) {
-            avatarTrigger.classList.remove("active");
-            dropdownMenu.classList.remove("active");
-        }
+    addToCart(tourWithDetails);
+    closePopup();
+}
+</script>
+<script>
+document.querySelectorAll(".btn-book").forEach(btn => {
+  btn.addEventListener("click", () => {
+    openPopup({
+      id: btn.dataset.id,
+      name: btn.dataset.name,
+      price: Number(btn.dataset.price),
+      img: btn.dataset.img,
+      type: btn.dataset.type
     });
+  });
+});
+</script>
 
-    // Xử lý đăng xuất
-    if (logoutBtn) {
-        logoutBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-            
-            // Xóa thông tin đăng nhập
-            localStorage.removeItem("isLoggedIn");
-            localStorage.removeItem("userEmail");
-            localStorage.removeItem("userName");
-            localStorage.removeItem("userRole");
-            
-            // Hiển thị thông báo
-            alert("Đã đăng xuất thành công!");
-            
-            // Reload trang để cập nhật header
-            window.location.reload();
-        });
+<!-- Notification Container -->
+<div id="notification-container" class="hidden fixed top-20 right-4 z-50 max-w-sm">
+    <div class="bg-white rounded-xl shadow-2xl p-4 border-l-4 border-luxury-gold">
+        <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                <i class="fa-solid fa-check text-green-600"></i>
+            </div>
+            <div class="flex-1">
+                <h4 id="notification-title" class="font-bold text-gray-900"></h4>
+                <p id="notification-message" class="text-sm text-gray-600 mt-1"></p>
+            </div>
+            <button onclick="closeNotification()" class="text-gray-400 hover:text-gray-600">
+                <i class="fa-solid fa-times"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+function showNotification(title, message) {
+    const container = document.getElementById('notification-container');
+    const titleEl = document.getElementById('notification-title');
+    const messageEl = document.getElementById('notification-message');
+    
+    if (!container || !titleEl || !messageEl) {
+        console.log(title + ': ' + message);
+        return;
     }
     
-    // Xử lý scroll cho header
-    const header = document.querySelector(".header");
-    if (header) {
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 50) {
-                header.classList.add("header-scrolled");
-            } else {
-                header.classList.remove("header-scrolled");
-            }
-        });
+    // Cập nhật nội dung
+    titleEl.textContent = title;
+    messageEl.textContent = message;
+    
+    // Hiển thị thông báo
+    container.classList.remove('hidden');
+    container.style.animation = 'slideInRight 0.3s ease-out';
+    
+    // Tự động ẩn sau 3 giây
+    setTimeout(() => {
+        closeNotification();
+    }, 3000);
+}
+
+function closeNotification() {
+    const container = document.getElementById('notification-container');
+    if (container) {
+        container.style.animation = 'fadeOut 0.3s ease-in';
+        setTimeout(() => {
+            container.classList.add('hidden');
+        }, 300);
     }
-});
+}
 </script>
 </body>
 </html>

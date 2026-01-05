@@ -226,7 +226,11 @@
                                     <div class="flex items-center gap-2 mb-3">
                                         <span class="px-2 py-0.5 bg-luxury-gold/10 text-luxury-gold text-[10px] font-bold rounded uppercase tracking-wider">${item.type || 'Luxury Stay'}</span>
                                         <span class="text-gray-300">|</span>
-                                        <span class="text-gray-500 text-xs flex items-center gap-1"><span class="material-icons text-sm">event</span> ${item.date || 'Linh hoạt'}</span>
+                          <span class="text-gray-500 text-xs flex items-center gap-1">
+    <span class="material-icons text-sm">event</span>
+    ${item.date ? formatDate(item.date) : 'Linh hoạt'}
+</span>
+
                                     </div>
                                 </div>
                                 <div class="text-right">
@@ -463,5 +467,36 @@ window.handleCheckout = () => {
             <p>2025 MeTrip. Tất cả quyền được bảo lưu.</p>
         </div>
     </footer>
+<script>
+function formatDate(date) {
+  if (!date) return 'Linh hoạt';
+  const d = new Date(date);
+  return d.toLocaleDateString('vi-VN');
+}
+</script>
+
+
+<script>
+function formatDate(dateString) {
+    if (!dateString) return 'Linh hoạt';
+    try {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('vi-VN', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+    } catch (e) {
+        return dateString;
+    }
+}
+
+// Cập nhật phần hiển thị ngày trong renderCart()
+// Tìm dòng hiển thị ngày và thay thế bằng:
+<span class="text-gray-500 text-xs flex items-center gap-1">
+    <span class="material-icons text-sm">event</span>
+    ${item.date ? formatDate(item.date) : 'Linh hoạt'}
+</span>
+</script>
 </body>
 </html>
