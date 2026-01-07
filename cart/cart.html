@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
  <link rel="stylesheet" href="../css/hfstyle.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -35,12 +38,82 @@
             <a href="../cart/cart.html"class="font-heading active">GIỎ HÀNG</a>
 
             </nav>
-            <div class="auth-buttons">
+                   <!-- KHU VỰC NGƯỜI DÙNG -->
+        <div class="user-section" id="userSection">
+            <!-- Nếu chưa đăng nhập - Hiển thị nút đăng ký/đăng nhập -->
+            <div class="auth-buttons" id="authButtons">
                 <a href="../Signup/signup.html" class="btn btn-outline">Sign Up</a>
                 <a href="../login/login.html" class="btn btn-outline">Login</a>
             </div>
+            
+        <!-- Nếu đã đăng nhập - Hiển thị avatar và dropdown -->
+<div class="user-avatar-dropdown" id="userAvatarDropdown" style="display: none;">
+    <div class="avatar-wrapper" id="avatarTrigger">
+        <img src="../image/avatar.jpg" alt="Avatar" class="user-avatar" id="userAvatar">
+        <span class="avatar-arrow material-icons">expand_more</span>
+    </div>
+</div>
+    
+    <div class="dropdown-menu" id="dropdownMenu">
+        <!-- User Info -->
+        <div class="user-info">
+            <div class="user-avatar-name">
+                <img src="../image/avatar.jpg" alt="Avatar" class="dropdown-avatar">
+                <div>
+                    <p class="user-name" id="dropdownUserName">thu hà</p>
+                    <p class="user-email" id="dropdownUserEmail">g@gmail.com</p>
+                </div>
+            </div>
         </div>
-    </header>
+        
+        <!-- Separator -->
+        <div class="dropdown-divider"></div>
+        
+        <!-- Menu Items -->
+        <a href="profile/profile.html" class="dropdown-item">
+            <div class="menu-item">
+                <div class="menu-icon bg-blue-100">
+                    <span class="material-icons text-blue-600">person</span>
+                </div>
+                <span class="menu-text">Trang cá nhân</span>
+            </div>
+        </a>
+        
+        <a href="../cart/cart.html" class="dropdown-item">
+            <div class="menu-item">
+                <div class="menu-icon bg-green-100">
+                    <span class="material-icons text-green-600">receipt_long</span>
+                </div>
+                <span class="menu-text">Đơn hàng của tôi</span>
+            </div>
+        </a>
+        
+        <a href="settings/settings.html" class="dropdown-item">
+            <div class="menu-item">
+                <div class="menu-icon bg-purple-100">
+                    <span class="material-icons text-purple-600">settings</span>
+                </div>
+                <span class="menu-text">Cài đặt</span>
+            </div>
+        </a>
+        
+        <!-- Separator -->
+        <div class="dropdown-divider"></div>
+        
+        <!-- Logout -->
+        <a href="#" class="dropdown-item logout-item" id="logoutBtn">
+            <div class="menu-item">
+                <div class="menu-icon bg-red-100">
+                    <span class="material-icons text-red-600">logout</span>
+                </div>
+                <span class="menu-text text-red-600">Đăng xuất</span>
+            </div>
+        </a>
+    </div>
+</div>
+
+</header>
+
 
   <section class="relative h-[220px] md:h-[300px] flex items-center justify-center overflow-hidden bg-luxury-navy text-center px-4">
     <div class="absolute inset-0 opacity-10">
@@ -467,36 +540,15 @@ window.handleCheckout = () => {
             <p>2025 MeTrip. Tất cả quyền được bảo lưu.</p>
         </div>
     </footer>
-<script>
-function formatDate(date) {
-  if (!date) return 'Linh hoạt';
-  const d = new Date(date);
-  return d.toLocaleDateString('vi-VN');
-}
-</script>
-
 
 <script>
 function formatDate(dateString) {
-    if (!dateString) return 'Linh hoạt';
-    try {
-        const date = new Date(dateString);
-        return date.toLocaleDateString('vi-VN', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric'
-        });
-    } catch (e) {
-        return dateString;
-    }
+  if (!dateString) return 'Linh hoạt';
+  const d = new Date(dateString);
+  return d.toLocaleDateString('vi-VN');
 }
-
-// Cập nhật phần hiển thị ngày trong renderCart()
-// Tìm dòng hiển thị ngày và thay thế bằng:
-<span class="text-gray-500 text-xs flex items-center gap-1">
-    <span class="material-icons text-sm">event</span>
-    ${item.date ? formatDate(item.date) : 'Linh hoạt'}
-</span>
 </script>
+<script src="../js/auth-header.js"></script>
+
 </body>
 </html>

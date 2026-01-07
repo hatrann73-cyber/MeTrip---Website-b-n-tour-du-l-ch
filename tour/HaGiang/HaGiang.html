@@ -20,6 +20,8 @@
     <!-- Header Footer CSS -->
     <link rel="stylesheet" href="../../css/hfstyle.css">
  <link rel="stylesheet" href="styletour4.css">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
 
 
 </head>
@@ -40,12 +42,82 @@
                 <a href="../../cart/cart.html">GIỎ HÀNG</a>
             </nav>
 
-            <div class="auth-buttons">
-                <a href="../../Signup/signup.html" class="btn btn-outline">Sign Up</a>
-                <a href="../../login/login.html" class="btn btn-outline">Login</a>
+ <!-- KHU VỰC NGƯỜI DÙNG -->
+        <div class="user-section" id="userSection">
+            <!-- Nếu chưa đăng nhập - Hiển thị nút đăng ký/đăng nhập -->
+            <div class="auth-buttons" id="authButtons">
+                <a href="../Signup/signup.html" class="btn btn-outline">Sign Up</a>
+                <a href="../login/login.html" class="btn btn-outline">Login</a>
+            </div>
+            
+        <!-- Nếu đã đăng nhập - Hiển thị avatar và dropdown -->
+<div class="user-avatar-dropdown" id="userAvatarDropdown" style="display: none;">
+    <div class="avatar-wrapper" id="avatarTrigger">
+        <img src="../../image/avatar.jpg" alt="Avatar" class="user-avatar" id="userAvatar">
+        <span class="avatar-arrow material-icons">expand_more</span>
+    </div>
+</div>
+    
+    <div class="dropdown-menu" id="dropdownMenu">
+        <!-- User Info -->
+        <div class="user-info">
+            <div class="user-avatar-name">
+                <img src="../../image/avatar.jpg" alt="Avatar" class="dropdown-avatar">
+                <div>
+                    <p class="user-name" id="dropdownUserName">thu hà</p>
+                    <p class="user-email" id="dropdownUserEmail">g@gmail.com</p>
+                </div>
             </div>
         </div>
-    </header>
+        
+        <!-- Separator -->
+        <div class="dropdown-divider"></div>
+        
+        <!-- Menu Items -->
+        <a href="profile/profile.html" class="dropdown-item">
+            <div class="menu-item">
+                <div class="menu-icon bg-blue-100">
+                    <span class="material-icons text-blue-600">person</span>
+                </div>
+                <span class="menu-text">Trang cá nhân</span>
+            </div>
+        </a>
+        
+        <a href="../cart/cart.html" class="dropdown-item">
+            <div class="menu-item">
+                <div class="menu-icon bg-green-100">
+                    <span class="material-icons text-green-600">receipt_long</span>
+                </div>
+                <span class="menu-text">Đơn hàng của tôi</span>
+            </div>
+        </a>
+        
+        <a href="settings/settings.html" class="dropdown-item">
+            <div class="menu-item">
+                <div class="menu-icon bg-purple-100">
+                    <span class="material-icons text-purple-600">settings</span>
+                </div>
+                <span class="menu-text">Cài đặt</span>
+            </div>
+        </a>
+        
+        <!-- Separator -->
+        <div class="dropdown-divider"></div>
+        
+        <!-- Logout -->
+        <a href="#" class="dropdown-item logout-item" id="logoutBtn">
+            <div class="menu-item">
+                <div class="menu-icon bg-red-100">
+                    <span class="material-icons text-red-600">logout</span>
+                </div>
+                <span class="menu-text text-red-600">Đăng xuất</span>
+            </div>
+        </a>
+    </div>
+</div>
+
+</header>
+
 
     <!-- Tour Title -->
     <section class="tour-title">
@@ -256,7 +328,7 @@
             <div class="booking-card">
                 <h3 class="price-title font-heading">Giá mỗi khách hàng</h3>
                 <p class="price-adult font-heading">4.000.000 VND</p>
-                <p class="price-descrip font-body">Giá trên đã bao gồm thuế và phí dịch vụ</p>
+                <p class="price-descrip font-body">Giá trên chưa bao gồm thuế</p>
                 
                 <label class="font-heading">Ngày khởi hành</label>
                 <input type="date" class="input font-body">
@@ -459,5 +531,6 @@
             document.querySelector('input[type="date"]').min = today;
         });
     </script>
+<script src="../../js/jschung.js"></script>
 </body>
 </html>
