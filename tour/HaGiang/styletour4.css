@@ -442,6 +442,7 @@
             position: sticky;
             top: 120px;
             height: fit-content;
+           
         }
 
         .booking-card {
@@ -460,6 +461,7 @@
             font-size: 1.5rem;
             color: var(--luxury-navy);
             margin-bottom: 15px;
+             font-weight: 600;
         }
 
         .price-adult {
@@ -499,17 +501,21 @@
             transition: var(--transition);
             background: white;
             color: var(--luxury-navy);
+      
         }
+.input:focus {
+    border: 1.8px solid transparent;
+    background:
+        linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(135deg, var(--luxury-gold), var(--mountain-green)) border-box;
+    box-shadow: 0 8px 20px rgba(15, 42, 71, 0.12);
+}
 
-        .input:focus {
-            outline: none;
-            border-color: var(--luxury-gold);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
-        }
 
         /* Booking Box */
         .booking-box {
             margin-bottom: 30px;
+             font-weight: 600;
         }
 
         .booking-box h2 {
@@ -646,6 +652,7 @@
             margin-bottom: 25px;
             padding-bottom: 15px;
             border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+             font-weight: 600;
         }
 
         .review-card {
