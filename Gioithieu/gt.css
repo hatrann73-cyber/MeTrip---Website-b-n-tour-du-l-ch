@@ -470,6 +470,7 @@
             font-size: 1.5rem;
             color: var(--luxury-navy);
             margin-bottom: 0.5rem;
+             font-weight: 600;
         }
 
         .team-role {
@@ -587,6 +588,7 @@
             line-height: 1.8;
             margin-bottom: 2rem;
             color: rgba(255, 255, 255, 0.9);
+            
         }
 
         .testimonial-author {
@@ -626,6 +628,7 @@
             font-size: 3.5rem;
             color: var(--luxury-navy);
             margin-bottom: 1.5rem;
+             font-weight: 600;
         }
 
         .cta-description {
@@ -792,7 +795,6 @@
     opacity: 1;
 }
 
-/* MŨI TÊN – CHỈ NẰM TRONG SLIDER */
 .nav-arrow {
     position: absolute;
     width: 44px;
@@ -851,7 +853,7 @@
 }
 
 /* =================================================================
-  PARTNERSHIP ROADMAP - ĐÃ CHỈNH ĐỘ DÀI
+  PARTNERSHIP ROADMAP 
 ================================================================= */
 
 /* partner*/
