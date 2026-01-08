@@ -455,9 +455,6 @@ body {
         display: none;
     }
     
-    .auth-buttons {
-        gap: 8px;
-    }
     
     .btn {
         padding: 8px 16px;

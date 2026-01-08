@@ -2178,5 +2178,86 @@ function closeNotification() {
     }
 }
 </script>
+<script>
+function executeTourSearch() {
+    const destination = document.getElementById("search-destination").value.toLowerCase();
+    const type = document.getElementById("search-type").value.toLowerCase();
+    const price = document.getElementById("search-price").value;
+
+    const tours = document.querySelectorAll("#experiences-section > div > div");
+    let hasResult = false;
+
+    tours.forEach(tour => {
+        const name = tour.querySelector("h3")?.innerText.toLowerCase() || "";
+        const tag = tour.querySelector("span.rounded")?.innerText.toLowerCase() || "";
+        const priceText = tour.querySelector(".text-luxury-gold")?.innerText.replace(/[^\d]/g, "") || 0;
+        const priceValue = parseInt(priceText);
+
+        let matchDestination = !destination || name.includes(destination);
+        let matchType = !type || tag.includes(type);
+        let matchPrice = true;
+
+        if (price === "under2") matchPrice = priceValue < 2500000;
+        if (price === "2to4") matchPrice = priceValue >= 2500000 && priceValue <= 4000000;
+        if (price === "above4") matchPrice = priceValue > 4000000;
+
+        if (matchDestination && matchType && matchPrice) {
+            tour.style.display = "flex";
+            hasResult = true;
+        } else {
+            tour.style.display = "none";
+        }
+    });
+
+    // cuộn xuống khu trải nghiệm
+    document.getElementById("experiences-section")
+        .scrollIntoView({ behavior: "smooth" });
+
+    if (!hasResult) {
+        alert("Không tìm thấy tour phù hợp 😢");
+    }
+}
+
+function closeSearch() {
+    const tours = document.querySelectorAll("#experiences-section > div > div");
+    tours.forEach(tour => tour.style.display = "flex");
+}
+</script>
+<script>
+function autoResetIfEmpty() {
+    const des = document.getElementById("search-destination").value;
+    const type = document.getElementById("search-type").value;
+    const price = document.getElementById("search-price").value;
+
+    if (des === "" && type === "" && price === "all") {
+        resetTourSearch();
+    }
+}
+
+// lắng nghe thay đổi select
+["search-destination", "search-type", "search-price"].forEach(id => {
+    document.getElementById(id).addEventListener("change", autoResetIfEmpty);
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const exploreBtn = document.querySelector('a[href="#exclusive-collection"]');
+
+    if (!exploreBtn) return;
+
+    exploreBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const target = document.getElementById("experiences-section");
+        if (!target) return;
+
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    });
+});
+</script>
+
 </body>
 </html>

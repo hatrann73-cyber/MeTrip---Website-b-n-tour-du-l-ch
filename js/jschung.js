@@ -1,8 +1,8 @@
+
 // Kiểm tra trạng thái đăng nhập và cập nhật header
 // Xử lý avatar dropdown
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM fully loaded - jschung.js");
-    
     // ===== 1. XỬ LÝ ĐĂNG NHẬP/ĐĂNG XUẤT =====
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
     const userEmail = localStorage.getItem("userEmail");
@@ -127,6 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+    
     
     // ===== 2. CẬP NHẬT GIỎ HÀNG (BADGE) =====
     updateCartBadge();
