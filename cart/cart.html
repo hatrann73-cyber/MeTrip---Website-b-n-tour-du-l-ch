@@ -442,6 +442,7 @@ window.handleCheckout = () => {
         currentDiscount = 0;
         if (code !== "") alert("Mã giảm giá không hợp lệ hoặc đã hết hạn.");
     }
+localStorage.setItem('currentDiscount', currentDiscount);
 
     renderCart(); // Cập nhật lại giao diện và tổng tiền
 };
@@ -490,6 +491,7 @@ window.handleCheckout = () => {
                 }
             });
         });
+
     </script>
 <footer class="footer">
         <div class="footer-container">
